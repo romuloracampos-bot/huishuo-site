@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Care ingredients | Huishuo</title>
+<style>
+@font-face{font-family:'Fraunces';font-weight:600;font-style:normal;font-display:swap;src:url(/fonts/fraunces-600.woff2) format('woff2');}
+@font-face{font-family:'Spectral';font-weight:300;font-style:normal;font-display:swap;src:url(/fonts/spectral-300.woff2) format('woff2');}
+@font-face{font-family:'Spectral';font-weight:300;font-style:italic;font-display:swap;src:url(/fonts/spectral-300i.woff2) format('woff2');}
+@font-face{font-family:'Spectral';font-weight:400;font-style:normal;font-display:swap;src:url(/fonts/spectral-400.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;src:url(/fonts/plexmono-400.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;src:url(/fonts/plexmono-500.woff2) format('woff2');}
+</style>
+<style>
+:root{
+  --offwhite:#F4EEE2;
+  --ink:#1C1A15;
+  --bronze:#9C7B43;
+  --pc:#3D5A73; --hn:#4A6B3D; --fd:#A64B2A; --an:#7A4A5E; --ag:#5C6638; --in:#4A5259;
+  --pc01:#3D6873; --pc02:#4B6F8E; --pc03:#2F3B58; --pc04:#5A5DA8; --pc05:#366664; --pc06:#62529B;
+  --hair:rgba(28,26,21,.22);
+  --hair-strong:rgba(28,26,21,.55);
+  --hair-rev:rgba(244,238,226,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--offwhite);color:var(--ink);font-family:'Spectral',serif;font-weight:400;font-size:17px;line-height:1.68;padding-top:0;}
+::selection{background:var(--ink);color:var(--offwhite);}
+a{color:inherit;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+
+
+/* system */
+.wrap{max-width:1320px;margin:0 auto;padding:0 56px;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.06;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.kick{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);}
+.secmeta{display:grid;grid-template-columns:120px 1fr auto;align-items:baseline;gap:32px;border-top:1px solid var(--ink);padding-top:16px;margin-bottom:56px;}
+.secmeta .folio{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.2em;color:var(--bronze);}
+.secmeta .sname{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.28em;text-transform:uppercase;}
+.secmeta .sright{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;opacity:.55;}
+.secmeta.rev{border-top-color:var(--offwhite);}
+.secmeta.rev .sname{color:var(--offwhite);}
+.secmeta.rev .sright{color:var(--offwhite);opacity:.5;}
+
+/* header */
+.siteheader{border-bottom:0.5px solid var(--bronze);background:var(--offwhite);}
+.siteheader .wrap{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:48px;padding-top:22px;padding-bottom:22px;}
+.lockup{font-family:'Fraunces',serif;font-weight:600;font-size:23px;letter-spacing:.005em;text-transform:lowercase;text-decoration:none;}
+nav.mainnav{display:flex;gap:36px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;}
+nav.mainnav a{text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color 160ms ease;}
+nav.mainnav a:hover{border-bottom-color:var(--ink);}
+nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+.hd-right{display:flex;align-items:center;gap:28px;}
+.langswitch{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;}
+.langswitch .sel{font-weight:500;border-bottom:1px solid var(--ink);}
+.langswitch .off{opacity:.4;margin-left:8px;}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:14px 28px;text-decoration:none;cursor:pointer;transition:all 180ms ease;display:inline-block;border:1px solid var(--ink);}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.btn-primary{background:var(--ink);color:var(--offwhite);}
+.btn-primary:hover{background:var(--offwhite);color:var(--ink);}
+.btn-ghost{background:none;color:var(--ink);}
+.btn-ghost:hover{background:var(--ink);color:var(--offwhite);}
+.btn-sm{padding:9px 18px;font-size:11px;}
+.btn-rev{border-color:var(--offwhite);color:var(--offwhite);background:none;}
+.btn-rev:hover{background:var(--offwhite);color:var(--ink);}
+.btn-rev-solid{border-color:var(--offwhite);background:var(--offwhite);color:var(--ink);}
+.btn-rev-solid:hover{background:transparent;color:var(--offwhite);}
+
+/* ===== HERO cinematografico ===== */
+.hero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
+.hero .bg{position:absolute;inset:0;}
+.hero .bg img{opacity:.92;}
+.hero .content{position:relative;z-index:2;padding:150px 0 0;}
+.hero .biglockup{font-family:'Fraunces',serif;font-weight:600;font-size:128px;line-height:.94;text-transform:lowercase;letter-spacing:-.005em;}
+.hero .slogan{font-family:'Spectral',serif;font-weight:300;font-style:italic;font-size:27px;margin-top:28px;}
+.hero .positioning{font-weight:300;font-size:19px;max-width:560px;margin-top:26px;opacity:.92;}
+.cta-row{display:flex;gap:16px;margin-top:44px;flex-wrap:wrap;}
+/* retícula técnica */
+.reticle{position:absolute;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--offwhite);opacity:.75;text-transform:uppercase;}
+.reticle .tick{display:inline-block;width:14px;height:14px;border-left:1px solid var(--offwhite);border-top:1px solid var(--offwhite);vertical-align:middle;margin-right:10px;}
+.rt-tr{top:52px;right:56px;text-align:right;}
+.rt-tr .tick{border-left:none;border-right:1px solid var(--offwhite);margin-right:0;margin-left:10px;}
+.rt-bl{bottom:120px;left:56px;}
+.cross{position:absolute;z-index:2;width:15px;height:15px;opacity:.55;}
+.cross::before,.cross::after{content:"";position:absolute;background:var(--offwhite);}
+.cross::before{left:7px;top:0;width:1px;height:15px;}
+.cross::after{top:7px;left:0;height:1px;width:15px;}
+/* datastrip do hero */
+.hero .datastrip{position:relative;z-index:2;margin-top:120px;border-top:0.5px solid var(--hair-rev);background:rgba(28,26,21,.55);}
+.hero .datastrip .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
+.hero .datastrip .cell{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;padding:16px 24px 16px 0;border-right:0.5px solid var(--hair-rev);color:var(--offwhite);}
+.hero .datastrip .cell:last-child{border-right:none;}
+.hero .datastrip .lab{color:var(--bronze);font-weight:500;letter-spacing:.2em;display:block;font-size:10px;margin-bottom:3px;text-transform:uppercase;}
+
+.section{padding:96px 0;}
+
+/* divisions com textura */
+.divgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.divcard{text-decoration:none;color:var(--ink);position:relative;display:block;transition:transform 180ms ease,box-shadow 180ms ease;background:var(--offwhite);}
+.divcard:hover{transform:translateY(-2px);box-shadow:0 2px 0 var(--hair-strong);z-index:2;}
+.divcard:focus-visible{outline:2px solid var(--ink);outline-offset:-2px;}
+.divcard .fig{position:relative;height:150px;overflow:hidden;}
+.divcard .fig .cap{position:absolute;left:14px;bottom:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--offwhite);text-transform:uppercase;opacity:.85;}
+.divcard .bar{height:4px;}
+.divcard .inner{padding:26px 26px 30px;}
+.divcard .row1{display:flex;justify-content:space-between;align-items:baseline;}
+.divcard .code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.26em;color:var(--bronze);}
+.divcard .idx{font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.4;}
+.divcard .name{font-family:'Fraunces',serif;font-weight:600;font-size:25px;margin-top:12px;}
+.divcard .desc{font-weight:300;font-size:14.5px;line-height:1.55;margin-top:8px;min-height:45px;}
+.divcard .status{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:18px;display:flex;justify-content:space-between;}
+.divcard .status .arr{transition:transform 160ms ease;}
+.divcard:hover .status .arr{transform:translateX(4px);}
+
+/* ===== THE STANDARD — campo Tinta ===== */
+.darksec{background:var(--ink);color:var(--offwhite);padding:96px 0 104px;}
+.std{display:grid;grid-template-columns:6fr 6fr;gap:88px;align-items:start;}
+.std h2{font-size:42px;max-width:480px;color:var(--offwhite);}
+.stditems{margin-top:44px;}
+.stditem{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:24px 0;border-top:0.5px solid var(--hair-rev);}
+.stditem:last-child{border-bottom:0.5px solid var(--hair-rev);}
+.stditem .n{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:var(--bronze);padding-top:3px;}
+.stditem .t{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--offwhite);}
+.stditem .d{font-weight:300;font-size:15.5px;margin-top:6px;opacity:.85;}
+.docstack{position:relative;padding:0 0 26px 26px;}
+.sheet{border:0.5px solid var(--hair-rev);background:var(--offwhite);color:var(--ink);}
+.sheet.back{position:absolute;top:26px;left:0;right:52px;bottom:0;z-index:0;opacity:.55;}
+.sheet.front{position:relative;z-index:1;margin-left:26px;padding:34px 36px 38px;}
+.doc-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:14px;}
+.doc-h .doc-lockup{font-family:'Fraunces',serif;font-weight:600;font-size:15px;text-transform:lowercase;}
+.doc-h .doc-type{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;}
+.doc-id{display:flex;gap:26px;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.06em;padding:12px 0;border-bottom:0.5px solid var(--hair);}
+.doc-id b{font-weight:500;color:var(--bronze);text-transform:uppercase;letter-spacing:.16em;display:block;font-size:7.5px;}
+.doc-sec{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:8px;letter-spacing:.2em;text-transform:uppercase;margin:16px 0 8px;color:var(--bronze);}
+.doc-tbl{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:8.5px;}
+.doc-tbl td{padding:5px 0;border-bottom:0.5px solid var(--hair);}
+.doc-tbl td:last-child{text-align:right;}
+.doc-idx{columns:2;column-gap:30px;font-family:'IBM Plex Mono',monospace;font-size:7.8px;line-height:2.05;letter-spacing:.03em;margin-top:8px;}
+.doc-foot{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:.1em;margin-top:20px;padding-top:10px;border-top:0.5px solid var(--bronze);color:var(--bronze);text-transform:uppercase;}
+
+/* logistics */
+.logi{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:0.5px solid var(--hair);border-top:0.5px solid var(--hair);}
+.logi .cell{border-right:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);padding:28px 30px 32px;}
+.logi .num{font-family:'Fraunces',serif;font-weight:600;font-size:52px;line-height:1;}
+.logi .lab{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;margin-top:14px;}
+.logi .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;margin-top:8px;opacity:.55;letter-spacing:.04em;}
+.ports{display:grid;grid-template-columns:repeat(3,1fr);border-left:0.5px solid var(--hair);}
+.port{border-right:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);padding:18px 30px;display:flex;justify-content:space-between;align-items:baseline;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;}
+.port .coord{opacity:.5;font-size:10.5px;}
+
+.finalcta{border-top:1px solid var(--ink);padding:88px 0 100px;}
+.finalcta h2{font-size:52px;max-width:760px;}
+
+/* footer */
+.sitefooter{background:var(--ink);color:var(--offwhite);padding:78px 0 40px;}
+.sitefooter .lockup{color:var(--offwhite);}
+.sitefooter .slogan{font-family:'Spectral',serif;font-weight:300;font-style:italic;font-size:17px;margin-top:16px;opacity:.85;}
+.fcols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:70px;}
+.fcols h4{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:18px;}
+.fcols a{display:block;color:var(--offwhite);text-decoration:none;font-weight:300;font-size:15px;padding:4px 0;opacity:.85;transition:opacity 160ms ease;}
+.fcols a:hover{opacity:1;}
+.legal{border-top:0.5px solid var(--bronze);padding-top:20px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;opacity:.6;display:flex;justify-content:space-between;}
+.footer-compact{background:var(--ink);color:var(--offwhite);padding:40px 0;}
+.footer-compact .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;}
+.footer-compact .slogan{font-family:'Spectral',serif;font-weight:300;font-style:italic;font-size:15px;opacity:.85;}
+.footer-compact .lg{font-family:'IBM Plex Mono',monospace;font-size:10.5px;opacity:.6;letter-spacing:.06em;}
+
+/* ===== DIVISION page ===== */
+.divhero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
+.divhero .bg{position:absolute;inset:0;}
+.divhero .bg img{opacity:.9;}
+.divhero .content{position:relative;z-index:2;padding:84px 0 0;}
+.endorse{display:flex;align-items:center;gap:18px;}
+.endorse .lockup{font-size:20px;}
+.endorse .sep{width:0.5px;height:24px;background:var(--ink);}
+.endorse .desc{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.24em;text-transform:uppercase;}
+.endorse.rev .sep{background:var(--offwhite);}
+.endorse.rev .lockup{color:var(--offwhite);}
+.divhero h1{font-size:92px;color:var(--offwhite);margin-top:48px;}
+.divhero .intro{font-weight:300;font-size:18.5px;max-width:560px;margin-top:24px;opacity:.92;}
+.divhero .divbar{height:4px;margin-top:72px;position:relative;z-index:2;}
+.subfam{border-top:0.5px solid var(--hair);display:grid;grid-template-columns:110px 110px 1fr auto;gap:28px;align-items:center;min-height:76px;text-decoration:none;color:var(--ink);transition:background 160ms ease;}
+.subfam:last-of-type{border-bottom:0.5px solid var(--hair);}
+.subfam:hover{background:rgba(28,26,21,.04);}
+.subfam .chipbar{width:64px;height:4px;}
+.subfam .code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.14em;}
+.subfam .name{font-family:'Fraunces',serif;font-weight:600;font-size:21px;}
+.subfam .right{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;text-align:right;}
+.subfam .right .muted{opacity:.45;}
+.prodtable-h{display:grid;grid-template-columns:160px 1fr 170px 130px;gap:28px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding-bottom:12px;border-bottom:1px solid var(--ink);}
+.prodrow{display:grid;grid-template-columns:160px 1fr 170px 130px;gap:28px;align-items:center;padding:18px 0;border-bottom:0.5px solid var(--hair);text-decoration:none;color:var(--ink);transition:background 160ms ease;}
+.prodrow:hover{background:rgba(28,26,21,.04);}
+.prodrow .pcode{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13.5px;}
+.prodrow .pinci{font-family:'IBM Plex Mono',monospace;font-size:13.5px;}
+.prodrow .pform{font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.55;}
+.prodrow .plink{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;text-align:right;}
+.staging{border:0.5px solid var(--hair-strong);padding:38px 40px;margin-top:48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+.staging h3{font-size:24px;max-width:520px;}
+.staging p{font-weight:300;font-size:15px;margin-top:8px;max-width:520px;}
+
+/* ===== PRODUCT page ===== */
+.crumb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;padding-top:0;opacity:.55;}
+.prodhero{display:grid;grid-template-columns:6fr 6fr;gap:0;align-items:stretch;margin-top:40px;border:0.5px solid var(--hair-strong);}
+.prodhero .info{padding:56px 60px 60px;}
+.prod-title{font-size:76px;}
+.claim{font-weight:300;font-size:20px;margin-top:16px;max-width:460px;}
+.prodhero .figside{position:relative;border-left:0.5px solid var(--hair-strong);min-height:420px;overflow:hidden;background:var(--ink);}
+.prodhero .figside img{opacity:.92;}
+.figcap{position:absolute;left:20px;bottom:16px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--offwhite);text-transform:uppercase;opacity:.85;z-index:2;}
+.figret{position:absolute;top:16px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--offwhite);opacity:.75;text-transform:uppercase;z-index:2;}
+.prodhero .ctas{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap;}
+.techid{margin-top:0;border:0.5px solid var(--hair-strong);border-top:none;display:grid;grid-template-columns:1.5fr 1fr 1fr 0.8fr 1.7fr;background:var(--offwhite);}
+.techid .cell{padding:22px 28px 24px;border-right:0.5px solid var(--hair);}
+.techid .cell:last-child{border-right:none;}
+.techid .t-label{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);}
+.techid .t-val{font-family:'IBM Plex Mono',monospace;font-size:14px;margin-top:10px;}
+.two-col{display:grid;grid-template-columns:6fr 6fr;gap:88px;align-items:start;}
+.desc-body{font-weight:300;font-size:16.5px;max-width:520px;}
+.desc-body p+p{margin-top:14px;}
+.spectable{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:13px;}
+.spectable th{font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;text-align:left;padding:12px 0;border-bottom:1px solid var(--ink);}
+.spectable th:last-child,.spectable td:last-child{text-align:right;}
+.spectable td{padding:13px 0;border-bottom:0.5px solid var(--hair);}
+.tbl-note{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--bronze);margin-top:14px;text-transform:uppercase;}
+.doccta{border:1px solid var(--offwhite);padding:52px 56px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
+.doccta h2{font-size:34px;max-width:420px;color:var(--offwhite);}
+.doccta p{font-weight:300;font-size:15px;margin-top:10px;max-width:420px;opacity:.85;}
+.doccta .btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.rangecta{border-top:0.5px solid var(--hair);padding-top:36px;display:flex;justify-content:space-between;align-items:center;gap:40px;}
+.rangecta .t{font-family:'Fraunces',serif;font-weight:600;font-size:22px;}
+.rangecta .s{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;opacity:.55;margin-top:6px;text-transform:uppercase;}
+
+@media (max-width:980px){
+  .wrap{padding:0 24px;}
+  .std,.two-col,.prodhero{grid-template-columns:1fr;}
+  .hero .biglockup{font-size:64px;}
+  .divgrid{grid-template-columns:1fr;}
+  .hero .datastrip .wrap,.logi,.ports{grid-template-columns:1fr;}
+  .techid{grid-template-columns:1fr;}
+  .doccta{grid-template-columns:1fr;}
+  .doccta .btns{grid-template-columns:1fr;}
+  .prod-title{font-size:48px;}
+  .divhero h1{font-size:52px;}
+  .fcols{grid-template-columns:1fr 1fr;}
+  .rt-tr,.rt-bl,.cross{display:none;}
+}
+</style>
+<meta name="description" content="Surfactants, conditioning agents and functional ingredients for cleansing and care systems — with Extended TDS, REACH-structured SDS and batch COA.">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<main>
+
+  <header class="siteheader">
+    <div class="wrap">
+      <a class="lockup" href="/">huishuo</a>
+      <nav class="mainnav"><a href="/divisions/personal-care/">Divisions</a><a href="#">Documentation</a><a href="#">Company</a><a href="#">Contact</a></nav>
+      <div class="hd-right"><div class="langswitch"><span class="sel">EN</span><span class="off">ES</span></div><a class="btn btn-ghost btn-sm" href="#">Request docs</a></div>
+    </div>
+  </header>
+
+  <div class="divhero">
+    <div class="bg"><img src="/img/div-pc.jpg" alt="Surfactant solution, surface study"></div>
+    <div class="reticle rt-tr"><span>Study PC · surfactant system</span><span class="tick"></span></div>
+    <div class="content">
+      <div class="wrap">
+        <div class="endorse rev">
+          <span class="lockup">huishuo</span><span class="sep"></span><span class="desc" style="color:var(--offwhite);">Personal Care</span>
+        </div>
+        <h1>Personal Care</h1>
+        <p class="intro">Surfactants, conditioning agents and functional ingredients for cleansing and care systems — each lot shipped with Extended TDS, REACH-structured SDS and batch COA.</p>
+      </div>
+      <div class="divbar" style="background:var(--pc);"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="secmeta"><span class="folio">PC</span><span class="sname">Subfamilies</span><span class="sright">6 groups</span></div>
+      <a class="subfam" href="/products/hs-cab/"><span class="chipbar" style="background:var(--pc01)"></span><span class="code">PC-01</span><span class="name">Amphoteric surfactants</span><span class="right">1 product online →</span></a>
+      <a class="subfam" href="#"><span class="chipbar" style="background:var(--pc02)"></span><span class="code">PC-02</span><span class="name">Anionic surfactants</span><span class="right"><span class="muted">By request</span></span></a>
+      <a class="subfam" href="#"><span class="chipbar" style="background:var(--pc03)"></span><span class="code">PC-03</span><span class="name">Nonionic surfactants &amp; esters</span><span class="right"><span class="muted">By request</span></span></a>
+      <a class="subfam" href="#"><span class="chipbar" style="background:var(--pc04)"></span><span class="code">PC-04</span><span class="name">Conditioning agents</span><span class="right"><span class="muted">By request</span></span></a>
+      <a class="subfam" href="#"><span class="chipbar" style="background:var(--pc05)"></span><span class="code">PC-05</span><span class="name">Rheology &amp; stabilisers</span><span class="right"><span class="muted">By request</span></span></a>
+      <a class="subfam" href="#"><span class="chipbar" style="background:var(--pc06)"></span><span class="code">PC-06</span><span class="name">Actives &amp; specialties</span><span class="right"><span class="muted">By request</span></span></a>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="secmeta"><span class="folio">PC-01</span><span class="sname">Products · Amphoteric surfactants</span><span class="sright">Wave 1 online</span></div>
+      <div class="prodtable-h"><span>Code</span><span>INCI</span><span>Form</span><span></span></div>
+      <a class="prodrow" href="/products/hs-cab/"><span class="pcode">HS-CAB</span><span class="pinci">Cocamidopropyl Betaine</span><span class="pform">Aqueous solution, 28–32%</span><span class="plink">View →</span></a>
+      <div class="staging">
+        <div>
+          <h3>The catalogue is published in verified waves.</h3>
+          <p>Every product goes online only after its documentation set is complete. For grades not yet listed, request the current availability list for this division.</p>
+        </div>
+        <a class="btn btn-primary" href="#">Request availability list</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;padding-bottom:110px;">
+    <div class="wrap">
+      <div class="finalcta" style="padding-bottom:0;">
+        <h2 style="font-size:44px;">Formulating in personal care? Request the documentation set.</h2>
+        <div class="cta-row"><a class="btn btn-primary" href="#">Request documentation</a><a class="btn btn-ghost" href="#">Contact the division</a></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-compact">
+    <div class="wrap">
+      <span class="lockup">huishuo</span>
+      <span class="slogan">One standard, many worlds.</span>
+      <span class="lg">© 2026 Suzhou Huishuo Biotechnology Co., Ltd.</span>
+    </div>
+  </footer>
+</main>
+
+
+</body>
+</html>
