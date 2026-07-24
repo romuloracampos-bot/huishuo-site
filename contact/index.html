@@ -383,6 +383,15 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .catrow .c-inci{grid-column:1 / -1;}
   .catrow .c-fam{grid-column:1 / -1;}
 }
+/* pagina comercial de produto */
+.ptags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.ptag{border:0.5px solid var(--hair-strong);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;}
+.benef{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.bcard{background:var(--offwhite);padding:26px 28px 30px;display:grid;grid-template-columns:46px 1fr;gap:16px;}
+.bcard .bn{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:var(--bronze);padding-top:4px;}
+.bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
+.bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
+@media (max-width:760px){ .benef{grid-template-columns:1fr;} }
 </style>
 <meta name="description" content="Request TDS, SDS, COA, samples or a quote from Huishuo, Suzhou. Direct line to the commercial desk: info@huishuochem.com.">
 <meta name="robots" content="noindex, nofollow">

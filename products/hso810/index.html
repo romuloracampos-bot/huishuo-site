@@ -383,6 +383,15 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .catrow .c-inci{grid-column:1 / -1;}
   .catrow .c-fam{grid-column:1 / -1;}
 }
+/* pagina comercial de produto */
+.ptags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.ptag{border:0.5px solid var(--hair-strong);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;}
+.benef{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.bcard{background:var(--offwhite);padding:26px 28px 30px;display:grid;grid-template-columns:46px 1fr;gap:16px;}
+.bcard .bn{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:var(--bronze);padding-top:4px;}
+.bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
+.bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
+@media (max-width:760px){ .benef{grid-template-columns:1fr;} }
 </style>
 <meta name="description" content="Caprylyl/Capryl Glucoside (CAS 68515-73-1) — Short-chain glucoside for micellar and ultra-mild systems. Request TDS, SDS, COA or sample.">
 <meta name="robots" content="noindex, nofollow">
@@ -414,8 +423,9 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
       <div class="info">
         <h1 class="prod-title" style="font-size:56px;">HSO810</h1>
         <p class="claim">Short-chain glucoside for micellar and ultra-mild systems.</p>
+        <div class="ptags"><span class="ptag">Nonionic</span><span class="ptag">Plant-derived</span><span class="ptag">Solubiliser</span><span class="ptag">Readily biodegradable</span><span class="ptag">Cold-processable</span></div>
         <div class="ctas">
-          <a class="btn btn-primary" href="/contact/?product=hso810&type=tds">Request TDS</a>
+          <a class="btn btn-primary" href="/contact/?product=hso810&type=quote">Request quote</a>
           <a class="btn btn-ghost" href="/contact/?product=hso810&type=sample">Request sample</a>
         </div>
       </div>
@@ -435,15 +445,29 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   </div>
 
   <div class="section">
+    <div class="wrap">
+      <div class="secmeta"><span class="folio">01</span><span class="sname">Why formulators choose it</span><span class="sright">The commercial case</span></div>
+      <div class="benef">
+        <div class="bcard"><span class="bn">01</span><div><div class="bt">Ultra-mild profile</div><div class="bd">Among the gentlest nonionics available — keeps micellar and baby formulas at the low end of the irritation scale.</div></div></div><div class="bcard"><span class="bn">02</span><div><div class="bt">Strong solubiliser</div><div class="bd">Carries fragrance and oils into clear aqueous systems without ethoxylated solubilisers.</div></div></div><div class="bcard"><span class="bn">03</span><div><div class="bt">Foam quality</div><div class="bd">Fine, stable lather even in fully sulfate-free blends.</div></div></div><div class="bcard"><span class="bn">04</span><div><div class="bt">Robust in process</div><div class="bd">Stable across a wide pH range, tolerates electrolytes, cold-processable — fewer constraints on the line.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
     <div class="wrap two-col">
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">01</span><span class="sname">Description</span><span></span></div>
+        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Description</span><span></span></div>
         <div class="desc-body"><p>A short-chain alkyl polyglucoside from plant-derived fatty alcohols and glucose. Its small hydrophobe makes it one of the mildest nonionic surfactants available — the standard choice where cleansing has to stay gentle and rinse clean.</p><p>It solubilises fragrances and oils in clear aqueous systems, boosts and refines foam in sulfate-free blends, and remains stable across a wide pH range. Readily biodegradable.</p></div>
+        <div class="secmeta" style="margin:48px 0 26px;"><span class="folio">03</span><span class="sname">Formulation notes</span><span></span></div>
+        <div class="desc-body"><p>Add to the water phase at any stage; no heating required. As a solubiliser, work at 3–5:1 surfactant-to-oil ratios for clear systems.</p><p>Combine with amphoterics to refine foam texture; viscosity builds via gums or glucamides rather than salt.</p></div>
       </div>
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Specifications</span><span class="sright">As supplied</span></div>
+        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">04</span><span class="sname">At a glance</span><span></span></div>
         <table class="spectable">
-          <tr><th>Parameter</th><th>Specification</th></tr>
+          <tr><td>Function</td><td>Cleansing surfactant · solubiliser</td></tr>
+          <tr><td>Charge</td><td>Nonionic</td></tr>
+          <tr><td>Origin</td><td>Coconut/palm fatty alcohols + glucose</td></tr>
+          <tr><td>Format</td><td>Liquid</td></tr>
           <tr><td>Physical form</td><td>Aqueous solution</td></tr>
         </table>
         <div class="tbl-note">Grade variant — request the TDS set to compare specifications.</div>
@@ -457,15 +481,28 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   </div>
 
   <div class="section" style="padding-top:0;">
-    <div class="wrap">
-      <div class="secmeta"><span class="folio">03</span><span class="sname">Applications &amp; use levels</span><span class="sright">As supplied, % w/w · typical</span></div>
-      <table class="spectable" style="max-width:680px;">
-        <tr><th>System</th><th>Use level</th></tr>
-        <tr><td>Micellar waters & toners</td><td>1–5 %</td></tr>
+    <div class="wrap two-col">
+      <div>
+        <div class="secmeta"><span class="folio">05</span><span class="sname">Applications &amp; use levels</span><span class="sright">As supplied, % w/w · typical</span></div>
+        <table class="spectable">
+          <tr><th>System</th><th>Use level</th></tr>
+          <tr><td>Micellar waters & toners</td><td>1–5 %</td></tr>
         <tr><td>Sulfate-free shampoos</td><td>2–10 %</td></tr>
         <tr><td>Facial cleansers</td><td>2–8 %</td></tr>
         <tr><td>Wipes & baby cleansing</td><td>1–5 %</td></tr>
-      </table>
+        </table>
+      </div>
+      <div>
+        <div class="secmeta"><span class="folio">06</span><span class="sname">Commercial terms</span><span class="sright">Suzhou · export</span></div>
+        <table class="spectable">
+          <tr><td>Packaging (typical)</td><td>200 kg drums · 1,000 kg IBC (typical — confirmed per order)</td></tr>
+          <tr><td>MOQ</td><td>On request</td></tr>
+          <tr><td>Lead time</td><td>On request</td></tr>
+          <tr><td>Incoterms</td><td>FOB · CIF</td></tr>
+          <tr><td>Export ports</td><td>Shanghai · Ningbo · Qingdao</td></tr>
+          <tr><td>Documentation</td><td>TDS · SDS · batch COA</td></tr>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -494,7 +531,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
           <div class="t">PC-01 · Surfactants</div>
           <div class="s">Related grades</div>
         </div>
-        <div style="display:flex;gap:22px;flex-wrap:wrap;"><a class="btn btn-ghost btn-sm" href="/products/hs215/">HS215</a><a class="btn btn-ghost btn-sm" href="/products/hs225n/">HS225N</a><a class="btn btn-ghost btn-sm" href="/products/hs818/">HS818</a></div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;"><a class="btn btn-ghost btn-sm" href="/products/hs215/">HS215</a><a class="btn btn-ghost btn-sm" href="/products/hs225n/">HS225N</a><a class="btn btn-ghost btn-sm" href="/products/hs818/">HS818</a></div>
       </div>
     </div>
   </div>

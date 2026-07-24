@@ -383,6 +383,15 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .catrow .c-inci{grid-column:1 / -1;}
   .catrow .c-fam{grid-column:1 / -1;}
 }
+/* pagina comercial de produto */
+.ptags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.ptag{border:0.5px solid var(--hair-strong);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;}
+.benef{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.bcard{background:var(--offwhite);padding:26px 28px 30px;display:grid;grid-template-columns:46px 1fr;gap:16px;}
+.bcard .bn{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:var(--bronze);padding-top:4px;}
+.bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
+.bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
+@media (max-width:760px){ .benef{grid-template-columns:1fr;} }
 </style>
 <meta name="description" content="Sodium Laureth Sulfate (CAS 3088-31-1) — High-foam anionic workhorse, 70% grade. Request TDS, SDS, COA or sample.">
 <meta name="robots" content="noindex, nofollow">
@@ -414,8 +423,9 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
       <div class="info">
         <h1 class="prod-title" style="font-size:56px;">HS-SLES70</h1>
         <p class="claim">High-foam anionic workhorse, 70% grade.</p>
+        <div class="ptags"><span class="ptag">Anionic</span><span class="ptag">70% concentrate</span><span class="ptag">High foam</span><span class="ptag">Salt-thickening</span></div>
         <div class="ctas">
-          <a class="btn btn-primary" href="/contact/?product=hs-sles70&type=tds">Request TDS</a>
+          <a class="btn btn-primary" href="/contact/?product=hs-sles70&type=quote">Request quote</a>
           <a class="btn btn-ghost" href="/contact/?product=hs-sles70&type=sample">Request sample</a>
         </div>
       </div>
@@ -435,15 +445,29 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   </div>
 
   <div class="section">
+    <div class="wrap">
+      <div class="secmeta"><span class="folio">01</span><span class="sname">Why formulators choose it</span><span class="sright">The commercial case</span></div>
+      <div class="benef">
+        <div class="bcard"><span class="bn">01</span><div><div class="bt">The global workhorse</div><div class="bd">The most proven primary surfactant in rinse-off cleansing worldwide.</div></div></div><div class="bcard"><span class="bn">02</span><div><div class="bt">70% concentration economics</div><div class="bd">Cuts freight, storage volume and preservative demand versus 28% solutions.</div></div></div><div class="bcard"><span class="bn">03</span><div><div class="bt">Instant foam</div><div class="bd">Fast, abundant lather consumers expect from mainstream formats.</div></div></div><div class="bcard"><span class="bn">04</span><div><div class="bt">Easy viscosity</div><div class="bd">Classic salt-curve thickening — simple, cheap process control.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
     <div class="wrap two-col">
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">01</span><span class="sname">Description</span><span></span></div>
+        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Description</span><span></span></div>
         <div class="desc-body"><p>Sodium laureth sulfate at 70% concentration — the global primary surfactant for rinse-off cleansing. Abundant, fast-building foam, strong cleansing and easy viscosity response with salt.</p><p>The 70% grade cuts freight and storage volume versus 28% solutions; it is diluted at the plant into the final system. Pairs with betaines and glucosides to balance mildness.</p></div>
+        <div class="secmeta" style="margin:48px 0 26px;"><span class="folio">03</span><span class="sname">Formulation notes</span><span></span></div>
+        <div class="desc-body"><p>Dilute with good agitation — add paste to water, never water to paste, to avoid the gel phase.</p><p>Balance mildness with betaine or glucosides; thicken on the salt curve.</p></div>
       </div>
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Specifications</span><span class="sright">As supplied</span></div>
+        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">04</span><span class="sname">At a glance</span><span></span></div>
         <table class="spectable">
-          <tr><th>Parameter</th><th>Specification</th></tr>
+          <tr><td>Function</td><td>Primary cleansing surfactant</td></tr>
+          <tr><td>Charge</td><td>Anionic</td></tr>
+          <tr><td>Origin</td><td>Lauryl alcohol, ethoxylated & sulfated</td></tr>
+          <tr><td>Format</td><td>Paste, 70%</td></tr>
           <tr><td>Physical form</td><td>Paste, 70% grade</td></tr>
         </table>
         
@@ -457,15 +481,28 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   </div>
 
   <div class="section" style="padding-top:0;">
-    <div class="wrap">
-      <div class="secmeta"><span class="folio">03</span><span class="sname">Applications &amp; use levels</span><span class="sright">As supplied, % w/w · typical</span></div>
-      <table class="spectable" style="max-width:680px;">
-        <tr><th>System</th><th>Use level</th></tr>
-        <tr><td>Shampoos</td><td>5–12 %</td></tr>
+    <div class="wrap two-col">
+      <div>
+        <div class="secmeta"><span class="folio">05</span><span class="sname">Applications &amp; use levels</span><span class="sright">As supplied, % w/w · typical</span></div>
+        <table class="spectable">
+          <tr><th>System</th><th>Use level</th></tr>
+          <tr><td>Shampoos</td><td>5–12 %</td></tr>
         <tr><td>Body wash</td><td>5–12 %</td></tr>
         <tr><td>Hand soaps</td><td>4–10 %</td></tr>
         <tr><td>Dishwash & household</td><td>3–10 %</td></tr>
-      </table>
+        </table>
+      </div>
+      <div>
+        <div class="secmeta"><span class="folio">06</span><span class="sname">Commercial terms</span><span class="sright">Suzhou · export</span></div>
+        <table class="spectable">
+          <tr><td>Packaging (typical)</td><td>220 kg drums · 1,000 kg IBC (typical — confirmed per order)</td></tr>
+          <tr><td>MOQ</td><td>On request</td></tr>
+          <tr><td>Lead time</td><td>On request</td></tr>
+          <tr><td>Incoterms</td><td>FOB · CIF</td></tr>
+          <tr><td>Export ports</td><td>Shanghai · Ningbo · Qingdao</td></tr>
+          <tr><td>Documentation</td><td>TDS · SDS · batch COA</td></tr>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -494,7 +531,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
           <div class="t">PC-01 · Surfactants</div>
           <div class="s">Related grades</div>
         </div>
-        <div style="display:flex;gap:22px;flex-wrap:wrap;"><a class="btn btn-ghost btn-sm" href="/products/hso810/">HSO810</a><a class="btn btn-ghost btn-sm" href="/products/hs215/">HS215</a><a class="btn btn-ghost btn-sm" href="/products/hs225n/">HS225N</a></div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;"><a class="btn btn-ghost btn-sm" href="/products/hso810/">HSO810</a><a class="btn btn-ghost btn-sm" href="/products/hs215/">HS215</a><a class="btn btn-ghost btn-sm" href="/products/hs225n/">HS225N</a></div>
       </div>
     </div>
   </div>

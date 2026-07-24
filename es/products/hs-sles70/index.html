@@ -383,6 +383,15 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .catrow .c-inci{grid-column:1 / -1;}
   .catrow .c-fam{grid-column:1 / -1;}
 }
+/* pagina comercial de produto */
+.ptags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.ptag{border:0.5px solid var(--hair-strong);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;}
+.benef{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.bcard{background:var(--offwhite);padding:26px 28px 30px;display:grid;grid-template-columns:46px 1fr;gap:16px;}
+.bcard .bn{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:var(--bronze);padding-top:4px;}
+.bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
+.bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
+@media (max-width:760px){ .benef{grid-template-columns:1fr;} }
 </style>
 <meta name="description" content="Sodium Laureth Sulfate (CAS 3088-31-1) — Aniónico de alta espuma, el caballo de batalla, grado 70%. Solicite TDS, SDS, COA o muestra.">
 <meta name="robots" content="noindex, nofollow">
@@ -414,8 +423,9 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
       <div class="info">
         <h1 class="prod-title" style="font-size:56px;">HS-SLES70</h1>
         <p class="claim">Aniónico de alta espuma, el caballo de batalla, grado 70%.</p>
+        <div class="ptags"><span class="ptag">Anionic</span><span class="ptag">70% concentrate</span><span class="ptag">High foam</span><span class="ptag">Salt-thickening</span></div>
         <div class="ctas">
-          <a class="btn btn-primary" href="/es/contact/?product=hs-sles70&type=tds">Solicitar TDS</a>
+          <a class="btn btn-primary" href="/es/contact/?product=hs-sles70&type=quote">Solicitar cotización</a>
           <a class="btn btn-ghost" href="/es/contact/?product=hs-sles70&type=sample">Solicitar muestra</a>
         </div>
       </div>
@@ -435,16 +445,30 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   </div>
 
   <div class="section">
+    <div class="wrap">
+      <div class="secmeta"><span class="folio">01</span><span class="sname">Por qué lo eligen los formuladores</span><span class="sright">El argumento comercial</span></div>
+      <div class="benef">
+        <div class="bcard"><span class="bn">01</span><div><div class="bt">The global workhorse</div><div class="bd">The most proven primary surfactant in rinse-off cleansing worldwide.</div></div></div><div class="bcard"><span class="bn">02</span><div><div class="bt">70% concentration economics</div><div class="bd">Cuts freight, storage volume and preservative demand versus 28% solutions.</div></div></div><div class="bcard"><span class="bn">03</span><div><div class="bt">Instant foam</div><div class="bd">Fast, abundant lather consumers expect from mainstream formats.</div></div></div><div class="bcard"><span class="bn">04</span><div><div class="bt">Easy viscosity</div><div class="bd">Classic salt-curve thickening — simple, cheap process control.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
     <div class="wrap two-col">
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">01</span><span class="sname">Descripción</span><span></span></div>
+        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Descripción</span><span></span></div>
         <div class="desc-body"><p>Lauril éter sulfato de sodio al 70% de concentración — el tensoactivo principal global para la limpieza con enjuague. Espuma abundante y de rápida formación, limpieza potente y fácil respuesta de viscosidad con sal.</p><p>El grado 70% reduce el flete y el volumen de almacenamiento frente a las soluciones al 28%; se diluye en planta dentro del sistema final. Se combina con betaínas y glucósidos para equilibrar la suavidad.</p></div>
+        <div class="secmeta" style="margin:48px 0 26px;"><span class="folio">03</span><span class="sname">Notas de formulación</span><span></span></div>
+        <div class="desc-body"><p>Dilute with good agitation — add paste to water, never water to paste, to avoid the gel phase.</p><p>Balance mildness with betaine or glucosides; thicken on the salt curve.</p></div>
       </div>
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Especificaciones</span><span class="sright">Tal como se suministra</span></div>
+        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">04</span><span class="sname">En síntesis</span><span></span></div>
         <table class="spectable">
-          <tr><th>Parámetro</th><th>Especificación</th></tr>
-          <tr><td>Physical form</td><td>Pasta, grado 70%</td></tr>
+          <tr><td>Función</td><td>Primary cleansing surfactant</td></tr>
+          <tr><td>Carga</td><td>Anionic</td></tr>
+          <tr><td>Origen</td><td>Lauryl alcohol, ethoxylated & sulfated</td></tr>
+          <tr><td>Formato</td><td>Paste, 70%</td></tr>
+          <tr><td>Forma física</td><td>Pasta, grado 70%</td></tr>
         </table>
         
         <div class="staging" style="margin-top:28px;padding:28px 30px;grid-template-columns:1fr;gap:18px;">
@@ -457,15 +481,28 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   </div>
 
   <div class="section" style="padding-top:0;">
-    <div class="wrap">
-      <div class="secmeta"><span class="folio">03</span><span class="sname">Applications &amp; use levels</span><span class="sright">Tal como se suministra, % p/p · típico</span></div>
-      <table class="spectable" style="max-width:680px;">
-        <tr><th>Sistema</th><th>Nivel de uso</th></tr>
-        <tr><td>Champús</td><td>5–12 %</td></tr>
+    <div class="wrap two-col">
+      <div>
+        <div class="secmeta"><span class="folio">05</span><span class="sname">Applications &amp; use levels</span><span class="sright">Tal como se suministra, % p/p · típico</span></div>
+        <table class="spectable">
+          <tr><th>Sistema</th><th>Nivel de uso</th></tr>
+          <tr><td>Champús</td><td>5–12 %</td></tr>
         <tr><td>Geles de baño</td><td>5–12 %</td></tr>
         <tr><td>Jabones de manos</td><td>4–10 %</td></tr>
         <tr><td>Lavavajillas y hogar</td><td>3–10 %</td></tr>
-      </table>
+        </table>
+      </div>
+      <div>
+        <div class="secmeta"><span class="folio">06</span><span class="sname">Condiciones comerciales</span><span class="sright">Suzhou · exportación</span></div>
+        <table class="spectable">
+          <tr><td>Empaque (típico)</td><td>220 kg drums · 1,000 kg IBC (typical — confirmed per order)</td></tr>
+          <tr><td>MOQ</td><td>Bajo solicitud</td></tr>
+          <tr><td>Plazo de entrega</td><td>Bajo solicitud</td></tr>
+          <tr><td>Incoterms</td><td>FOB · CIF</td></tr>
+          <tr><td>Puertos de exportación</td><td>Shanghai · Ningbo · Qingdao</td></tr>
+          <tr><td>Documentación</td><td>TDS · SDS · COA de lote</td></tr>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -494,7 +531,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
           <div class="t">PC-01 · Surfactants</div>
           <div class="s">Grados relacionados</div>
         </div>
-        <div style="display:flex;gap:22px;flex-wrap:wrap;"><a class="btn btn-ghost btn-sm" href="/products/hso810/">HSO810</a><a class="btn btn-ghost btn-sm" href="/products/hs215/">HS215</a><a class="btn btn-ghost btn-sm" href="/products/hs225n/">HS225N</a></div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;"><a class="btn btn-ghost btn-sm" href="/products/hso810/">HSO810</a><a class="btn btn-ghost btn-sm" href="/products/hs215/">HS215</a><a class="btn btn-ghost btn-sm" href="/products/hs225n/">HS225N</a></div>
       </div>
     </div>
   </div>
