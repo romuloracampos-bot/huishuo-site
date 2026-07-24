@@ -300,12 +300,69 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .form{grid-template-columns:1fr;}
   .pagehero h1{font-size:48px;}
 }
+/* strip do standard */
+.stdstrip{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);}
+.stdstrip .c{padding:22px 26px 24px 0;border-right:0.5px solid var(--hair);}
+.stdstrip .c:last-child{border-right:none;}
+.stdstrip .l{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);}
+.stdstrip .v{font-family:'IBM Plex Mono',monospace;font-size:12.5px;margin-top:9px;}
+@media (max-width:980px){ .stdstrip{grid-template-columns:1fr 1fr;} .stdstrip .c{border-bottom:0.5px solid var(--hair);} }
+.langswitch a{text-decoration:none;color:inherit;}
+/* header mobile */
+@media (max-width:760px){
+  .siteheader .wrap{grid-template-columns:1fr auto;row-gap:14px;}
+  nav.mainnav{grid-column:1 / -1;grid-row:2;gap:20px;font-size:10.5px;overflow-x:auto;padding-bottom:2px;}
+  .hd-right .btn{display:none;}
+  .hero .content{padding-top:90px;}
+  .prodhero .info{padding:36px 26px 40px;}
+  .doccta{padding:34px 26px;}
+}
+@media (max-width:760px){
+  .secmeta{grid-template-columns:auto 1fr;gap:12px 18px;}
+  .secmeta .sright{display:none;}
+  .secmeta .sname{letter-spacing:.18em;font-size:10px;}
+}
+/* correcoes responsivas — vencem estilos inline */
+@media (max-width:920px){
+  .siteheader .wrap{grid-template-columns:1fr auto;row-gap:14px;}
+  nav.mainnav{grid-column:1 / -1;grid-row:2;gap:20px;font-size:10.5px;overflow-x:auto;padding-bottom:2px;}
+  .hd-right .btn{display:none;}
+}
+@media (max-width:760px){
+  .subfam{grid-template-columns:26px 62px 1fr;gap:12px;min-height:60px;}
+  .subfam .chipbar{width:26px;}
+  .subfam .name{font-size:17px;}
+  .subfam .right{display:none;}
+  .doc3{grid-template-columns:1fr !important;}
+  .steps{grid-template-columns:1fr 1fr !important;}
+  .std{grid-template-columns:1fr !important;gap:44px;}
+}
+@media (max-width:760px){
+  .prodtable-h{display:none;}
+  .prodrow{grid-template-columns:1fr auto;gap:6px 14px;}
+  .prodrow .pinci{grid-column:1 / -1;}
+  .prodrow .pform{display:none;}
+  .docstack{padding:0;}
+  .docstack .sheet.back{display:none;}
+  .docstack .sheet.front{margin-left:0;padding:22px 18px;}
+  .doc-id{flex-wrap:wrap;gap:8px 18px;}
+}
+.field{min-width:0;}
+.field input,.field select,.field textarea{width:100%;min-width:0;}
+@media (max-width:760px){
+  h1{font-size:clamp(32px,10vw,44px) !important;}
+  .finalcta h2{font-size:34px;}
+}
+.langswitch .off{margin-left:0;}
+.langswitch a+a{margin-left:10px;}
 </style>
 <meta name="description" content="Manufacturer and trading house founded 2019 in Suzhou High-tech Zone, China. Six supply divisions, double-check QC, export via Shanghai, Ningbo and Qingdao.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/img/brand/favicon-512.png">
 <link rel="apple-touch-icon" href="/img/brand/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="/company/">
+<link rel="alternate" hreflang="es" href="/es/company/">
 <meta property="og:title" content="Company — Suzhou Huishuo Biotechnology Co., Ltd. | Huishuo">
 <meta property="og:description" content="Manufacturer and trading house founded 2019 in Suzhou High-tech Zone, China. Six supply divisions, double-check QC, export via Shanghai, Ningbo and Qingdao.">
 <meta property="og:type" content="website">
@@ -314,14 +371,14 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 <header class="siteheader">
   <div class="wrap">
     <a class="logolink" href="/"><img class="lockup-img" src="/img/brand/logo-h-ink.png" alt="huishuo"></a>
-    <nav class="mainnav"><a href="/divisions/personal-care/">Divisions</a><a href="/documentation/">Documentation</a><a href="/company/">Company</a><a href="/contact/">Contact</a></nav>
-    <div class="hd-right"><div class="langswitch"><span class="sel">EN</span><span class="off">ES</span></div><a class="btn btn-ghost btn-sm" href="/contact/">Request docs</a></div>
+    <nav class="mainnav"><a href="/divisions/personal-care/">Divisions</a><a href="/development/">Development</a><a href="/company/">Company</a><a href="/contact/">Contact</a></nav>
+    <div class="hd-right"><div class="langswitch"><a class="sel" href="/company/">EN</a><a class="off" href="/es/company/" lang="es">ES</a></div><a class="btn btn-ghost btn-sm" href="/contact/">Request docs</a></div>
   </div>
 </header>
 
 <main>
   <div class="pagehero">
-    <div class="bg"><img src="/img/div-in.jpg" alt="Lamellar material, surface study"></div>
+    <div class="bg"><img loading="lazy" src="/img/div-in.jpg" alt="Lamellar material, surface study"></div>
     <div class="reticle rt-tr"><span>Suzhou · 31.30°N 120.58°E</span><span class="tick"></span></div>
     <div class="content">
       <div class="wrap">
@@ -337,7 +394,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
       <div class="logi">
         <div class="cell"><div class="num">2019</div><div class="lab">Founded</div><div class="sub">Suzhou High-tech Zone, CN</div></div>
         <div class="cell"><div class="num">6</div><div class="lab">Supply divisions</div><div class="sub">PC · HN · FD · AN · AG · IN</div></div>
-        <div class="cell"><div class="num">2×</div><div class="lab">QC verification per batch</div><div class="sub">Double-check before release</div></div>
+        <div class="cell"><div class="num">2×</div><div class="lab">QC verification per batch</div><div class="sub">ISO 9001:2015 certified system</div></div>
       </div>
     </div>
   </div>
@@ -354,6 +411,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
             <div class="stditem" style="border-color:var(--hair);"><span class="n">01</span><div><div class="t" style="color:var(--ink);">Double-check QC</div><div class="d" style="opacity:1;">Every batch is verified twice by quality control before release.</div></div></div>
             <div class="stditem" style="border-color:var(--hair);"><span class="n">02</span><div><div class="t" style="color:var(--ink);">Batch COA</div><div class="d" style="opacity:1;">A Certificate of Analysis accompanies every shipped lot.</div></div></div>
             <div class="stditem" style="border-color:var(--hair);"><span class="n">03</span><div><div class="t" style="color:var(--ink);">Documentation before listing</div><div class="d" style="opacity:1;">A product only goes online after its TDS, SDS and COA set is complete.</div></div></div>
+            <div class="stditem" style="border-color:var(--hair);"><span class="n">04</span><div><div class="t" style="color:var(--ink);">ISO 9001:2015</div><div class="d" style="opacity:1;">Certified quality management system — certificate 33924Q15021R0S, IAS-accredited, valid through 08/2027.</div></div></div>
           </div>
         </div>
       </div>

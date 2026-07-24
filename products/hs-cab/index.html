@@ -300,12 +300,69 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .form{grid-template-columns:1fr;}
   .pagehero h1{font-size:48px;}
 }
+/* strip do standard */
+.stdstrip{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);}
+.stdstrip .c{padding:22px 26px 24px 0;border-right:0.5px solid var(--hair);}
+.stdstrip .c:last-child{border-right:none;}
+.stdstrip .l{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);}
+.stdstrip .v{font-family:'IBM Plex Mono',monospace;font-size:12.5px;margin-top:9px;}
+@media (max-width:980px){ .stdstrip{grid-template-columns:1fr 1fr;} .stdstrip .c{border-bottom:0.5px solid var(--hair);} }
+.langswitch a{text-decoration:none;color:inherit;}
+/* header mobile */
+@media (max-width:760px){
+  .siteheader .wrap{grid-template-columns:1fr auto;row-gap:14px;}
+  nav.mainnav{grid-column:1 / -1;grid-row:2;gap:20px;font-size:10.5px;overflow-x:auto;padding-bottom:2px;}
+  .hd-right .btn{display:none;}
+  .hero .content{padding-top:90px;}
+  .prodhero .info{padding:36px 26px 40px;}
+  .doccta{padding:34px 26px;}
+}
+@media (max-width:760px){
+  .secmeta{grid-template-columns:auto 1fr;gap:12px 18px;}
+  .secmeta .sright{display:none;}
+  .secmeta .sname{letter-spacing:.18em;font-size:10px;}
+}
+/* correcoes responsivas — vencem estilos inline */
+@media (max-width:920px){
+  .siteheader .wrap{grid-template-columns:1fr auto;row-gap:14px;}
+  nav.mainnav{grid-column:1 / -1;grid-row:2;gap:20px;font-size:10.5px;overflow-x:auto;padding-bottom:2px;}
+  .hd-right .btn{display:none;}
+}
+@media (max-width:760px){
+  .subfam{grid-template-columns:26px 62px 1fr;gap:12px;min-height:60px;}
+  .subfam .chipbar{width:26px;}
+  .subfam .name{font-size:17px;}
+  .subfam .right{display:none;}
+  .doc3{grid-template-columns:1fr !important;}
+  .steps{grid-template-columns:1fr 1fr !important;}
+  .std{grid-template-columns:1fr !important;gap:44px;}
+}
+@media (max-width:760px){
+  .prodtable-h{display:none;}
+  .prodrow{grid-template-columns:1fr auto;gap:6px 14px;}
+  .prodrow .pinci{grid-column:1 / -1;}
+  .prodrow .pform{display:none;}
+  .docstack{padding:0;}
+  .docstack .sheet.back{display:none;}
+  .docstack .sheet.front{margin-left:0;padding:22px 18px;}
+  .doc-id{flex-wrap:wrap;gap:8px 18px;}
+}
+.field{min-width:0;}
+.field input,.field select,.field textarea{width:100%;min-width:0;}
+@media (max-width:760px){
+  h1{font-size:clamp(32px,10vw,44px) !important;}
+  .finalcta h2{font-size:34px;}
+}
+.langswitch .off{margin-left:0;}
+.langswitch a+a{margin-left:10px;}
 </style>
 <meta name="description" content="Cocamidopropyl Betaine (CAS 61789-40-0) — amphoteric co-surfactant, 28–32% active aqueous solution. Request TDS, SDS, COA or sample.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/img/brand/favicon-512.png">
 <link rel="apple-touch-icon" href="/img/brand/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="/products/hs-cab/">
+<link rel="alternate" hreflang="es" href="/es/products/hs-cab/">
 <meta property="og:title" content="Cocamidopropyl Betaine | HS-CAB | Huishuo">
 <meta property="og:description" content="Cocamidopropyl Betaine (CAS 61789-40-0) — amphoteric co-surfactant, 28–32% active aqueous solution. Request TDS, SDS, COA or sample.">
 <meta property="og:type" content="website">
@@ -317,8 +374,8 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   <header class="siteheader">
     <div class="wrap">
       <a class="logolink" href="/"><img class="lockup-img" src="/img/brand/logo-h-ink.png" alt="huishuo"></a>
-      <nav class="mainnav"><a href="/divisions/personal-care/">Divisions</a><a href="/documentation/">Documentation</a><a href="/company/">Company</a><a href="/contact/">Contact</a></nav>
-      <div class="hd-right"><div class="langswitch"><span class="sel">EN</span><span class="off">ES</span></div><a class="btn btn-ghost btn-sm" href="/contact/">Request docs</a></div>
+      <nav class="mainnav"><a href="/divisions/personal-care/">Divisions</a><a href="/development/">Development</a><a href="/company/">Company</a><a href="/contact/">Contact</a></nav>
+      <div class="hd-right"><div class="langswitch"><a class="sel" href="/products/hs-cab/">EN</a><a class="off" href="/es/products/hs-cab/" lang="es">ES</a></div><a class="btn btn-ghost btn-sm" href="/contact/">Request docs</a></div>
     </div>
   </header>
 
