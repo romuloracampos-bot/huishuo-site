@@ -408,6 +408,66 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
 @keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
 @media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
+/* ===== home imersiva v11 ===== */
+.marq{overflow:hidden;border-top:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);padding:16px 0;background:var(--offwhite);}
+.marqin{display:inline-flex;gap:56px;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;animation:marq 60s linear infinite;will-change:transform;}
+.marqin span{opacity:.65;}
+@keyframes marq{to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion: reduce){ .marqin{animation:none;} }
+#show{height:340vh;position:relative;}
+#show .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;background:var(--offwhite);}
+.showtrack{display:flex;gap:26px;padding:0 56px;will-change:transform;}
+.showcard{flex:0 0 min(44vw,620px);background:var(--offwhite);border:0.5px solid var(--hair-strong);text-decoration:none;color:var(--ink);display:block;transition:transform 220ms ease;}
+a.showcard:hover{transform:translateY(-2px);}
+.showfig{position:relative;height:44vh;min-height:280px;overflow:hidden;}
+.showfig img{transition:transform 700ms cubic-bezier(.22,.6,.2,1);}
+a.showcard:hover .showfig img{transform:scale(1.04);}
+.showfig .cap{position:absolute;left:16px;bottom:12px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--offwhite);text-transform:uppercase;opacity:.85;}
+.showbar{height:4px;}
+.showinner{padding:24px 26px 28px;}
+.showinner .row1{display:flex;justify-content:space-between;align-items:baseline;}
+.showinner .code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.26em;color:var(--bronze);}
+.showinner .idx{font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.4;}
+.showinner .name{font-family:'Fraunces',serif;font-weight:600;font-size:27px;margin-top:12px;}
+.showinner .desc{font-weight:300;font-size:14.5px;line-height:1.55;margin-top:8px;}
+.showinner .status{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:18px;display:flex;justify-content:space-between;}
+.showend{border:0.5px solid var(--ink);}
+#floors{height:320vh;position:relative;background:var(--ink);color:var(--offwhite);}
+.floorpin{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden;}
+.floorgrid{display:grid;grid-template-columns:5fr 6fr;gap:80px;align-items:center;width:100%;}
+.floorhead{font-size:56px;color:var(--offwhite);}
+.findex{display:flex;flex-direction:column;gap:14px;margin-top:44px;}
+.fdot{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.35;transition:opacity 300ms ease;}
+.fdot.on{opacity:1;color:var(--bronze);}
+.fprog{width:180px;height:1px;background:var(--hair-rev);margin-top:28px;}
+.fprog span{display:block;height:1px;background:var(--bronze);width:0;transition:width 200ms linear;}
+.fpanels{position:relative;min-height:60vh;}
+.fpanel{position:absolute;inset:0;opacity:0;transform:translateY(26px);transition:opacity 480ms ease,transform 480ms cubic-bezier(.22,.6,.2,1);pointer-events:none;display:flex;flex-direction:column;justify-content:center;}
+.fpanel.on{opacity:1;transform:none;pointer-events:auto;}
+.fstat .fnum{font-family:'Fraunces',serif;font-weight:600;font-size:96px;line-height:1;display:block;}
+.fstat .flab{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;margin-top:10px;display:block;opacity:.7;}
+.fstatrow{display:flex;gap:56px;margin:34px 0;}
+.fstat.sm .fnum{font-size:44px;}
+.ftext{font-weight:300;font-size:16.5px;max-width:420px;margin-bottom:30px;opacity:.85;}
+.statband{display:grid;grid-template-columns:repeat(5,1fr);border-left:0.5px solid var(--hair);border-top:0.5px solid var(--hair);}
+.stat{border-right:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);padding:30px 28px 34px;}
+.statn{font-family:'Fraunces',serif;font-weight:600;font-size:56px;line-height:1;display:block;}
+.statl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;margin-top:12px;display:block;opacity:.6;}
+@media (max-width:920px){
+  #show{height:auto;}
+  #show .pin{position:static;height:auto;overflow:visible;padding:40px 0;}
+  .showtrack{overflow-x:auto;scroll-snap-type:x mandatory;padding:0 24px;-webkit-overflow-scrolling:touch;}
+  .showcard{flex:0 0 82vw;scroll-snap-align:start;}
+  #floors{height:auto;}
+  .floorpin{position:static;height:auto;padding:70px 0;}
+  .floorgrid{grid-template-columns:1fr;gap:48px;}
+  .fpanels{min-height:0;}
+  .fpanel{position:static;opacity:1;transform:none;pointer-events:auto;margin-bottom:44px;}
+  .fprog,.findex{display:none;}
+  .floorhead{font-size:38px;}
+  .statband{grid-template-columns:1fr 1fr;}
+  .statn{font-size:38px;}
+}
 </style>
 <meta name="description" content="Casa de ingredientes y desarrollo en Suzhou, China — un portafolio verificado con documentación de estándar europeo, más formulación, sourcing a la medida y proyectos industriales.">
 <meta name="robots" content="noindex, nofollow">
@@ -421,25 +481,23 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 <meta property="og:type" content="website">
 </head>
 <body>
+<header class="siteheader">
+  <div class="wrap">
+    <a class="logolink" href="/es/"><img class="lockup-img" src="/img/brand/logo-h-ink.png" alt="huishuo"></a>
+    <nav class="mainnav"><a href="/es/divisions/personal-care/">Divisiones</a><a href="/es/catalogue/">Catálogo</a><a href="/es/development/">Desarrollo</a><a href="/es/company/">Empresa</a><a href="/es/contact/">Contacto</a></nav>
+    <div class="hd-right"><div class="langswitch"><a class="off" href="/">EN</a><a class="sel" href="/es/" lang="es">ES</a></div><a class="btn btn-ghost btn-sm" href="/es/contact/">Solicitar docs</a></div>
+  </div>
+</header>
 
 <main>
-
-  <header class="siteheader">
-    <div class="wrap">
-      <a class="logolink" href="/es/"><img class="lockup-img" src="/img/brand/logo-h-ink.png" alt="huishuo"></a>
-      <nav class="mainnav"><a href="/es/divisions/">Divisiones</a><a href="/es/catalogue/">Catálogo</a><a href="/es/development/">Desarrollo</a><a href="/es/company/">Empresa</a><a href="/es/contact/">Contacto</a></nav>
-      <div class="hd-right"><div class="langswitch"><a class="off" href="/">EN</a><a class="sel" href="/es/" lang="es">ES</a></div><a class="btn btn-ghost btn-sm" href="/es/contact/">Solicitar docs</a></div>
-    </div>
-  </header>
-
-  <div class="hero">
+  <div class="hero" id="hero">
     <div class="bg"><canvas id="haze"></canvas><img src="/img/hero-crystal.jpg" alt="Superficie de materia prima, estudio macro"></div>
     <div class="reticle rt-tr"><span>Estudio de material 01 · superficie bruta</span><span class="tick"></span></div>
     <div class="reticle rt-bl"><span class="tick"></span><span>Suzhou · 31.30°N 120.58°E</span></div>
     <div class="cross" style="top:38%;left:63%;"></div>
     <div class="cross" style="top:64%;left:87%;"></div>
-    <div class="content">
-      <div class="wrap">
+    <div class="content" id="heroContent">
+        <div class="wrap">
         <img class="biglockup-img" src="/img/brand/logo-h-rev.png" alt="huishuo">
         <p class="slogan">One standard, many worlds.</p>
         <p class="positioning">Una casa de ingredientes y desarrollo en Suzhou, China — un portafolio verificado con documentación de estándar europeo, y un laboratorio que desarrolla lo que el portafolio aún no contiene.</p>
@@ -460,93 +518,114 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
     </div>
   </div>
 
-  <div class="section">
-    <div class="wrap">
-      <div class="rv secmeta"><span class="folio">01</span><span class="sname">Divisiones</span><span class="sright">6 campos de suministro</span></div>
-      <div class="divgrid">
-        <a class="rv divcard" href="#">
-          <div class="fig"><img loading="lazy" src="/img/div-pc.jpg" alt="Solución tensoactiva, estudio de superficie"><span class="cap">Estudio PC · sistema tensoactivo</span></div>
-          <div class="bar" style="background:var(--pc)"></div>
-          <div class="inner"><div class="row1"><span class="code">PC</span><span class="idx">01 / 06</span></div>
+  <div class="marq" aria-hidden="true"><div class="marqin"><span>HSO810 · Caprylyl/Capryl Glucoside</span> <span>HS215 · Caprylyl/Capryl Glucoside</span> <span>HS225N · Caprylyl/Capryl Glucoside</span> <span>HS818 · Coco-Glucoside</span> <span>HS425NE · Coco-Glucoside</span> <span>HS2000 · Decyl Glucoside</span> <span>HS1200 · Lauryl Glucoside</span> <span>HS 65 · Coco-Glucoside &amp; Glyceryl Oleate</span> <span>HS-SLES70 · Sodium Laureth Sulfate</span> <span>HS-CAB · Cocamidopropyl Betaine</span> <span>HS-CDEA · Cocamide DEA</span> <span>HS-SCI80 · Sodium Cocoyl Isethionate</span> <span>HS-SCI85 · Sodium Cocoyl Isethionate</span> <span>HS 200 · Dimethicone</span> <span>HS 245 · Cyclopentasiloxane</span> <span>HS 1501 · Cyclopentasiloxane &amp; Dimethiconol</span> <span>HS 1401 · Cyclotetrasiloxane, Cyclopentasiloxane &amp; Dimethiconol</span> <span>HS 503 · Dimethicone &amp; Dimethiconol</span> <span>HS 1401S · PEG-12 Dimethicone</span> <span>HS 556 · Phenyl Trimethicone</span> <span>HS 949 · Amodimethicone &amp; Cetrimonium Chloride &amp; Trideceth-12</span> <span>HS 9045 · Cyclopentasiloxane &amp; Dimethicone Crosspolymer</span> <span>HS-Ceteareth · Ceteareth series (grades on request)</span> <span>HS-Polysorbate · Polysorbate series (grades on request)</span> <span>HS-C940 · Carbomer</span> <span>HS-C980 · Carbomer</span> <span>HS-C21 · Carbomer</span> <span>HS-D Panthenol · Panthenol</span> <span>HS-DL Panthenol · Panthenol</span> <span>HS-SH · Sodium Hyaluronate</span> <span>HS-PG USP · Propylene Glycol</span> <span>HS-DPG · Dipropylene Glycol</span> <span>HS-K90 · PVP</span> <span>HS-K30 · PVP</span> <span>HS MBBT · Methylene Bis-Benzotriazolyl Tetramethylbutylphenol</span> <span>HS-BEMT · Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine</span> <span>HS-DBT · Diethylhexyl Butamido Triazone</span> <span>HS-DHHB · Diethylamino Hydroxybenzoyl Hexyl Benzoate</span> <span>HS-PBSA · Phenylbenzimidazole Sulfonic Acid</span> <span>HS-EHT · Ethylhexyl Triazone</span> <span>HS-AVB · Butyl Methoxydibenzoylmethane</span> <span>HS OCT · Octocrylene</span> <span>HS-HMS · Homosalate</span> <span>HS-OMC · Ethylhexyl Methoxycinnamate</span> <span>HS-OS · Ethylhexyl Salicylate</span> <span>HS-BP3 · Benzophenone-3</span> <span>HS-BP4 · Benzophenone-4</span> <span>HS-PQ7 · Polyquaternium-7</span> <span>HS-PQ10 · Polyquaternium-10</span> <span>HS-PQ39 · Polyquaternium-39</span> <span>HS-CreaPower · Creatine Monohydrate</span> <span>HS-AminoForce 2:1:1 · L-Leucine, L-Isoleucine, L-Valine (2:1:1)</span> <span>HS-AminoForce 4:1:1 · L-Leucine, L-Isoleucine, L-Valine (4:1:1)</span> <span>HS-ArgiPlus · L-Arginine</span> <span>HS-CarniLean · L-Carnitine</span> <span>HS-GlutaRecover · L-Glutamine</span> <span>HS-BetaEndure · Beta-Alanine</span> <span>HS-TaurineMax · Taurine</span> <span>HS-CustomBlend · Custom vitamin premix (OEM)</span> <span>HS-VitaC · Ascorbic Acid</span> <span>HS-VitaA · Retinol / Beta-Carotene</span> <span>HS-VitaD3 · Cholecalciferol</span><span>HSO810 · Caprylyl/Capryl Glucoside</span> <span>HS215 · Caprylyl/Capryl Glucoside</span> <span>HS225N · Caprylyl/Capryl Glucoside</span> <span>HS818 · Coco-Glucoside</span> <span>HS425NE · Coco-Glucoside</span> <span>HS2000 · Decyl Glucoside</span> <span>HS1200 · Lauryl Glucoside</span> <span>HS 65 · Coco-Glucoside &amp; Glyceryl Oleate</span> <span>HS-SLES70 · Sodium Laureth Sulfate</span> <span>HS-CAB · Cocamidopropyl Betaine</span> <span>HS-CDEA · Cocamide DEA</span> <span>HS-SCI80 · Sodium Cocoyl Isethionate</span> <span>HS-SCI85 · Sodium Cocoyl Isethionate</span> <span>HS 200 · Dimethicone</span> <span>HS 245 · Cyclopentasiloxane</span> <span>HS 1501 · Cyclopentasiloxane &amp; Dimethiconol</span> <span>HS 1401 · Cyclotetrasiloxane, Cyclopentasiloxane &amp; Dimethiconol</span> <span>HS 503 · Dimethicone &amp; Dimethiconol</span> <span>HS 1401S · PEG-12 Dimethicone</span> <span>HS 556 · Phenyl Trimethicone</span> <span>HS 949 · Amodimethicone &amp; Cetrimonium Chloride &amp; Trideceth-12</span> <span>HS 9045 · Cyclopentasiloxane &amp; Dimethicone Crosspolymer</span> <span>HS-Ceteareth · Ceteareth series (grades on request)</span> <span>HS-Polysorbate · Polysorbate series (grades on request)</span> <span>HS-C940 · Carbomer</span> <span>HS-C980 · Carbomer</span> <span>HS-C21 · Carbomer</span> <span>HS-D Panthenol · Panthenol</span> <span>HS-DL Panthenol · Panthenol</span> <span>HS-SH · Sodium Hyaluronate</span> <span>HS-PG USP · Propylene Glycol</span> <span>HS-DPG · Dipropylene Glycol</span> <span>HS-K90 · PVP</span> <span>HS-K30 · PVP</span> <span>HS MBBT · Methylene Bis-Benzotriazolyl Tetramethylbutylphenol</span> <span>HS-BEMT · Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine</span> <span>HS-DBT · Diethylhexyl Butamido Triazone</span> <span>HS-DHHB · Diethylamino Hydroxybenzoyl Hexyl Benzoate</span> <span>HS-PBSA · Phenylbenzimidazole Sulfonic Acid</span> <span>HS-EHT · Ethylhexyl Triazone</span> <span>HS-AVB · Butyl Methoxydibenzoylmethane</span> <span>HS OCT · Octocrylene</span> <span>HS-HMS · Homosalate</span> <span>HS-OMC · Ethylhexyl Methoxycinnamate</span> <span>HS-OS · Ethylhexyl Salicylate</span> <span>HS-BP3 · Benzophenone-3</span> <span>HS-BP4 · Benzophenone-4</span> <span>HS-PQ7 · Polyquaternium-7</span> <span>HS-PQ10 · Polyquaternium-10</span> <span>HS-PQ39 · Polyquaternium-39</span> <span>HS-CreaPower · Creatine Monohydrate</span> <span>HS-AminoForce 2:1:1 · L-Leucine, L-Isoleucine, L-Valine (2:1:1)</span> <span>HS-AminoForce 4:1:1 · L-Leucine, L-Isoleucine, L-Valine (4:1:1)</span> <span>HS-ArgiPlus · L-Arginine</span> <span>HS-CarniLean · L-Carnitine</span> <span>HS-GlutaRecover · L-Glutamine</span> <span>HS-BetaEndure · Beta-Alanine</span> <span>HS-TaurineMax · Taurine</span> <span>HS-CustomBlend · Custom vitamin premix (OEM)</span> <span>HS-VitaC · Ascorbic Acid</span> <span>HS-VitaA · Retinol / Beta-Carotene</span> <span>HS-VitaD3 · Cholecalciferol</span></div></div>
+
+  <section id="show">
+    <div class="pin">
+      <div class="wrap" style="max-width:none;padding:0 56px 34px;">
+        <div class="rv secmeta" style="margin-bottom:0;"><span class="folio">01</span><span class="sname">Divisiones</span><span class="sright">6 campos de suministro</span></div>
+      </div>
+      <div class="showtrack" id="showtrack">
+        <a class="showcard" href="/es/divisions/personal-care/">
+          <div class="showfig"><img loading="lazy" src="/img/div-pc.jpg" alt="Solución tensoactiva, estudio de superficie"><span class="cap">Estudio PC · sistema tensoactivo</span></div>
+          <div class="showbar" style="background:var(--pc)"></div>
+          <div class="showinner"><div class="row1"><span class="code">PC</span><span class="idx">01 / 06</span></div>
           <div class="name">Cuidado Personal</div><div class="desc">Tensoactivos, agentes acondicionadores y activos para sistemas de limpieza y cuidado.</div>
-          <div class="status"><span>62 products indexed</span><span class="arr">→</span></div></div></a>
-        <a class="rv divcard" href="/es/divisions/human-nutrition/">
-          <div class="fig"><img loading="lazy" src="/img/div-hn.jpg" alt="Granulado, estudio de superficie"><span class="cap">Estudio HN · granulado</span></div>
-          <div class="bar" style="background:var(--hn)"></div>
-          <div class="inner"><div class="row1"><span class="code">HN</span><span class="idx">02 / 06</span></div>
-          <div class="name">Nutrición Humana</div><div class="desc">Activos nutricionales e ingredientes funcionales para suplementos y fortificación.</div>
+          <div class="status"><span>50 productos indexados</span><span class="arr">→</span></div></div></a>
+        <a class="showcard" href="/es/divisions/human-nutrition/">
+          <div class="showfig"><img loading="lazy" src="/img/div-hn.jpg" alt="Granulado, estudio de superficie"><span class="cap">Estudio HN · granulado</span></div>
+          <div class="showbar" style="background:var(--hn)"></div>
+          <div class="showinner"><div class="row1"><span class="code">HN</span><span class="idx">02 / 06</span></div>
+          <div class="name">Nutrición Humana</div><div class="desc">Activos de nutrición deportiva, vitaminas y premezclas a la medida para suplementos.</div>
           <div class="status"><span>12 productos indexados</span><span class="arr">→</span></div></div></a>
-        <a class="rv divcard" href="#">
-          <div class="fig"><img loading="lazy" src="/img/div-fd.jpg" alt="Material cristalino, estudio de superficie"><span class="cap">Estudio FD · cristalino</span></div>
-          <div class="bar" style="background:var(--fd)"></div>
-          <div class="inner"><div class="row1"><span class="code">FD</span><span class="idx">03 / 06</span></div>
+        <div class="showcard">
+          <div class="showfig"><img loading="lazy" src="/img/div-fd.jpg" alt="Material cristalino, estudio de superficie"><span class="cap">Estudio FD · cristalino</span></div>
+          <div class="showbar" style="background:var(--fd)"></div>
+          <div class="showinner"><div class="row1"><span class="code">FD</span><span class="idx">03 / 06</span></div>
           <div class="name">Alimentos</div><div class="desc">Ingredientes y aditivos para procesamiento de alimentos y bebidas.</div>
-          <div class="status"><span>Bajo solicitud</span><span class="arr">→</span></div></div></a>
-        <a class="rv divcard" href="#">
-          <div class="fig"><img loading="lazy" src="/img/div-an.jpg" alt="Particulado, estudio de superficie"><span class="cap">Estudio AN · particulado</span></div>
-          <div class="bar" style="background:var(--an)"></div>
-          <div class="inner"><div class="row1"><span class="code">AN</span><span class="idx">04 / 06</span></div>
+          <div class="status"><span>Bajo solicitud</span></div></div></div>
+        <div class="showcard">
+          <div class="showfig"><img loading="lazy" src="/img/div-an.jpg" alt="Particulado, estudio de superficie"><span class="cap">Estudio AN · particulado</span></div>
+          <div class="showbar" style="background:var(--an)"></div>
+          <div class="showinner"><div class="row1"><span class="code">AN</span><span class="idx">04 / 06</span></div>
           <div class="name">Nutrición Animal</div><div class="desc">Aditivos para alimentación e insumos nutricionales para producción animal.</div>
-          <div class="status"><span>Bajo solicitud</span><span class="arr">→</span></div></div></a>
-        <a class="rv divcard" href="#">
-          <div class="fig"><img loading="lazy" src="/img/div-ag.jpg" alt="Polvo fino, estudio de superficie"><span class="cap">Estudio AG · polvo fino</span></div>
-          <div class="bar" style="background:var(--ag)"></div>
-          <div class="inner"><div class="row1"><span class="code">AG</span><span class="idx">05 / 06</span></div>
+          <div class="status"><span>Bajo solicitud</span></div></div></div>
+        <div class="showcard">
+          <div class="showfig"><img loading="lazy" src="/img/div-ag.jpg" alt="Polvo fino, estudio de superficie"><span class="cap">Estudio AG · polvo fino</span></div>
+          <div class="showbar" style="background:var(--ag)"></div>
+          <div class="showinner"><div class="row1"><span class="code">AG</span><span class="idx">05 / 06</span></div>
           <div class="name">Agro</div><div class="desc">Insumos e intermedios para protección de cultivos y agricultura.</div>
-          <div class="status"><span>Bajo solicitud</span><span class="arr">→</span></div></div></a>
-        <a class="rv divcard" href="#">
-          <div class="fig"><img loading="lazy" src="/img/div-in.jpg" alt="Estructura laminar, estudio de superficie"><span class="cap">Estudio IN · laminar</span></div>
-          <div class="bar" style="background:var(--in)"></div>
-          <div class="inner"><div class="row1"><span class="code">IN</span><span class="idx">06 / 06</span></div>
+          <div class="status"><span>Bajo solicitud</span></div></div></div>
+        <div class="showcard">
+          <div class="showfig"><img loading="lazy" src="/img/div-in.jpg" alt="Estructura laminar, estudio de superficie"><span class="cap">Estudio IN · laminar</span></div>
+          <div class="showbar" style="background:var(--in)"></div>
+          <div class="showinner"><div class="row1"><span class="code">IN</span><span class="idx">06 / 06</span></div>
           <div class="name">Industrial</div><div class="desc">Químicos de proceso y materias primas para aplicaciones industriales.</div>
-          <div class="status"><span>Bajo solicitud</span><span class="arr">→</span></div></div></a>
+          <div class="status"><span>Bajo solicitud</span></div></div></div>
+        <a class="showcard showend" href="/es/catalogue/">
+          <div class="showinner" style="display:flex;flex-direction:column;justify-content:center;height:100%;">
+            <span class="kick">Índice</span>
+            <div class="name" style="font-size:34px;margin-top:14px;">El catálogo.</div>
+            <div class="status" style="margin-top:26px;"><span>62 productos</span><span class="arr">→</span></div>
+          </div></a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="darksec">
-    <div class="wrap">
-      <div class="rv secmeta rev"><span class="folio">02</span><span class="sname">Desarrollo</span><span class="sright">Laboratorio · proyectos · programas</span></div>
-      <div class="std">
-        <div>
-          <h2>El portafolio es donde empezamos. El desarrollo es donde trabajamos.</h2>
-          <p style="font-weight:300;font-size:16.5px;margin-top:24px;max-width:460px;opacity:.88;">Formulación, sourcing a la medida, líneas de producto terminado y proyectos industriales a la medida — desarrollados en Suzhou, especificados por escrito y entregados con la misma disciplina documental del catálogo.</p>
-          <div class="cta-row"><a class="btn btn-rev-solid" href="/es/contact/?type=project">Iniciar un proyecto</a></div>
+  <section id="floors">
+    <div class="floorpin">
+      <div class="wrap floorgrid">
+        <div class="floorleft">
+          <div class="rv secmeta rev" style="margin-bottom:44px;"><span class="folio">02</span><span class="sname">La casa</span><span class="sright">Tres pisos</span></div>
+          <h2 class="floorhead">Una casa.<br>Tres pisos.</h2>
+          <div class="findex">
+            <span class="fdot" data-fl="0">01 — Portafolio</span>
+            <span class="fdot" data-fl="1">02 — El estándar</span>
+            <span class="fdot" data-fl="2">03 — Desarrollo</span>
+          </div>
+          <div class="fprog"><span id="fprogbar"></span></div>
         </div>
-        <div>
-          <div class="stditems" style="margin-top:0;">
-            <div class="rv stditem"><span class="n">01</span><div><div class="t">Sourcing a la medida</div><div class="d">Un grado calificado según su especificación — abastecido, verificado por nuestro control de calidad y enviado con documentación completa.</div></div></div>
-            <div class="rv stditem"><span class="n">02</span><div><div class="t">Desarrollo de formulación</div><div class="d">Desarrollado en el laboratorio; entregado como informe de desarrollo, prototipo y guía de proceso.</div></div></div>
-            <div class="rv stditem"><span class="n">03</span><div><div class="t">Desarrollo de producto terminado</div><div class="d">Líneas de producto completas desarrolladas para marcas — formulación, proceso y documentación, reduciendo costo y tiempo de producción.</div></div></div>
-            <div class="rv stditem"><span class="n">04</span><div><div class="t">Proyectos industriales a la medida</div><div class="d">Definidos por proyecto — especificación, cronograma y entregables acordados por escrito antes de iniciar.</div></div></div>
-            <div class="rv stditem"><span class="n">05</span><div><div class="t">Programas de suministro</div><div class="d">Suministro programado bajo asignación, documentado por lote — el formato con el que operan los compradores de largo plazo.</div></div></div>
+        <div class="fpanels">
+          <div class="fpanel" data-fl="0">
+            <div class="fstat"><span class="fnum" data-count="62">62</span><span class="flab">Productos indexados</span></div>
+            <div class="fstatrow">
+              <div class="fstat sm"><span class="fnum" data-count="8">8</span><span class="flab">Familias</span></div>
+              <div class="fstat sm"><span class="fnum" data-count="2">2</span><span class="flab">Divisiones catalogadas</span></div>
+            </div>
+            <p class="ftext">Cada producto indexado con código, INCI y CAS — documentación bajo solicitud.</p>
+            <a class="btn btn-rev-solid" href="/es/catalogue/">Explorar el catálogo</a>
+          </div>
+          <div class="fpanel" data-fl="1">
+            <div class="stditems" style="margin-top:0;">
+              <div class="rv stditem"><span class="n">01</span><div><div class="t">TDS extendido · 18 secciones</div><div class="d">Especificación, aplicaciones, niveles de uso, estatus regulatorio — el registro técnico completo de lo desarrollado.</div></div></div>
+              <div class="rv stditem"><span class="n">02</span><div><div class="t">SDS · Reglamento (UE) 2020/878</div><div class="d">Documentación de seguridad en el formato que las mesas regulatorias europeas procesan sin retrabajo.</div></div></div>
+              <div class="rv stditem"><span class="n">03</span><div><div class="t">COA · por lote</div><div class="d">Cada lote sale con su Certificado de Análisis, verificado dos veces por control de calidad.</div></div></div>
+            </div>
+          </div>
+          <div class="fpanel" data-fl="2">
+            <div class="stditems" style="margin-top:0;">
+              <div class="rv stditem"><span class="n">01</span><div><div class="t">Sourcing a la medida</div><div class="d">Un grado calificado según su especificación — abastecido, verificado por nuestro control de calidad y enviado con documentación completa.</div></div></div>
+              <div class="rv stditem"><span class="n">02</span><div><div class="t">Desarrollo de formulación</div><div class="d">Desarrollado en el laboratorio; entregado como informe de desarrollo, prototipo y guía de proceso.</div></div></div>
+              <div class="rv stditem"><span class="n">03</span><div><div class="t">Desarrollo de producto terminado</div><div class="d">Líneas de producto completas desarrolladas para marcas — formulación, proceso y documentación, reduciendo costo y tiempo de producción.</div></div></div>
+            </div>
+            <a class="btn btn-rev-solid" style="margin-top:30px;" href="/es/development/">Iniciar un proyecto</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="section" style="padding-bottom:0;">
-    <div class="wrap">
-      <div class="rv secmeta"><span class="folio">03</span><span class="sname">El estándar</span><span class="sright">Cada lote, verificado</span></div>
-      <div class="rv stdstrip">
-        <div class="c"><div class="l">Trazabilidad</div><div class="v">COA de lote con cada envío</div></div>
-        <div class="c"><div class="l">Calidad</div><div class="v">ISO 9001:2015 · QC 2× por lote</div></div>
-        <div class="c"><div class="l">Documentos</div><div class="v">TDS extendido · SDS (UE) 2020/878</div></div>
-        <div class="c"><div class="l">Regla de publicación</div><div class="v">En línea solo con el paquete completo</div></div>
-      </div>
-    </div>
-  </div>
+  </section>
 
   <div class="section">
     <div class="wrap">
-      <div class="rv secmeta"><span class="folio">04</span><span class="sname">Logística y confianza</span><span class="sright">Solo hechos</span></div>
-      <div class="logi">
-        <div class="cell"><div class="num" data-count="7">7</div><div class="lab">Años de operación</div><div class="sub">Suzhou High-tech Zone · desde 2019</div></div>
-        <div class="cell"><div class="num">2×</div><div class="lab">Verificación de QC por lote</div><div class="sub">Doble verificación antes de liberar</div></div>
-        <div class="cell"><div class="num" data-count="3">3</div><div class="lab">Puertos de exportación</div><div class="sub">FOB · CIF bajo solicitud</div></div>
+      <div class="rv secmeta"><span class="folio">03</span><span class="sname">Hechos</span><span class="sright">Sin adjetivos</span></div>
+      <div class="statband">
+        <div class="stat"><span class="statn" data-count="62">62</span><span class="statl">Productos indexados</span></div>
+        <div class="stat"><span class="statn" data-count="8">8</span><span class="statl">Familias</span></div>
+        <div class="stat"><span class="statn" data-count="6">6</span><span class="statl">Divisiones</span></div>
+        <div class="stat"><span class="statn" data-count="2019">2019</span><span class="statl">Fundación</span></div>
+        <div class="stat"><span class="statn">ISO</span><span class="statl">certificado 9001:2015</span></div>
       </div>
-      <div class="ports">
+      <div class="ports" style="margin-top:56px;">
         <div class="port"><span>SHANGHAI</span><span class="coord">31.23°N 121.47°E</span></div>
         <div class="port"><span>NINGBO</span><span class="coord">29.87°N 121.55°E</span></div>
         <div class="port"><span>QINGDAO</span><span class="coord">36.07°N 120.38°E</span></div>
@@ -565,7 +644,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
     <div class="wrap">
       <div class="fcols">
         <div><img class="lockup-img" src="/img/brand/logo-h-rev.png" alt="huishuo"><p class="slogan">One standard, many worlds.</p></div>
-        <div><h4>Divisiones</h4><a href="/es/divisions/personal-care/">Cuidado Personal</a><a href="#">Nutrición Humana</a><a href="#">Alimentos</a><a href="#">Nutrición Animal</a><a href="#">Agro</a><a href="#">Industrial</a></div>
+        <div><h4>Divisiones</h4><a href="/es/divisions/personal-care/">Cuidado Personal</a><a href="/es/divisions/human-nutrition/">Nutrición Humana</a><a href="/es/divisions/">Alimentos</a><a href="/es/divisions/">Nutrición Animal</a><a href="/es/divisions/">Agro</a><a href="/es/divisions/">Industrial</a></div>
         <div><h4>Empresa</h4><a href="/es/company/">Acerca de</a><a href="/es/development/">Desarrollo</a><a href="/es/company/#logistics">Logística</a></div>
         <div><h4>Contacto</h4><a href="/es/contact/?type=quote">Solicitar una cotización</a><a href="/es/contact/">Solicitar documentos</a></div>
       </div>

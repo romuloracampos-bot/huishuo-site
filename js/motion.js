@@ -122,3 +122,57 @@
   canvas.classList.add('live');
   requestAnimationFrame(frame);
 })();
+
+/* ---------- v2: coreografia de scroll (home imersiva) ---------- */
+(function () {
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || window.innerWidth < 920) return;
+
+  var heroC = document.getElementById('heroContent');
+  var show = document.getElementById('show');
+  var track = document.getElementById('showtrack');
+  var floors = document.getElementById('floors');
+  var fbar = document.getElementById('fprogbar');
+  var fdots = Array.prototype.slice.call(document.querySelectorAll('.fdot'));
+  var fpanels = Array.prototype.slice.call(document.querySelectorAll('.fpanel'));
+  if (!heroC && !show && !floors) return;
+
+  var curX = 0, targX = 0;
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+
+  function update() {
+    var y = window.scrollY;
+    if (heroC) {
+      var p = clamp(y / (window.innerHeight * 0.9), 0, 1);
+      heroC.style.transform = 'translateY(' + (p * 60) + 'px)';
+      heroC.style.opacity = String(1 - p * 0.55);
+    }
+    if (show && track) {
+      var r = show.getBoundingClientRect();
+      var total = show.offsetHeight - window.innerHeight;
+      var sp = clamp(-r.top / total, 0, 1);
+      targX = -sp * Math.max(track.scrollWidth - window.innerWidth + 112, 0);
+    }
+    if (floors) {
+      var fr = floors.getBoundingClientRect();
+      var ftotal = floors.offsetHeight - window.innerHeight;
+      var fp = clamp(-fr.top / ftotal, 0, 0.9999);
+      var idx = Math.floor(fp * 3);
+      fpanels.forEach(function (el, i) { el.classList.toggle('on', i === idx); });
+      fdots.forEach(function (el, i) { el.classList.toggle('on', i === idx); });
+      if (fbar) fbar.style.width = (fp * 100) + '%';
+    }
+  }
+  function raf() {
+    curX += (targX - curX) * 0.12;
+    if (track) track.style.transform = 'translateX(' + curX + 'px)';
+    requestAnimationFrame(raf);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+  if (fpanels.length) fpanels[0].classList.add('on');
+  if (fdots.length) fdots[0].classList.add('on');
+  requestAnimationFrame(raf);
+})();
