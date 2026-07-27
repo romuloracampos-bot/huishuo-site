@@ -194,3 +194,23 @@
   window.addEventListener('scroll', upd, { passive: true });
   upd();
 })();
+
+/* ---------- v4: triptico de facilities ---------- */
+(function () {
+  'use strict';
+  var pans = Array.prototype.slice.call(document.querySelectorAll('.fpan'));
+  if (!pans.length || window.innerWidth < 920) return;
+  function activate(p) {
+    pans.forEach(function (x) {
+      var on = x === p;
+      x.classList.toggle('on', on);
+      x.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+  }
+  pans.forEach(function (p) {
+    p.addEventListener('mouseenter', function () { activate(p); });
+    p.addEventListener('focus', function () { activate(p); });
+    p.addEventListener('click', function () { activate(p); });
+    p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(p); } });
+  });
+})();

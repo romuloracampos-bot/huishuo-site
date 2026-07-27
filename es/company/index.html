@@ -572,6 +572,38 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 .showinner .idx{opacity:.58;}
 .divcard .idx{opacity:.58;}
 .fcols .h4{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:18px;}
+/* ===== facilities v2: triptico-acordeao ===== */
+.factri{display:flex;gap:2px;height:72vh;min-height:480px;background:var(--hair);}
+.fpan{position:relative;overflow:hidden;flex:1;transition:flex 700ms cubic-bezier(.22,.6,.2,1);cursor:pointer;background:var(--ink);}
+.fpan.on{flex:2.7;cursor:default;}
+.fpan img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8;transition:opacity 500ms ease,transform 900ms cubic-bezier(.22,.6,.2,1);}
+.fpan.on img{opacity:.55;transform:scale(1.02);}
+.fpan::after{content:"";position:absolute;inset:0;background:rgba(28,26,21,.30);}
+.fpan.on::after{background:rgba(28,26,21,.52);}
+.fpan:focus-visible{outline:2px solid var(--offwhite);outline-offset:-4px;}
+.fp-mini{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);writing-mode:vertical-rl;z-index:2;
+  font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--offwhite);
+  opacity:1;transition:opacity 300ms ease;}
+.fpan.on .fp-mini{opacity:0;}
+.fp-full{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 44px 40px;color:var(--offwhite);opacity:0;transform:translateY(14px);transition:opacity 450ms ease 180ms,transform 450ms cubic-bezier(.22,.6,.2,1) 180ms;pointer-events:none;}
+.fpan.on .fp-full{opacity:1;transform:none;pointer-events:auto;}
+.fp-full h3{font-size:36px;color:var(--offwhite);}
+.fp-full p{font-weight:300;font-size:15.5px;margin-top:10px;max-width:520px;opacity:.9;}
+.fp-data{margin-top:22px;border-top:0.5px solid var(--hair-rev);max-width:520px;}
+.fp-row{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:10px 0;border-bottom:0.5px solid var(--hair-rev);}
+.fp-l{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);padding-top:2px;}
+.fp-v{font-family:'IBM Plex Mono',monospace;font-size:12px;}
+.fp-go{display:inline-block;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--offwhite);text-decoration:none;border-bottom:1px solid var(--hair-rev);padding-bottom:3px;transition:border-color 200ms ease;}
+.fp-go:hover{border-color:var(--offwhite);}
+@media (max-width:920px){
+  .factri{flex-direction:column;height:auto;}
+  .fpan{min-height:300px;flex:none;}
+  .fpan .fp-mini{display:none;}
+  .fpan .fp-full{opacity:1;transform:none;pointer-events:auto;padding:0 24px 26px;}
+  .fpan img{opacity:.5;}
+  .fp-full h3{font-size:26px;}
+}
+@media (prefers-reduced-motion: reduce){ .fpan,.fpan img,.fp-full{transition:none;} }
 </style>
 <meta name="description" content="Casa de ingredientes y desarrollo fundada en 2019 en Suzhou High-tech Zone, China. Seis divisiones, QC doble, ISO 9001:2015, exportación por Shanghai, Ningbo y Qingdao.">
 <meta name="robots" content="noindex, nofollow">
