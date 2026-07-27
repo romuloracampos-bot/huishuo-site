@@ -176,3 +176,21 @@
   if (fdots.length) fdots[0].classList.add('on');
   requestAnimationFrame(raf);
 })();
+
+/* ---------- v3: paralaxe das bandas de facilities ---------- */
+(function () {
+  'use strict';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var plx = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
+  if (!plx.length) return;
+  function upd() {
+    plx.forEach(function (img) {
+      var r = img.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      var p = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      img.style.transform = 'translateY(' + (p * 46) + 'px)';
+    });
+  }
+  window.addEventListener('scroll', upd, { passive: true });
+  upd();
+})();
