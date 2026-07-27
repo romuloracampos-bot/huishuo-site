@@ -604,6 +604,25 @@ a.showcard:hover .showfig .tint{opacity:.14;}
   .fp-full h3{font-size:26px;}
 }
 @media (prefers-reduced-motion: reduce){ .fpan,.fpan img,.fp-full{transition:none;} }
+/* ===== floors v2: percurso curto + artefatos ===== */
+#floors{height:230vh;}
+.fpanel{transition:opacity 380ms ease,transform 380ms cubic-bezier(.22,.6,.2,1);}
+.fmini{margin-top:26px;border-top:0.5px solid var(--hair-rev);max-width:560px;}
+.fmrow{display:grid;grid-template-columns:150px 1fr 30px;gap:16px;align-items:center;padding:12px 0;border-bottom:0.5px solid var(--hair-rev);text-decoration:none;color:var(--offwhite);transition:background 160ms ease;}
+.fmrow:hover{background:rgba(244,238,226,.06);}
+.fmc{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;}
+.fmi{font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.75;}
+.fma{font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:right;opacity:.6;}
+.fdocs{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:26px;max-width:620px;}
+.fdoc{border:0.5px solid var(--hair-rev);padding:20px 20px 22px;}
+.fdk{font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:var(--offwhite);display:block;}
+.fdt{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);margin-top:8px;display:block;}
+.kws.frev{margin-top:26px;max-width:560px;}
+.kws.frev span{border-color:var(--hair-rev);color:var(--offwhite);font-size:10.5px;padding:8px 13px;}
+@media (max-width:920px){
+  .fdocs{grid-template-columns:1fr;}
+  .fmrow{grid-template-columns:110px 1fr 20px;}
+}
 </style>
 <meta name="description" content="Ingredient and development house in Suzhou, China — serving Latin America, the Middle East, Canada and South Africa with ingredients, formulations and finished lines.">
 <meta name="robots" content="noindex, nofollow">
@@ -789,19 +808,33 @@ a.showcard:hover .showfig .tint{opacity:.14;}
         </div>
         <div class="fpanels">
           <div class="fpanel" data-fl="0">
-            <h3 class="fbig">Every product the house ships, indexed in one place — code, INCI, CAS.</h3>
+            <h3 class="fbig">Every product the house ships, indexed in one place.</h3>
             <p class="ftext">Search it, filter it by family, open the product and ask for what you need.</p>
-            <a class="btn btn-rev-solid" href="/catalogue/">Browse the catalogue</a>
+            <div class="fmini">
+              <a class="fmrow" href="/products/hs-cab/"><span class="fmc">HS-CAB</span><span class="fmi">Cocamidopropyl Betaine</span><span class="fma">→</span></a>
+              <a class="fmrow" href="/products/hs2000/"><span class="fmc">HS2000</span><span class="fmi">Decyl Glucoside</span><span class="fma">→</span></a>
+              <a class="fmrow" href="/catalogue/?family=hn-01"><span class="fmc">HS-CreaPower</span><span class="fmi">Creatine Monohydrate</span><span class="fma">→</span></a>
+              <a class="fmrow" href="/catalogue/?family=hn-02"><span class="fmc">HS-VitaC</span><span class="fmi">Ascorbic Acid</span><span class="fma">→</span></a>
+            </div>
+            <a class="btn btn-rev-solid" style="margin-top:26px;" href="/catalogue/">Browse the catalogue</a>
           </div>
           <div class="fpanel" data-fl="1">
             <h3 class="fbig">Ask for any document, from any page.</h3>
             <p class="ftext">It arrives ready for your regulatory desk — and every lot ships with its own certificate.</p>
-            <a class="btn btn-rev-solid" href="/contact/">Request documentation</a>
+            <div class="fdocs">
+              <div class="fdoc"><span class="fdk">TDS</span><span class="fdt">Extended · 18 sections</span></div>
+              <div class="fdoc"><span class="fdk">SDS</span><span class="fdt">Regulation (EU) 2020/878</span></div>
+              <div class="fdoc"><span class="fdk">COA</span><span class="fdt">Per batch · QC 2×</span></div>
+            </div>
+            <a class="btn btn-rev-solid" style="margin-top:26px;" href="/contact/">Request documentation</a>
           </div>
           <div class="fpanel" data-fl="2">
             <h3 class="fbig">And when the portfolio isn't enough, the laboratory takes the brief.</h3>
-            <p class="ftext">Formulations, finished product lines, custom sourcing, industrial projects and supply programs.</p>
-            <a class="btn btn-rev-solid" style="margin-top:10px;" href="/development/">Start a project</a>
+            <p class="ftext">Five formats, each with a named deliverable — answered in writing.</p>
+            <div class="kws frev">
+              <span>Custom sourcing</span><span>Formulation</span><span>Finished product lines</span><span>Industrial projects</span><span>Supply programs</span>
+            </div>
+            <a class="btn btn-rev-solid" style="margin-top:26px;" href="/development/">Start a project</a>
           </div>
         </div>
       </div>

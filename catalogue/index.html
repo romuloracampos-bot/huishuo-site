@@ -604,6 +604,25 @@ a.showcard:hover .showfig .tint{opacity:.14;}
   .fp-full h3{font-size:26px;}
 }
 @media (prefers-reduced-motion: reduce){ .fpan,.fpan img,.fp-full{transition:none;} }
+/* ===== floors v2: percurso curto + artefatos ===== */
+#floors{height:230vh;}
+.fpanel{transition:opacity 380ms ease,transform 380ms cubic-bezier(.22,.6,.2,1);}
+.fmini{margin-top:26px;border-top:0.5px solid var(--hair-rev);max-width:560px;}
+.fmrow{display:grid;grid-template-columns:150px 1fr 30px;gap:16px;align-items:center;padding:12px 0;border-bottom:0.5px solid var(--hair-rev);text-decoration:none;color:var(--offwhite);transition:background 160ms ease;}
+.fmrow:hover{background:rgba(244,238,226,.06);}
+.fmc{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;}
+.fmi{font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.75;}
+.fma{font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:right;opacity:.6;}
+.fdocs{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:26px;max-width:620px;}
+.fdoc{border:0.5px solid var(--hair-rev);padding:20px 20px 22px;}
+.fdk{font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:var(--offwhite);display:block;}
+.fdt{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);margin-top:8px;display:block;}
+.kws.frev{margin-top:26px;max-width:560px;}
+.kws.frev span{border-color:var(--hair-rev);color:var(--offwhite);font-size:10.5px;padding:8px 13px;}
+@media (max-width:920px){
+  .fdocs{grid-template-columns:1fr;}
+  .fmrow{grid-template-columns:110px 1fr 20px;}
+}
 </style>
 <meta name="description" content="The full Huishuo Personal Care catalogue: product codes, INCI names, CAS numbers and families. Documentation on request.">
 <meta name="robots" content="noindex, nofollow">
