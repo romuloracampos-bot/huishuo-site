@@ -159,7 +159,7 @@
       var ftotal = floors.offsetHeight - window.innerHeight;
       var fp = clamp(-fr.top / ftotal, 0, 0.9999);
       var idx = Math.floor(fp * 3);
-      fpanels.forEach(function (el, i) { el.classList.toggle('on', i === idx); });
+      fpanels.forEach(function (el, i) { el.classList.toggle('on', i === idx); el.setAttribute('aria-hidden', i === idx ? 'false' : 'true'); });
       fdots.forEach(function (el, i) { el.classList.toggle('on', i === idx); });
       if (fbar) fbar.style.width = (fp * 100) + '%';
     }

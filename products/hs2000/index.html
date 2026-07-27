@@ -253,6 +253,8 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 }
 </style>
 <script src="/js/motion.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preload" as="image" href="/img/hero-crystal-960.jpg" fetchpriority="high">
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -538,6 +540,38 @@ a.showcard:hover .showfig .tint{opacity:.14;}
   .reachports{grid-template-columns:1fr;}
   .showfig .bigcode{font-size:44px;}
 }
+/* ===== v14: correcoes da critica ===== */
+.reachsvg .route path{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.2s cubic-bezier(.22,.6,.2,1),stroke 200ms ease,stroke-width 200ms ease;}
+.reachwrap.in .route path{stroke-dashoffset:0;}
+.reachwrap.in .route:nth-of-type(2) path{transition-delay:.2s;}
+.reachwrap.in .route:nth-of-type(3) path{transition-delay:.4s;}
+.reachwrap.in .route:nth-of-type(4) path{transition-delay:.6s;}
+.reachsvg .route{cursor:default;}
+.reachsvg .route circle{transition:transform 250ms ease;transform-box:fill-box;transform-origin:center;}
+.reachsvg .route text{transition:fill 200ms ease;}
+.reachsvg .route:hover path{stroke:#9C7B43;stroke-width:2;}
+.reachsvg .route:hover circle{transform:scale(1.7);}
+.reachsvg .route:hover text{fill:#9C7B43;}
+/* development em campo Tinta */
+.darksec .benef{background:transparent;border-color:var(--hair-rev);gap:2px;}
+.darksec .bcard{background:transparent;border:0.5px solid var(--hair-rev);margin:-1px 0 0 -1px;}
+.darksec .bcard .bt{color:var(--offwhite);}
+.darksec .bcard .bd{color:var(--offwhite);opacity:.82;}
+.darksec + .darksec{padding-top:0;}
+/* clamp da vitrine em viewports baixos */
+@media (max-height:840px) and (min-width:921px){
+  .showfig{height:36vh;min-height:220px;}
+  .showinner{padding:18px 22px 22px;}
+  .showinner .divname{font-size:23px;}
+  .showinner .dna{font-size:15px;margin-top:8px;}
+  #show .pin{justify-content:flex-start;padding-top:76px;}
+}
+/* v14: acessibilidade (contraste, alvos, hierarquia) */
+.langswitch .off{opacity:.62;}
+.langswitch a{padding:10px 4px;display:inline-block;}
+.showinner .idx{opacity:.58;}
+.divcard .idx{opacity:.58;}
+.fcols .h4{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:18px;}
 </style>
 <meta name="description" content="Decyl Glucoside (CAS 54549-25-6) — The versatile glucoside for sulfate-free cleansing. Request TDS, SDS, COA or sample.">
 <meta name="robots" content="noindex, nofollow">

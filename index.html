@@ -253,6 +253,8 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 }
 </style>
 <script src="/js/motion.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preload" as="image" href="/img/hero-crystal-960.jpg" fetchpriority="high">
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -538,6 +540,38 @@ a.showcard:hover .showfig .tint{opacity:.14;}
   .reachports{grid-template-columns:1fr;}
   .showfig .bigcode{font-size:44px;}
 }
+/* ===== v14: correcoes da critica ===== */
+.reachsvg .route path{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.2s cubic-bezier(.22,.6,.2,1),stroke 200ms ease,stroke-width 200ms ease;}
+.reachwrap.in .route path{stroke-dashoffset:0;}
+.reachwrap.in .route:nth-of-type(2) path{transition-delay:.2s;}
+.reachwrap.in .route:nth-of-type(3) path{transition-delay:.4s;}
+.reachwrap.in .route:nth-of-type(4) path{transition-delay:.6s;}
+.reachsvg .route{cursor:default;}
+.reachsvg .route circle{transition:transform 250ms ease;transform-box:fill-box;transform-origin:center;}
+.reachsvg .route text{transition:fill 200ms ease;}
+.reachsvg .route:hover path{stroke:#9C7B43;stroke-width:2;}
+.reachsvg .route:hover circle{transform:scale(1.7);}
+.reachsvg .route:hover text{fill:#9C7B43;}
+/* development em campo Tinta */
+.darksec .benef{background:transparent;border-color:var(--hair-rev);gap:2px;}
+.darksec .bcard{background:transparent;border:0.5px solid var(--hair-rev);margin:-1px 0 0 -1px;}
+.darksec .bcard .bt{color:var(--offwhite);}
+.darksec .bcard .bd{color:var(--offwhite);opacity:.82;}
+.darksec + .darksec{padding-top:0;}
+/* clamp da vitrine em viewports baixos */
+@media (max-height:840px) and (min-width:921px){
+  .showfig{height:36vh;min-height:220px;}
+  .showinner{padding:18px 22px 22px;}
+  .showinner .divname{font-size:23px;}
+  .showinner .dna{font-size:15px;margin-top:8px;}
+  #show .pin{justify-content:flex-start;padding-top:76px;}
+}
+/* v14: acessibilidade (contraste, alvos, hierarquia) */
+.langswitch .off{opacity:.62;}
+.langswitch a{padding:10px 4px;display:inline-block;}
+.showinner .idx{opacity:.58;}
+.divcard .idx{opacity:.58;}
+.fcols .h4{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:18px;}
 </style>
 <meta name="description" content="Ingredient and development house in Suzhou, China — serving Latin America, the Middle East, Canada and South Africa with ingredients, formulations and finished lines.">
 <meta name="robots" content="noindex, nofollow">
@@ -561,7 +595,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 
 <main>
   <div class="hero" id="hero">
-    <div class="bg"><canvas id="haze"></canvas><img src="/img/hero-crystal.jpg" alt="Raw material surface, macro study"></div>
+    <div class="bg"><canvas id="haze"></canvas><img src="/img/hero-crystal.jpg" srcset="/img/hero-crystal-960.jpg 960w, /img/hero-crystal-1366.jpg 1366w, /img/hero-crystal.jpg 1680w" sizes="100vw" fetchpriority="high" alt="Raw material surface, macro study"></div>
     <div class="reticle rt-tr"><span>Material study 01 · raw surface</span><span class="tick"></span></div>
     <div class="reticle rt-bl"><span class="tick"></span><span>Suzhou · 31.30°N 120.58°E</span></div>
     <div class="cross" style="top:38%;left:63%;"></div>
@@ -572,8 +606,8 @@ a.showcard:hover .showfig .tint{opacity:.14;}
         <p class="slogan">One standard, many worlds.</p>
         <p class="positioning">From Suzhou, China to formulators across Latin America, the Middle East, Canada and South Africa — ingredients, formulations and finished lines, developed in-house.</p>
         <div class="cta-row">
-          <a class="btn btn-rev-solid" href="/divisions/">Explore divisions</a>
-          <a class="btn btn-rev" href="/development/">Start a project</a>
+          <a class="btn btn-rev-solid" href="/contact/?type=quote">Request a quote</a>
+          <a class="btn btn-rev" href="/divisions/">Explore divisions</a>
         </div>
       </div>
       <div class="scrollcue"><span class="line"></span><span>Scroll</span></div>
@@ -615,25 +649,30 @@ a.showcard:hover .showfig .tint{opacity:.14;}
       <div class="reachwrap rv">
         <svg class="reachsvg" viewBox="0 0 1200 420" role="img" aria-label="Routes from Suzhou to Latin America, the Middle East, Canada and South Africa">
           <line x1="0" y1="370" x2="1200" y2="370" stroke="#1C1A15" stroke-width="1"/>
-          <g class="arcs" fill="none" stroke="#1C1A15" stroke-width="1.2">
-            <path d="M 1060 370 C 900 80, 420 60, 150 370"/>
-            <path d="M 1060 370 C 950 150, 640 140, 430 370"/>
-            <path d="M 1060 370 C 980 120, 760 100, 640 370"/>
-            <path d="M 1060 370 C 1000 200, 900 190, 850 370"/>
+          <g class="route">
+            <path fill="none" stroke="#1C1A15" stroke-width="1.2" d="M 1060 370 C 900 80, 420 60, 150 370"/>
+            <circle cx="150" cy="370" r="4" fill="#9C7B43"/>
+            <text x="150" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">LATIN AMERICA</text>
           </g>
-          <g fill="#9C7B43">
-            <circle cx="1060" cy="370" r="6"/>
-            <circle cx="150" cy="370" r="4"/><circle cx="430" cy="370" r="4"/><circle cx="640" cy="370" r="4"/><circle cx="850" cy="370" r="4"/>
+          <g class="route">
+            <path fill="none" stroke="#1C1A15" stroke-width="1.2" d="M 1060 370 C 950 150, 640 140, 430 370"/>
+            <circle cx="430" cy="370" r="4" fill="#9C7B43"/>
+            <text x="430" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">SOUTH AFRICA</text>
           </g>
-          <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">
-            <text x="1060" y="400" text-anchor="middle">SUZHOU</text>
-            <text x="150" y="400" text-anchor="middle">LATIN AMERICA</text>
-            <text x="430" y="400" text-anchor="middle">SOUTH AFRICA</text>
-            <text x="640" y="400" text-anchor="middle">MIDDLE EAST</text>
-            <text x="850" y="400" text-anchor="middle">CANADA</text>
+          <g class="route">
+            <path fill="none" stroke="#1C1A15" stroke-width="1.2" d="M 1060 370 C 980 120, 760 100, 640 370"/>
+            <circle cx="640" cy="370" r="4" fill="#9C7B43"/>
+            <text x="640" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">MIDDLE EAST</text>
           </g>
-          <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#9C7B43" letter-spacing="1.5">
-            <text x="1060" y="345" text-anchor="middle">31.30°N 120.58°E</text>
+          <g class="route">
+            <path fill="none" stroke="#1C1A15" stroke-width="1.2" d="M 1060 370 C 1000 200, 900 190, 850 370"/>
+            <circle cx="850" cy="370" r="4" fill="#9C7B43"/>
+            <text x="850" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">CANADA</text>
+          </g>
+          <g class="hub">
+            <circle cx="1060" cy="370" r="6" fill="#9C7B43"/>
+            <text x="1060" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">SUZHOU</text>
+            <text x="1060" y="345" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#9C7B43" letter-spacing="1.5">31.30°N 120.58°E</text>
           </g>
         </svg>
         <div class="reachports">
@@ -725,11 +764,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
           <div class="fpanel" data-fl="1">
             <h3 class="fbig">Ask for any document, from any page.</h3>
             <p class="ftext">It arrives ready for your regulatory desk — and every lot ships with its own certificate.</p>
-            <div class="stditems" style="margin-top:26px;">
-              <div class="rv stditem"><span class="n">TDS</span><div><div class="t">Technical Data Sheet</div></div></div>
-              <div class="rv stditem"><span class="n">SDS</span><div><div class="t">Safety Data Sheet</div></div></div>
-              <div class="rv stditem"><span class="n">COA</span><div><div class="t">Certificate of Analysis, per batch</div></div></div>
-            </div>
+            <a class="btn btn-rev-solid" href="/contact/">Request documentation</a>
           </div>
           <div class="fpanel" data-fl="2">
             <h3 class="fbig">And when the portfolio isn't enough, the laboratory takes the brief.</h3>
@@ -777,9 +812,9 @@ a.showcard:hover .showfig .tint{opacity:.14;}
     </div>
   </div>
 
-  <div class="section" style="padding-top:0;">
+  <div class="darksec">
     <div class="wrap">
-      <div class="rv secmeta"><span class="folio">07</span><span class="sname">Development</span><span class="sright">Five formats, each with a named deliverable</span></div>
+      <div class="rv secmeta rev"><span class="folio">07</span><span class="sname">Development</span><span class="sright">Five formats, each with a named deliverable</span></div>
       <div class="benef">
         <div class="rv bcard"><span class="bn">01</span><div><div class="bt">Custom sourcing</div><div class="bd">A grade qualified to your specification — sourced, verified by our QC and shipped with a complete documentation set.</div></div></div>
         <div class="rv bcard"><span class="bn">02</span><div><div class="bt">Formulation development</div><div class="bd">Developed in the laboratory; delivered as a development report, a prototype and a process guide.</div></div></div>
@@ -819,7 +854,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 
   <div class="section">
     <div class="wrap">
-      <div class="rv secmeta"><span class="folio">09</span><span class="sname">Contact</span><span class="sright">Response by e-mail</span></div>
+      <div class="rv secmeta"><span class="folio">09</span><span class="sname">Contact</span><span class="sright">Response within 24 business hours</span></div>
       <div class="homecontact">
         <div>
           <h2 style="font-size:38px;max-width:520px;">Direct line to the commercial desk.</h2>
@@ -845,9 +880,9 @@ a.showcard:hover .showfig .tint{opacity:.14;}
     <div class="wrap">
       <div class="fcols">
         <div><img class="lockup-img" src="/img/brand/logo-h-rev.png" alt="huishuo"><p class="slogan">One standard, many worlds.</p></div>
-        <div><h4>Divisions</h4><a href="/divisions/personal-care/">Personal Care</a><a href="/divisions/human-nutrition/">Human Nutrition</a><a href="/divisions/">Food</a><a href="/divisions/">Animal Nutrition</a><a href="/divisions/">Agro</a><a href="/divisions/">Industrial</a></div>
-        <div><h4>Company</h4><a href="/company/">About</a><a href="/development/">Development</a><a href="/company/#logistics">Logistics</a></div>
-        <div><h4>Contact</h4><a href="mailto:sales@huishuochem.com">sales@huishuochem.com</a><a href="https://wa.me/5511932625665">WhatsApp +55 11 93262 5665</a><a href="/contact/?type=quote">Request a quote</a><a href="/contact/">Request documents</a></div>
+        <div><div class="h4">Divisions</div><a href="/divisions/personal-care/">Personal Care</a><a href="/divisions/human-nutrition/">Human Nutrition</a><a href="/divisions/">Food</a><a href="/divisions/">Animal Nutrition</a><a href="/divisions/">Agro</a><a href="/divisions/">Industrial</a></div>
+        <div><div class="h4">Company</div><a href="/company/">About</a><a href="/development/">Development</a><a href="/company/#logistics">Logistics</a></div>
+        <div><div class="h4">Contact</div><a href="mailto:sales@huishuochem.com">sales@huishuochem.com</a><a href="https://wa.me/5511932625665">WhatsApp +55 11 93262 5665</a><a href="/contact/?type=quote">Request a quote</a><a href="/contact/">Request documents</a></div>
       </div>
       <div class="legal"><span>© 2026 Suzhou Huishuo Biotechnology Co., Ltd.</span><span>huishuochem.com</span></div>
     </div>
