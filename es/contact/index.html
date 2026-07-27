@@ -623,6 +623,45 @@ a.showcard:hover .showfig .tint{opacity:.14;}
   .fdocs{grid-template-columns:1fr;}
   .fmrow{grid-template-columns:110px 1fr 20px;}
 }
+
+/* ---------- catalogue v2: indice vivo ---------- */
+.cathero .content{padding-top:128px;}
+.cathero .datastrip{margin-top:88px;}
+.cathero .secmeta{border-top-color:var(--hair-rev);margin-bottom:44px;}
+.cath1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(46px,6.6vw,92px);line-height:.98;letter-spacing:-.008em;max-width:920px;}
+.catlead{font-weight:300;font-size:18px;line-height:1.65;max-width:600px;margin-top:24px;opacity:.9;}
+.famnav{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.famcard{position:relative;text-align:left;background:none;border:0.5px solid var(--hair-strong);padding:20px 20px 18px;cursor:pointer;color:var(--ink);transition:border-color 180ms ease,background 180ms ease,color 180ms ease;display:flex;flex-direction:column;gap:7px;}
+.famcard .fn-bar{display:block;width:34px;height:3px;transition:width 320ms cubic-bezier(.22,.6,.2,1);margin-bottom:6px;}
+.famcard:hover .fn-bar,.famcard.active .fn-bar{width:100%;}
+.famcard .fn-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+.famcard .fn-code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.18em;color:var(--bronze);}
+.famcard .fn-div{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.45;}
+.famcard .fn-name{font-family:'Fraunces',serif;font-weight:500;font-size:21px;line-height:1.1;}
+.famcard .fn-n{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;opacity:.6;}
+.famcard:hover{border-color:var(--ink);}
+.famcard.active{background:var(--ink);color:var(--offwhite);border-color:var(--ink);}
+.famcard.active .fn-div,.famcard.active .fn-n{opacity:.65;}
+.famcard:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.catbar{position:sticky;top:58px;z-index:40;background:rgba(244,238,226,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:14px 0;margin-bottom:30px;border-bottom:0.5px solid var(--hair-strong);}
+.catcount{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;opacity:.75;margin-left:auto;}
+.catcount b{font-weight:500;color:var(--bronze);}
+.catrow .c-act{transition:transform 200ms ease,color 200ms ease;}
+.catrow:hover .c-act{transform:translateX(4px);color:var(--bronze);}
+@media (max-width:960px){ .famnav{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:720px){
+  .famnav{grid-template-columns:1fr 1fr;}
+  .famcard{padding:14px 14px 13px;}
+  .famcard .fn-name{font-size:16px;}
+  .famcard .fn-div{display:none;}
+  .cathero .content{padding-top:104px;}
+  .cathero .datastrip{margin-top:64px;}
+  .catbar{top:52px;}
+  .catcount{margin-left:0;}
+}
+
+#families{scroll-margin-top:96px;}
+[hidden]{display:none!important;}
 </style>
 <meta name="description" content="Solicite TDS, SDS, COA, muestras o una cotización a Huishuo, Suzhou. Línea directa con la mesa comercial: sales@huishuochem.com.">
 <meta name="robots" content="noindex, nofollow">
