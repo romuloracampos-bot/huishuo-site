@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="El catálogo completo de Cuidado Personal de Huishuo: códigos, nombres INCI, números CAS y familias. Documentación bajo solicitud.">
 <meta name="robots" content="noindex, nofollow">
@@ -415,7 +431,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
 <main>
   <div class="wrap" style="padding-top:72px;">
-    <div class="secmeta"><span class="folio">INDEX</span><span class="sname">Catalogue</span><span class="sright">62 productos · 8 familias</span></div>
+    <div class="rv secmeta"><span class="folio">INDEX</span><span class="sname">Catalogue</span><span class="sright">62 productos · 8 familias</span></div>
     <h1 style="font-size:64px;max-width:820px;">El catálogo.</h1>
     <p style="font-weight:300;font-size:18px;max-width:620px;margin-top:20px;">Todos los productos que Huishuo suministra — código, INCI, CAS, familia y grupo, en todas las divisiones. La documentación llega bajo solicitud; las páginas detalladas entran en línea en olas verificadas.</p>
   </div>
@@ -502,7 +518,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
         <a class="catrow" data-f="hn-02" data-s="hs-vitad3 cholecalciferol 67-97-0  vitamins & minerals vitaminas y minerales vitamins vitaminas" href="/es/contact/?product=hs-vitad3"><span class="c-code">HS-VitaD3</span><span class="c-inci">Cholecalciferol</span><span class="c-cas">67-97-0</span><span class="c-fam"><span class="dot" style="background:var(--hn02)"></span>Vitaminas y Minerales</span><span class="c-cluster">Vitaminas</span><span class="c-act">Solicitar →</span></a>
       </div>
       <div class="catempty" id="catempty" hidden>Ningún producto coincide. Limpie la búsqueda o consúltenos directamente.</div>
-      <div class="rangecta" style="margin-top:56px;">
+      <div class="rv rangecta" style="margin-top:56px;">
         <div>
           <div class="t">¿No encuentra el grado que necesita?</div>
           <div class="s">El sourcing a la medida es parte de la casa</div>

@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="Formulation development, custom sourcing, tailored industrial projects and supply programs — developed in Suzhou and delivered with full documentation.">
 <meta name="robots" content="noindex, nofollow">
@@ -427,39 +443,39 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">01</span><span class="sname">What we take on</span><span class="sright">Five formats, each with a named deliverable</span></div>
+      <div class="rv secmeta"><span class="folio">01</span><span class="sname">What we take on</span><span class="sright">Five formats, each with a named deliverable</span></div>
       <div class="doc3" style="grid-template-columns:repeat(2,1fr);">
-        <div class="doccard">
+        <div class="rv doccard">
           <span class="dk">01 · Custom sourcing</span>
           <h3>A grade to your specification</h3>
           <p>When the catalogue doesn't hold what your system needs, we source and qualify it — against your written specification, with our own QC.</p>
           <ul><li>Agreed specification</li><li>Qualified sample</li><li>Complete documentation set</li></ul>
         </div>
-        <div class="doccard">
+        <div class="rv doccard">
           <span class="dk">02 · Formulation development</span>
           <h3>Developed in the laboratory</h3>
           <p>Formulation work carried out in Suzhou — from adjusting a system around an ingredient to developing one to a defined brief.</p>
           <ul><li>Development report</li><li>Prototype</li><li>Process guide</li></ul>
         </div>
-        <div class="doccard">
+        <div class="rv doccard">
           <span class="dk">03 · Finished product development</span>
           <h3>A finished line, ready to produce</h3>
           <p>For companies that want to launch or extend a product line without building a laboratory — we develop the finished product end to end, cutting cost and time to production.</p>
           <ul><li>Line brief &amp; targets</li><li>Final formulations &amp; process specification</li><li>Production-ready documentation package</li></ul>
         </div>
-        <div class="doccard">
+        <div class="rv doccard">
           <span class="dk">04 · Tailored industrial projects</span>
           <h3>Scoped, then built</h3>
           <p>Industrial projects taken on under a written scope — specification, timeline and deliverables agreed before work starts.</p>
           <ul><li>Project scope &amp; specification</li><li>Timeline with checkpoints</li><li>Defined deliverables</li></ul>
         </div>
-        <div class="doccard">
+        <div class="rv doccard">
           <span class="dk">05 · Supply programs</span>
           <h3>Supply as a program</h3>
           <p>Scheduled supply under allocation for buyers who run on continuity — volumes, cadence and documentation fixed by contract.</p>
           <ul><li>Program agreement</li><li>Allocation &amp; cadence</li><li>Batch documentation per shipment</li></ul>
         </div>
-        <div class="doccard" style="justify-content:center;">
+        <div class="rv doccard" style="justify-content:center;">
           <span class="dk">06 · Start</span>
           <h3>Bring the brief.</h3>
           <p>The feasibility answer comes in writing — what is achievable, in what time, with which approach.</p>
@@ -471,26 +487,26 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section" style="padding-top:0;">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">02</span><span class="sname">How a project runs</span><span class="sright">Brief to supply</span></div>
+      <div class="rv secmeta"><span class="folio">02</span><span class="sname">How a project runs</span><span class="sright">Brief to supply</span></div>
       <div class="steps" style="grid-template-columns:repeat(4,1fr);">
-        <div class="step"><div class="n">1</div><div class="t">Brief</div><p>You describe the system, the constraint and the target — by form or e-mail.</p></div>
-        <div class="step"><div class="n">2</div><div class="t">Feasibility</div><p>We answer in writing: what is achievable, in what time, with which approach.</p></div>
-        <div class="step"><div class="n">3</div><div class="t">Development</div><p>Laboratory work against the agreed specification, with checkpoints you can audit.</p></div>
-        <div class="step"><div class="n">4</div><div class="t">Supply</div><p>From prototype to program — shipped with batch COA, TDS and SDS, like everything else here.</p></div>
+        <div class="rv step"><div class="n">1</div><div class="t">Brief</div><p>You describe the system, the constraint and the target — by form or e-mail.</p></div>
+        <div class="rv step"><div class="n">2</div><div class="t">Feasibility</div><p>We answer in writing: what is achievable, in what time, with which approach.</p></div>
+        <div class="rv step"><div class="n">3</div><div class="t">Development</div><p>Laboratory work against the agreed specification, with checkpoints you can audit.</p></div>
+        <div class="rv step"><div class="n">4</div><div class="t">Supply</div><p>From prototype to program — shipped with batch COA, TDS and SDS, like everything else here.</p></div>
       </div>
     </div>
   </div>
 
   <div class="darksec">
     <div class="wrap">
-      <div class="secmeta rev"><span class="folio">03</span><span class="sname">The standard behind it</span><span class="sright">Documentation as infrastructure</span></div>
+      <div class="rv secmeta rev"><span class="folio">03</span><span class="sname">The standard behind it</span><span class="sright">Documentation as infrastructure</span></div>
       <div class="std">
         <div>
           <h2>Every project ends in paper you can audit.</h2>
           <div class="stditems">
-            <div class="stditem"><span class="n">01</span><div><div class="t">Extended TDS · 18 sections</div><div class="d">Specification, applications, use levels, regulatory status — the full technical record of what was developed.</div></div></div>
-            <div class="stditem"><span class="n">02</span><div><div class="t">SDS · Regulation (EU) 2020/878</div><div class="d">Safety documentation in the format European regulatory desks process without rework.</div></div></div>
-            <div class="stditem"><span class="n">03</span><div><div class="t">COA · per batch</div><div class="d">Every lot leaves with its Certificate of Analysis, verified twice by QC.</div></div></div>
+            <div class="rv stditem"><span class="n">01</span><div><div class="t">Extended TDS · 18 sections</div><div class="d">Specification, applications, use levels, regulatory status — the full technical record of what was developed.</div></div></div>
+            <div class="rv stditem"><span class="n">02</span><div><div class="t">SDS · Regulation (EU) 2020/878</div><div class="d">Safety documentation in the format European regulatory desks process without rework.</div></div></div>
+            <div class="rv stditem"><span class="n">03</span><div><div class="t">COA · per batch</div><div class="d">Every lot leaves with its Certificate of Analysis, verified twice by QC.</div></div></div>
           </div>
         </div>
         <div class="docstack">

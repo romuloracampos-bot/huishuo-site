@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="Casa de ingredientes y desarrollo en Suzhou, China — un portafolio verificado con documentación de estándar europeo, más formulación, sourcing a la medida y proyectos industriales.">
 <meta name="robots" content="noindex, nofollow">
@@ -417,7 +433,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   </header>
 
   <div class="hero">
-    <div class="bg"><img src="/img/hero-crystal.jpg" alt="Superficie de materia prima, estudio macro"></div>
+    <div class="bg"><canvas id="haze"></canvas><img src="/img/hero-crystal.jpg" alt="Superficie de materia prima, estudio macro"></div>
     <div class="reticle rt-tr"><span>Estudio de material 01 · superficie bruta</span><span class="tick"></span></div>
     <div class="reticle rt-bl"><span class="tick"></span><span>Suzhou · 31.30°N 120.58°E</span></div>
     <div class="cross" style="top:38%;left:63%;"></div>
@@ -432,6 +448,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
           <a class="btn btn-rev" href="/es/contact/">Solicitar documentación</a>
         </div>
       </div>
+      <div class="scrollcue"><span class="line"></span><span>Desplace</span></div>
       <div class="datastrip">
         <div class="wrap">
           <div class="cell"><span class="lab">Base</span>Suzhou High-tech Zone, CN</div>
@@ -445,39 +462,39 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">01</span><span class="sname">Divisiones</span><span class="sright">6 campos de suministro</span></div>
+      <div class="rv secmeta"><span class="folio">01</span><span class="sname">Divisiones</span><span class="sright">6 campos de suministro</span></div>
       <div class="divgrid">
-        <a class="divcard" href="/es/divisions/personal-care/">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-pc.jpg" alt="Solución tensoactiva, estudio de superficie"><span class="cap">Estudio PC · sistema tensoactivo</span></div>
           <div class="bar" style="background:var(--pc)"></div>
           <div class="inner"><div class="row1"><span class="code">PC</span><span class="idx">01 / 06</span></div>
           <div class="name">Cuidado Personal</div><div class="desc">Tensoactivos, agentes acondicionadores y activos para sistemas de limpieza y cuidado.</div>
           <div class="status"><span>62 products indexed</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="/es/divisions/human-nutrition/">
+        <a class="rv divcard" href="/es/divisions/human-nutrition/">
           <div class="fig"><img loading="lazy" src="/img/div-hn.jpg" alt="Granulado, estudio de superficie"><span class="cap">Estudio HN · granulado</span></div>
           <div class="bar" style="background:var(--hn)"></div>
           <div class="inner"><div class="row1"><span class="code">HN</span><span class="idx">02 / 06</span></div>
           <div class="name">Nutrición Humana</div><div class="desc">Activos nutricionales e ingredientes funcionales para suplementos y fortificación.</div>
           <div class="status"><span>12 productos indexados</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="#">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-fd.jpg" alt="Material cristalino, estudio de superficie"><span class="cap">Estudio FD · cristalino</span></div>
           <div class="bar" style="background:var(--fd)"></div>
           <div class="inner"><div class="row1"><span class="code">FD</span><span class="idx">03 / 06</span></div>
           <div class="name">Alimentos</div><div class="desc">Ingredientes y aditivos para procesamiento de alimentos y bebidas.</div>
           <div class="status"><span>Bajo solicitud</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="#">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-an.jpg" alt="Particulado, estudio de superficie"><span class="cap">Estudio AN · particulado</span></div>
           <div class="bar" style="background:var(--an)"></div>
           <div class="inner"><div class="row1"><span class="code">AN</span><span class="idx">04 / 06</span></div>
           <div class="name">Nutrición Animal</div><div class="desc">Aditivos para alimentación e insumos nutricionales para producción animal.</div>
           <div class="status"><span>Bajo solicitud</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="#">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-ag.jpg" alt="Polvo fino, estudio de superficie"><span class="cap">Estudio AG · polvo fino</span></div>
           <div class="bar" style="background:var(--ag)"></div>
           <div class="inner"><div class="row1"><span class="code">AG</span><span class="idx">05 / 06</span></div>
           <div class="name">Agro</div><div class="desc">Insumos e intermedios para protección de cultivos y agricultura.</div>
           <div class="status"><span>Bajo solicitud</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="#">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-in.jpg" alt="Estructura laminar, estudio de superficie"><span class="cap">Estudio IN · laminar</span></div>
           <div class="bar" style="background:var(--in)"></div>
           <div class="inner"><div class="row1"><span class="code">IN</span><span class="idx">06 / 06</span></div>
@@ -489,7 +506,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="darksec">
     <div class="wrap">
-      <div class="secmeta rev"><span class="folio">02</span><span class="sname">Desarrollo</span><span class="sright">Laboratorio · proyectos · programas</span></div>
+      <div class="rv secmeta rev"><span class="folio">02</span><span class="sname">Desarrollo</span><span class="sright">Laboratorio · proyectos · programas</span></div>
       <div class="std">
         <div>
           <h2>El portafolio es donde empezamos. El desarrollo es donde trabajamos.</h2>
@@ -498,11 +515,11 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
         </div>
         <div>
           <div class="stditems" style="margin-top:0;">
-            <div class="stditem"><span class="n">01</span><div><div class="t">Sourcing a la medida</div><div class="d">Un grado calificado según su especificación — abastecido, verificado por nuestro control de calidad y enviado con documentación completa.</div></div></div>
-            <div class="stditem"><span class="n">02</span><div><div class="t">Desarrollo de formulación</div><div class="d">Desarrollado en el laboratorio; entregado como informe de desarrollo, prototipo y guía de proceso.</div></div></div>
-            <div class="stditem"><span class="n">03</span><div><div class="t">Desarrollo de producto terminado</div><div class="d">Líneas de producto completas desarrolladas para marcas — formulación, proceso y documentación, reduciendo costo y tiempo de producción.</div></div></div>
-            <div class="stditem"><span class="n">04</span><div><div class="t">Proyectos industriales a la medida</div><div class="d">Definidos por proyecto — especificación, cronograma y entregables acordados por escrito antes de iniciar.</div></div></div>
-            <div class="stditem"><span class="n">05</span><div><div class="t">Programas de suministro</div><div class="d">Suministro programado bajo asignación, documentado por lote — el formato con el que operan los compradores de largo plazo.</div></div></div>
+            <div class="rv stditem"><span class="n">01</span><div><div class="t">Sourcing a la medida</div><div class="d">Un grado calificado según su especificación — abastecido, verificado por nuestro control de calidad y enviado con documentación completa.</div></div></div>
+            <div class="rv stditem"><span class="n">02</span><div><div class="t">Desarrollo de formulación</div><div class="d">Desarrollado en el laboratorio; entregado como informe de desarrollo, prototipo y guía de proceso.</div></div></div>
+            <div class="rv stditem"><span class="n">03</span><div><div class="t">Desarrollo de producto terminado</div><div class="d">Líneas de producto completas desarrolladas para marcas — formulación, proceso y documentación, reduciendo costo y tiempo de producción.</div></div></div>
+            <div class="rv stditem"><span class="n">04</span><div><div class="t">Proyectos industriales a la medida</div><div class="d">Definidos por proyecto — especificación, cronograma y entregables acordados por escrito antes de iniciar.</div></div></div>
+            <div class="rv stditem"><span class="n">05</span><div><div class="t">Programas de suministro</div><div class="d">Suministro programado bajo asignación, documentado por lote — el formato con el que operan los compradores de largo plazo.</div></div></div>
           </div>
         </div>
       </div>
@@ -511,8 +528,8 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section" style="padding-bottom:0;">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">03</span><span class="sname">El estándar</span><span class="sright">Cada lote, verificado</span></div>
-      <div class="stdstrip">
+      <div class="rv secmeta"><span class="folio">03</span><span class="sname">El estándar</span><span class="sright">Cada lote, verificado</span></div>
+      <div class="rv stdstrip">
         <div class="c"><div class="l">Trazabilidad</div><div class="v">COA de lote con cada envío</div></div>
         <div class="c"><div class="l">Calidad</div><div class="v">ISO 9001:2015 · QC 2× por lote</div></div>
         <div class="c"><div class="l">Documentos</div><div class="v">TDS extendido · SDS (UE) 2020/878</div></div>
@@ -523,11 +540,11 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">04</span><span class="sname">Logística y confianza</span><span class="sright">Solo hechos</span></div>
+      <div class="rv secmeta"><span class="folio">04</span><span class="sname">Logística y confianza</span><span class="sright">Solo hechos</span></div>
       <div class="logi">
-        <div class="cell"><div class="num">7</div><div class="lab">Años de operación</div><div class="sub">Suzhou High-tech Zone · desde 2019</div></div>
+        <div class="cell"><div class="num" data-count="7">7</div><div class="lab">Años de operación</div><div class="sub">Suzhou High-tech Zone · desde 2019</div></div>
         <div class="cell"><div class="num">2×</div><div class="lab">Verificación de QC por lote</div><div class="sub">Doble verificación antes de liberar</div></div>
-        <div class="cell"><div class="num">3</div><div class="lab">Puertos de exportación</div><div class="sub">FOB · CIF bajo solicitud</div></div>
+        <div class="cell"><div class="num" data-count="3">3</div><div class="lab">Puertos de exportación</div><div class="sub">FOB · CIF bajo solicitud</div></div>
       </div>
       <div class="ports">
         <div class="port"><span>SHANGHAI</span><span class="coord">31.23°N 121.47°E</span></div>

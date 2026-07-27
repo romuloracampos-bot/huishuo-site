@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="Cocamidopropyl Betaine (CAS 61789-40-0) — amphoteric co-surfactant, 28–32% active aqueous solution. Request TDS, SDS, COA or sample.">
 <meta name="robots" content="noindex, nofollow">
@@ -422,7 +438,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
     </div>
     <div class="crumb">Divisions / Personal Care / PC-01 / <strong>HS-CAB</strong></div>
 
-    <div class="prodhero">
+    <div class="rv prodhero">
       <div class="info">
         <h1 class="prod-title">HS-CAB</h1>
         <p class="claim">Amphoteric co-surfactant for mild cleansing systems.</p>
@@ -437,7 +453,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
         <span class="figcap">Study PC-01 · surfactant solution</span>
       </div>
     </div>
-    <div class="techid">
+    <div class="rv techid">
       <div class="cell"><div class="t-label">INCI</div><div class="t-val">Cocamidopropyl Betaine</div></div>
       <div class="cell"><div class="t-label">CAS</div><div class="t-val">61789-40-0</div></div>
       <div class="cell"><div class="t-label">EC</div><div class="t-val">263-058-8</div></div>
@@ -449,14 +465,14 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   <div class="section">
     <div class="wrap two-col">
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">01</span><span class="sname">Description</span><span></span></div>
+        <div class="rv secmeta" style="margin-bottom:36px;"><span class="folio">01</span><span class="sname">Description</span><span></span></div>
         <div class="desc-body">
           <p>HS-CAB is a coconut-derived amphoteric surfactant supplied as a 28–32% active aqueous solution. In anionic cleansing systems it boosts and stabilises foam, builds viscosity and measurably reduces the irritation profile of the total surfactant blend.</p>
           <p>It remains stable across a broad pH range and is compatible with anionic, nonionic and cationic systems, which makes it a standard co-surfactant in rinse-off formulations from shampoos to facial cleansers.</p>
         </div>
       </div>
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Specifications</span><span class="sright">As supplied</span></div>
+        <div class="rv secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Specifications</span><span class="sright">As supplied</span></div>
         <table class="spectable">
           <tr><th>Parameter</th><th>Specification</th></tr>
           <tr><td>Appearance (25 °C)</td><td>Clear to pale yellow liquid</td></tr>
@@ -474,7 +490,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section" style="padding-top:0;">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">03</span><span class="sname">Applications &amp; use levels</span><span class="sright">As supplied, % w/w</span></div>
+      <div class="rv secmeta"><span class="folio">03</span><span class="sname">Applications &amp; use levels</span><span class="sright">As supplied, % w/w</span></div>
       <table class="spectable" style="max-width:680px;">
         <tr><th>System</th><th>Use level</th></tr>
         <tr><td>Shampoos</td><td>2–12 %</td></tr>
@@ -487,7 +503,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="darksec" style="padding:76px 0;">
     <div class="wrap">
-      <div class="doccta">
+      <div class="rv doccta">
         <div>
           <div class="kick" style="margin-bottom:14px;">Documentation</div>
           <h2>Every document, ready on request.</h2>
@@ -505,7 +521,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section" style="padding-bottom:110px;">
     <div class="wrap">
-      <div class="rangecta">
+      <div class="rv rangecta">
         <div>
           <div class="t">PC-01 · Amphoteric surfactants</div>
           <div class="s">Further grades in staging — documentation first</div>

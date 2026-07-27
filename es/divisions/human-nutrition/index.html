@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="Activos de nutrición deportiva, vitaminas y premezclas a la medida — creatina, BCAA, aminoácidos y vitaminas con COA de lote y documentación bajo solicitud.">
 <meta name="robots" content="noindex, nofollow">
@@ -431,16 +447,16 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">HN</span><span class="sname">Familias</span><span class="sright">2 familias · 12 productos</span></div>
-      <a class="subfam" href="/es/catalogue/?family=hn-01"><span class="chipbar" style="background:var(--hn01)"></span><span class="code">HN-01</span><span class="name">Nutrición Deportiva</span><span class="right">8 productos →</span></a>
-      <a class="subfam" href="/es/catalogue/?family=hn-02"><span class="chipbar" style="background:var(--hn02)"></span><span class="code">HN-02</span><span class="name">Vitaminas y Minerales</span><span class="right">4 productos →</span></a>
+      <div class="rv secmeta"><span class="folio">HN</span><span class="sname">Familias</span><span class="sright">2 familias · 12 productos</span></div>
+      <a class="rv subfam" href="/es/catalogue/?family=hn-01"><span class="chipbar" style="background:var(--hn01)"></span><span class="code">HN-01</span><span class="name">Nutrición Deportiva</span><span class="right">8 productos →</span></a>
+      <a class="rv subfam" href="/es/catalogue/?family=hn-02"><span class="chipbar" style="background:var(--hn02)"></span><span class="code">HN-02</span><span class="name">Vitaminas y Minerales</span><span class="right">4 productos →</span></a>
     </div>
   </div>
 
   <div class="section" style="padding-top:0;">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">HN</span><span class="sname">Productos documentados</span><span class="sright">En preparación</span></div>
-      <div class="staging">
+      <div class="rv secmeta"><span class="folio">HN</span><span class="sname">Productos documentados</span><span class="sright">En preparación</span></div>
+      <div class="rv staging">
         <div>
           <h3>El catálogo se publica en olas verificadas.</h3>
           <p>Los 12 productos están indexados en el catálogo, con documentación bajo solicitud. Cada página detallada entra en línea cuando su paquete documental se completa.</p>

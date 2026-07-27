@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="Sodium Laureth Sulfate (CAS 3088-31-1) — Aniónico de alta espuma, el caballo de batalla, grado 70%. Solicite TDS, SDS, COA o muestra.">
 <meta name="robots" content="noindex, nofollow">
@@ -419,7 +435,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
       <img class="lockup-img sm" src="/img/brand/logo-h-ink.png" alt="huishuo"><span class="sep"></span><span class="desc" style="color:var(--pc);">Personal Care</span>
     </div>
     <div class="crumb">Divisions / Personal Care / PC-01 / <strong>HS-SLES70</strong></div>
-    <div class="prodhero">
+    <div class="rv prodhero">
       <div class="info">
         <h1 class="prod-title" style="font-size:56px;">HS-SLES70</h1>
         <p class="claim">Aniónico de alta espuma, el caballo de batalla, grado 70%.</p>
@@ -435,7 +451,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
         <span class="figcap">Estudio PC-01 · solución tensoactiva</span>
       </div>
     </div>
-    <div class="techid">
+    <div class="rv techid">
       <div class="cell"><div class="t-label">INCI</div><div class="t-val">Sodium Laureth Sulfate</div></div>
       <div class="cell"><div class="t-label">CAS</div><div class="t-val">3088-31-1</div></div>
       <div class="cell"><div class="t-label">EC</div><div class="t-val">221-416-0</div></div>
@@ -446,9 +462,9 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">01</span><span class="sname">Por qué lo eligen los formuladores</span><span class="sright">El argumento comercial</span></div>
+      <div class="rv secmeta"><span class="folio">01</span><span class="sname">Por qué lo eligen los formuladores</span><span class="sright">El argumento comercial</span></div>
       <div class="benef">
-        <div class="bcard"><span class="bn">01</span><div><div class="bt">The global workhorse</div><div class="bd">The most proven primary surfactant in rinse-off cleansing worldwide.</div></div></div><div class="bcard"><span class="bn">02</span><div><div class="bt">70% concentration economics</div><div class="bd">Cuts freight, storage volume and preservative demand versus 28% solutions.</div></div></div><div class="bcard"><span class="bn">03</span><div><div class="bt">Instant foam</div><div class="bd">Fast, abundant lather consumers expect from mainstream formats.</div></div></div><div class="bcard"><span class="bn">04</span><div><div class="bt">Easy viscosity</div><div class="bd">Classic salt-curve thickening — simple, cheap process control.</div></div></div>
+        <div class="rv bcard"><span class="bn">01</span><div><div class="bt">The global workhorse</div><div class="bd">The most proven primary surfactant in rinse-off cleansing worldwide.</div></div></div><div class="rv bcard"><span class="bn">02</span><div><div class="bt">70% concentration economics</div><div class="bd">Cuts freight, storage volume and preservative demand versus 28% solutions.</div></div></div><div class="rv bcard"><span class="bn">03</span><div><div class="bt">Instant foam</div><div class="bd">Fast, abundant lather consumers expect from mainstream formats.</div></div></div><div class="rv bcard"><span class="bn">04</span><div><div class="bt">Easy viscosity</div><div class="bd">Classic salt-curve thickening — simple, cheap process control.</div></div></div>
       </div>
     </div>
   </div>
@@ -456,13 +472,13 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   <div class="section" style="padding-top:0;">
     <div class="wrap two-col">
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Descripción</span><span></span></div>
+        <div class="rv secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Descripción</span><span></span></div>
         <div class="desc-body"><p>Lauril éter sulfato de sodio al 70% de concentración — el tensoactivo principal global para la limpieza con enjuague. Espuma abundante y de rápida formación, limpieza potente y fácil respuesta de viscosidad con sal.</p><p>El grado 70% reduce el flete y el volumen de almacenamiento frente a las soluciones al 28%; se diluye en planta dentro del sistema final. Se combina con betaínas y glucósidos para equilibrar la suavidad.</p></div>
-        <div class="secmeta" style="margin:48px 0 26px;"><span class="folio">03</span><span class="sname">Notas de formulación</span><span></span></div>
+        <div class="rv secmeta" style="margin:48px 0 26px;"><span class="folio">03</span><span class="sname">Notas de formulación</span><span></span></div>
         <div class="desc-body"><p>Dilute with good agitation — add paste to water, never water to paste, to avoid the gel phase.</p><p>Balance mildness with betaine or glucosides; thicken on the salt curve.</p></div>
       </div>
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">04</span><span class="sname">En síntesis</span><span></span></div>
+        <div class="rv secmeta" style="margin-bottom:36px;"><span class="folio">04</span><span class="sname">En síntesis</span><span></span></div>
         <table class="spectable">
           <tr><td>Función</td><td>Primary cleansing surfactant</td></tr>
           <tr><td>Carga</td><td>Anionic</td></tr>
@@ -471,7 +487,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
           <tr><td>Forma física</td><td>Pasta, grado 70%</td></tr>
         </table>
         
-        <div class="staging" style="margin-top:28px;padding:28px 30px;grid-template-columns:1fr;gap:18px;">
+        <div class="rv staging" style="margin-top:28px;padding:28px 30px;grid-template-columns:1fr;gap:18px;">
           <div><h3 style="font-size:20px;">La tabla de especificaciones completa vive en el TDS extendido.</h3>
           <p style="margin-top:6px;">Revisión vigente, en inglés, bajo solicitud — con SDS y COA de lote.</p></div>
           <a class="btn btn-primary" style="justify-self:start;" href="/es/contact/?product=hs-sles70&type=tds">Solicitar TDS</a>
@@ -483,7 +499,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   <div class="section" style="padding-top:0;">
     <div class="wrap two-col">
       <div>
-        <div class="secmeta"><span class="folio">05</span><span class="sname">Applications &amp; use levels</span><span class="sright">Tal como se suministra, % p/p · típico</span></div>
+        <div class="rv secmeta"><span class="folio">05</span><span class="sname">Applications &amp; use levels</span><span class="sright">Tal como se suministra, % p/p · típico</span></div>
         <table class="spectable">
           <tr><th>Sistema</th><th>Nivel de uso</th></tr>
           <tr><td>Champús</td><td>5–12 %</td></tr>
@@ -493,7 +509,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
         </table>
       </div>
       <div>
-        <div class="secmeta"><span class="folio">06</span><span class="sname">Condiciones comerciales</span><span class="sright">Suzhou · exportación</span></div>
+        <div class="rv secmeta"><span class="folio">06</span><span class="sname">Condiciones comerciales</span><span class="sright">Suzhou · exportación</span></div>
         <table class="spectable">
           <tr><td>Empaque (típico)</td><td>220 kg drums · 1,000 kg IBC (typical — confirmed per order)</td></tr>
           <tr><td>MOQ</td><td>Bajo solicitud</td></tr>
@@ -508,7 +524,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="darksec" style="padding:76px 0;">
     <div class="wrap">
-      <div class="doccta">
+      <div class="rv doccta">
         <div>
           <div class="kick" style="margin-bottom:14px;">Documentation</div>
           <h2>Cada documento, listo bajo solicitud.</h2>
@@ -526,7 +542,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section" style="padding-bottom:110px;">
     <div class="wrap">
-      <div class="rangecta">
+      <div class="rv rangecta">
         <div>
           <div class="t">PC-01 · Surfactants</div>
           <div class="s">Grados relacionados</div>

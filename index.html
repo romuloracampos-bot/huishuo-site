@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="Ingredient and development house in Suzhou, China — a verified portfolio with European-grade documentation, plus formulation, custom sourcing and tailored industrial projects.">
 <meta name="robots" content="noindex, nofollow">
@@ -417,7 +433,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   </header>
 
   <div class="hero">
-    <div class="bg"><img src="/img/hero-crystal.jpg" alt="Raw material surface, macro study"></div>
+    <div class="bg"><canvas id="haze"></canvas><img src="/img/hero-crystal.jpg" alt="Raw material surface, macro study"></div>
     <div class="reticle rt-tr"><span>Material study 01 · raw surface</span><span class="tick"></span></div>
     <div class="reticle rt-bl"><span class="tick"></span><span>Suzhou · 31.30°N 120.58°E</span></div>
     <div class="cross" style="top:38%;left:63%;"></div>
@@ -432,6 +448,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
           <a class="btn btn-rev" href="/contact/">Request documentation</a>
         </div>
       </div>
+      <div class="scrollcue"><span class="line"></span><span>Scroll</span></div>
       <div class="datastrip">
         <div class="wrap">
           <div class="cell"><span class="lab">Base</span>Suzhou High-tech Zone, CN</div>
@@ -445,39 +462,39 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">01</span><span class="sname">Divisions</span><span class="sright">6 fields of supply</span></div>
+      <div class="rv secmeta"><span class="folio">01</span><span class="sname">Divisions</span><span class="sright">6 fields of supply</span></div>
       <div class="divgrid">
-        <a class="divcard" href="/divisions/personal-care/">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-pc.jpg" alt="Surfactant solution, surface study"><span class="cap">Study PC · surfactant system</span></div>
           <div class="bar" style="background:var(--pc)"></div>
           <div class="inner"><div class="row1"><span class="code">PC</span><span class="idx">01 / 06</span></div>
           <div class="name">Personal Care</div><div class="desc">Surfactants, conditioning agents and actives for cleansing and care systems.</div>
           <div class="status"><span>62 products indexed</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="/divisions/human-nutrition/">
+        <a class="rv divcard" href="/divisions/human-nutrition/">
           <div class="fig"><img loading="lazy" src="/img/div-hn.jpg" alt="Granulate, surface study"><span class="cap">Study HN · granulate</span></div>
           <div class="bar" style="background:var(--hn)"></div>
           <div class="inner"><div class="row1"><span class="code">HN</span><span class="idx">02 / 06</span></div>
           <div class="name">Human Nutrition</div><div class="desc">Nutritional actives and functional ingredients for supplements and fortification.</div>
           <div class="status"><span>12 products indexed</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="#">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-fd.jpg" alt="Crystalline material, surface study"><span class="cap">Study FD · crystalline</span></div>
           <div class="bar" style="background:var(--fd)"></div>
           <div class="inner"><div class="row1"><span class="code">FD</span><span class="idx">03 / 06</span></div>
           <div class="name">Food</div><div class="desc">Ingredients and additives for food processing and beverage systems.</div>
           <div class="status"><span>By request</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="#">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-an.jpg" alt="Particulate, surface study"><span class="cap">Study AN · particulate</span></div>
           <div class="bar" style="background:var(--an)"></div>
           <div class="inner"><div class="row1"><span class="code">AN</span><span class="idx">04 / 06</span></div>
           <div class="name">Animal Nutrition</div><div class="desc">Feed additives and nutritional inputs for animal production.</div>
           <div class="status"><span>By request</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="#">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-ag.jpg" alt="Fine powder, surface study"><span class="cap">Study AG · fine powder</span></div>
           <div class="bar" style="background:var(--ag)"></div>
           <div class="inner"><div class="row1"><span class="code">AG</span><span class="idx">05 / 06</span></div>
           <div class="name">Agro</div><div class="desc">Inputs and intermediates for crop protection and agriculture.</div>
           <div class="status"><span>By request</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="#">
+        <a class="rv divcard" href="#">
           <div class="fig"><img loading="lazy" src="/img/div-in.jpg" alt="Lamellar structure, surface study"><span class="cap">Study IN · lamellar</span></div>
           <div class="bar" style="background:var(--in)"></div>
           <div class="inner"><div class="row1"><span class="code">IN</span><span class="idx">06 / 06</span></div>
@@ -489,7 +506,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="darksec">
     <div class="wrap">
-      <div class="secmeta rev"><span class="folio">02</span><span class="sname">Development</span><span class="sright">Lab · projects · programs</span></div>
+      <div class="rv secmeta rev"><span class="folio">02</span><span class="sname">Development</span><span class="sright">Lab · projects · programs</span></div>
       <div class="std">
         <div>
           <h2>The portfolio is where we start. Development is where we work.</h2>
@@ -498,11 +515,11 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
         </div>
         <div>
           <div class="stditems" style="margin-top:0;">
-            <div class="stditem"><span class="n">01</span><div><div class="t">Custom sourcing</div><div class="d">A grade qualified to your specification — sourced, verified by our QC and shipped with a complete documentation set.</div></div></div>
-            <div class="stditem"><span class="n">02</span><div><div class="t">Formulation development</div><div class="d">Developed in the laboratory; delivered as a development report, a prototype and a process guide.</div></div></div>
-            <div class="stditem"><span class="n">03</span><div><div class="t">Finished product development</div><div class="d">Complete product lines developed for brands — formulation, process and documentation, cutting cost and time to production.</div></div></div>
-            <div class="stditem"><span class="n">04</span><div><div class="t">Tailored industrial projects</div><div class="d">Scoped per project — specification, timeline and deliverables agreed in writing before work starts.</div></div></div>
-            <div class="stditem"><span class="n">05</span><div><div class="t">Supply programs</div><div class="d">Scheduled supply under allocation, documented per batch — the format long-term buyers run on.</div></div></div>
+            <div class="rv stditem"><span class="n">01</span><div><div class="t">Custom sourcing</div><div class="d">A grade qualified to your specification — sourced, verified by our QC and shipped with a complete documentation set.</div></div></div>
+            <div class="rv stditem"><span class="n">02</span><div><div class="t">Formulation development</div><div class="d">Developed in the laboratory; delivered as a development report, a prototype and a process guide.</div></div></div>
+            <div class="rv stditem"><span class="n">03</span><div><div class="t">Finished product development</div><div class="d">Complete product lines developed for brands — formulation, process and documentation, cutting cost and time to production.</div></div></div>
+            <div class="rv stditem"><span class="n">04</span><div><div class="t">Tailored industrial projects</div><div class="d">Scoped per project — specification, timeline and deliverables agreed in writing before work starts.</div></div></div>
+            <div class="rv stditem"><span class="n">05</span><div><div class="t">Supply programs</div><div class="d">Scheduled supply under allocation, documented per batch — the format long-term buyers run on.</div></div></div>
           </div>
         </div>
       </div>
@@ -511,8 +528,8 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section" style="padding-bottom:0;">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">03</span><span class="sname">The standard</span><span class="sright">Every lot, verified</span></div>
-      <div class="stdstrip">
+      <div class="rv secmeta"><span class="folio">03</span><span class="sname">The standard</span><span class="sright">Every lot, verified</span></div>
+      <div class="rv stdstrip">
         <div class="c"><div class="l">Traceability</div><div class="v">Batch COA with every lot</div></div>
         <div class="c"><div class="l">Quality</div><div class="v">ISO 9001:2015 · QC 2× per batch</div></div>
         <div class="c"><div class="l">Documents</div><div class="v">Extended TDS · SDS (EU) 2020/878</div></div>
@@ -523,11 +540,11 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">04</span><span class="sname">Logistics &amp; trust</span><span class="sright">Facts only</span></div>
+      <div class="rv secmeta"><span class="folio">04</span><span class="sname">Logistics &amp; trust</span><span class="sright">Facts only</span></div>
       <div class="logi">
-        <div class="cell"><div class="num">7</div><div class="lab">Years operating</div><div class="sub">Suzhou High-tech Zone · since 2019</div></div>
+        <div class="cell"><div class="num" data-count="7">7</div><div class="lab">Years operating</div><div class="sub">Suzhou High-tech Zone · since 2019</div></div>
         <div class="cell"><div class="num">2×</div><div class="lab">QC verification per batch</div><div class="sub">Double-check before release</div></div>
-        <div class="cell"><div class="num">3</div><div class="lab">Export ports</div><div class="sub">FOB · CIF on request</div></div>
+        <div class="cell"><div class="num" data-count="3">3</div><div class="lab">Export ports</div><div class="sub">FOB · CIF on request</div></div>
       </div>
       <div class="ports">
         <div class="port"><span>SHANGHAI</span><span class="coord">31.23°N 121.47°E</span></div>

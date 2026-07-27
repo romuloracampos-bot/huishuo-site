@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="Cuidado Personal, Nutrición Humana, Alimentos, Nutrición Animal, Agro e Industrial — seis divisiones bajo un mismo estándar documental.">
 <meta name="robots" content="noindex, nofollow">
@@ -415,44 +431,44 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
 <main>
   <div class="wrap" style="padding-top:72px;">
-    <div class="secmeta"><span class="folio">MAP</span><span class="sname">Divisiones</span><span class="sright">6 campos de suministro</span></div>
+    <div class="rv secmeta"><span class="folio">MAP</span><span class="sname">Divisiones</span><span class="sright">6 campos de suministro</span></div>
     <h1 style="font-size:64px;max-width:820px;">Seis mundos. Un solo estándar documental.</h1>
     <p style="font-weight:300;font-size:18px;max-width:620px;margin-top:20px;">Dos divisiones tienen catálogos indexados hoy; las otras cuatro suministran bajo solicitud, con la misma disciplina documental.</p>
   </div>
   <div class="section" style="padding-top:56px;padding-bottom:110px;">
     <div class="wrap">
       <div class="divgrid">
-        <a class="divcard" href="/es/divisions/personal-care/">
+        <a class="rv divcard" href="/es/divisions/personal-care/">
           <div class="fig"><img loading="lazy" src="/img/div-pc.jpg" alt="Solución tensoactiva, estudio de superficie"><span class="cap">Estudio PC · sistema tensoactivo</span></div>
           <div class="bar" style="background:var(--pc)"></div>
           <div class="inner"><div class="row1"><span class="code">PC</span><span class="idx">01 / 06</span></div>
           <div class="name">Cuidado Personal</div><div class="desc">Tensoactivos, agentes acondicionadores y activos para sistemas de limpieza y cuidado.</div>
           <div class="status"><span>50 productos indexados</span><span class="arr">→</span></div></div></a>
-        <a class="divcard" href="/es/divisions/human-nutrition/">
+        <a class="rv divcard" href="/es/divisions/human-nutrition/">
           <div class="fig"><img loading="lazy" src="/img/div-hn.jpg" alt="Granulado, estudio de superficie"><span class="cap">Estudio HN · granulado</span></div>
           <div class="bar" style="background:var(--hn)"></div>
           <div class="inner"><div class="row1"><span class="code">HN</span><span class="idx">02 / 06</span></div>
           <div class="name">Nutrición Humana</div><div class="desc">Activos de nutrición deportiva, vitaminas y premezclas a la medida para suplementos.</div>
           <div class="status"><span>12 productos indexados</span><span class="arr">→</span></div></div></a>
-        <div class="divcard">
+        <div class="rv divcard">
           <div class="fig"><img loading="lazy" src="/img/div-fd.jpg" alt="Material cristalino, estudio de superficie"><span class="cap">Estudio FD · cristalino</span></div>
           <div class="bar" style="background:var(--fd)"></div>
           <div class="inner"><div class="row1"><span class="code">FD</span><span class="idx">03 / 06</span></div>
           <div class="name">Alimentos</div><div class="desc">Ingredientes y aditivos para procesamiento de alimentos y bebidas.</div>
           <div class="status"><span>Bajo solicitud</span></div></div></div>
-        <div class="divcard">
+        <div class="rv divcard">
           <div class="fig"><img loading="lazy" src="/img/div-an.jpg" alt="Particulado, estudio de superficie"><span class="cap">Estudio AN · particulado</span></div>
           <div class="bar" style="background:var(--an)"></div>
           <div class="inner"><div class="row1"><span class="code">AN</span><span class="idx">04 / 06</span></div>
           <div class="name">Nutrición Animal</div><div class="desc">Aditivos para alimentación e insumos nutricionales para producción animal.</div>
           <div class="status"><span>Bajo solicitud</span></div></div></div>
-        <div class="divcard">
+        <div class="rv divcard">
           <div class="fig"><img loading="lazy" src="/img/div-ag.jpg" alt="Polvo fino, estudio de superficie"><span class="cap">Estudio AG · polvo fino</span></div>
           <div class="bar" style="background:var(--ag)"></div>
           <div class="inner"><div class="row1"><span class="code">AG</span><span class="idx">05 / 06</span></div>
           <div class="name">Agro</div><div class="desc">Insumos e intermedios para protección de cultivos y agricultura.</div>
           <div class="status"><span>Bajo solicitud</span></div></div></div>
-        <div class="divcard">
+        <div class="rv divcard">
           <div class="fig"><img loading="lazy" src="/img/div-in.jpg" alt="Estructura laminar, estudio de superficie"><span class="cap">Estudio IN · laminar</span></div>
           <div class="bar" style="background:var(--in)"></div>
           <div class="inner"><div class="row1"><span class="code">IN</span><span class="idx">06 / 06</span></div>

@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="Manufacturer and trading house founded 2019 in Suzhou High-tech Zone, China. Six supply divisions, double-check QC, export via Shanghai, Ningbo and Qingdao.">
 <meta name="robots" content="noindex, nofollow">
@@ -427,10 +443,10 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">01</span><span class="sname">Facts</span><span class="sright">No adjectives</span></div>
+      <div class="rv secmeta"><span class="folio">01</span><span class="sname">Facts</span><span class="sright">No adjectives</span></div>
       <div class="logi">
-        <div class="cell"><div class="num">2019</div><div class="lab">Founded</div><div class="sub">Suzhou High-tech Zone, CN</div></div>
-        <div class="cell"><div class="num">6</div><div class="lab">Supply divisions</div><div class="sub">PC · HN · FD · AN · AG · IN</div></div>
+        <div class="cell"><div class="num" data-count="2019">2019</div><div class="lab">Founded</div><div class="sub">Suzhou High-tech Zone, CN</div></div>
+        <div class="cell"><div class="num" data-count="6">6</div><div class="lab">Supply divisions</div><div class="sub">PC · HN · FD · AN · AG · IN</div></div>
         <div class="cell"><div class="num">2×</div><div class="lab">QC verification per batch</div><div class="sub">ISO 9001:2015 certified system</div></div>
       </div>
     </div>
@@ -438,17 +454,17 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section" style="padding-top:0;">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">02</span><span class="sname">Quality</span><span class="sright">Documentation first</span></div>
+      <div class="rv secmeta"><span class="folio">02</span><span class="sname">Quality</span><span class="sright">Documentation first</span></div>
       <div class="std" style="grid-template-columns:6fr 6fr;">
         <div>
           <h2 style="font-size:38px;">Nothing ships without its paperwork.</h2>
         </div>
         <div>
           <div class="stditems" style="margin-top:0;">
-            <div class="stditem" style="border-color:var(--hair);"><span class="n">01</span><div><div class="t" style="color:var(--ink);">Double-check QC</div><div class="d" style="opacity:1;">Every batch is verified twice by quality control before release.</div></div></div>
-            <div class="stditem" style="border-color:var(--hair);"><span class="n">02</span><div><div class="t" style="color:var(--ink);">Batch COA</div><div class="d" style="opacity:1;">A Certificate of Analysis accompanies every shipped lot.</div></div></div>
-            <div class="stditem" style="border-color:var(--hair);"><span class="n">03</span><div><div class="t" style="color:var(--ink);">Documentation before listing</div><div class="d" style="opacity:1;">A product only goes online after its TDS, SDS and COA set is complete.</div></div></div>
-            <div class="stditem" style="border-color:var(--hair);"><span class="n">04</span><div><div class="t" style="color:var(--ink);">ISO 9001:2015</div><div class="d" style="opacity:1;">Certified quality management system — certificate 33924Q15021R0S, IAS-accredited, valid through 08/2027.</div></div></div>
+            <div class="rv stditem" style="border-color:var(--hair);"><span class="n">01</span><div><div class="t" style="color:var(--ink);">Double-check QC</div><div class="d" style="opacity:1;">Every batch is verified twice by quality control before release.</div></div></div>
+            <div class="rv stditem" style="border-color:var(--hair);"><span class="n">02</span><div><div class="t" style="color:var(--ink);">Batch COA</div><div class="d" style="opacity:1;">A Certificate of Analysis accompanies every shipped lot.</div></div></div>
+            <div class="rv stditem" style="border-color:var(--hair);"><span class="n">03</span><div><div class="t" style="color:var(--ink);">Documentation before listing</div><div class="d" style="opacity:1;">A product only goes online after its TDS, SDS and COA set is complete.</div></div></div>
+            <div class="rv stditem" style="border-color:var(--hair);"><span class="n">04</span><div><div class="t" style="color:var(--ink);">ISO 9001:2015</div><div class="d" style="opacity:1;">Certified quality management system — certificate 33924Q15021R0S, IAS-accredited, valid through 08/2027.</div></div></div>
           </div>
         </div>
       </div>
@@ -457,7 +473,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section" id="logistics" style="padding-top:0;">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">03</span><span class="sname">Logistics</span><span class="sright">FOB · CIF on request</span></div>
+      <div class="rv secmeta"><span class="folio">03</span><span class="sname">Logistics</span><span class="sright">FOB · CIF on request</span></div>
       <div class="ports">
         <div class="port"><span>SHANGHAI</span><span class="coord">31.23°N 121.47°E</span></div>
         <div class="port"><span>NINGBO</span><span class="coord">29.87°N 121.55°E</span></div>

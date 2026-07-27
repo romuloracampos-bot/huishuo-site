@@ -252,6 +252,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   .rt-tr,.rt-bl,.cross{display:none;}
 }
 </style>
+<script src="/js/motion.js" defer></script>
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -392,6 +393,21 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 .bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
 .bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
 @media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
 </style>
 <meta name="description" content="Decyl Glucoside (CAS 54549-25-6) — The versatile glucoside for sulfate-free cleansing. Request TDS, SDS, COA or sample.">
 <meta name="robots" content="noindex, nofollow">
@@ -419,7 +435,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
       <img class="lockup-img sm" src="/img/brand/logo-h-ink.png" alt="huishuo"><span class="sep"></span><span class="desc" style="color:var(--pc);">Personal Care</span>
     </div>
     <div class="crumb">Divisions / Personal Care / PC-01 / <strong>HS2000</strong></div>
-    <div class="prodhero">
+    <div class="rv prodhero">
       <div class="info">
         <h1 class="prod-title" style="font-size:56px;">HS2000</h1>
         <p class="claim">The versatile glucoside for sulfate-free cleansing.</p>
@@ -435,7 +451,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
         <span class="figcap">Study PC-01 · surfactant system</span>
       </div>
     </div>
-    <div class="techid">
+    <div class="rv techid">
       <div class="cell"><div class="t-label">INCI</div><div class="t-val">Decyl Glucoside</div></div>
       <div class="cell"><div class="t-label">CAS</div><div class="t-val">54549-25-6</div></div>
       <div class="cell"><div class="t-label">EC</div><div class="t-val">259-218-1</div></div>
@@ -446,9 +462,9 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section">
     <div class="wrap">
-      <div class="secmeta"><span class="folio">01</span><span class="sname">Why formulators choose it</span><span class="sright">The commercial case</span></div>
+      <div class="rv secmeta"><span class="folio">01</span><span class="sname">Why formulators choose it</span><span class="sright">The commercial case</span></div>
       <div class="benef">
-        <div class="bcard"><span class="bn">01</span><div><div class="bt">The all-rounder</div><div class="bd">One glucoside covering face, body, hair and household cleansing.</div></div></div><div class="bcard"><span class="bn">02</span><div><div class="bt">Carries sulfate-free systems</div><div class="bd">Strong enough to be the primary surfactant, mild enough for daily use claims.</div></div></div><div class="bcard"><span class="bn">03</span><div><div class="bt">Clean rinse</div><div class="bd">Fine stable foam that rinses without residue feel.</div></div></div><div class="bcard"><span class="bn">04</span><div><div class="bt">pH flexibility</div><div class="bd">Formulate from acidic to alkaline without losing performance.</div></div></div>
+        <div class="rv bcard"><span class="bn">01</span><div><div class="bt">The all-rounder</div><div class="bd">One glucoside covering face, body, hair and household cleansing.</div></div></div><div class="rv bcard"><span class="bn">02</span><div><div class="bt">Carries sulfate-free systems</div><div class="bd">Strong enough to be the primary surfactant, mild enough for daily use claims.</div></div></div><div class="rv bcard"><span class="bn">03</span><div><div class="bt">Clean rinse</div><div class="bd">Fine stable foam that rinses without residue feel.</div></div></div><div class="rv bcard"><span class="bn">04</span><div><div class="bt">pH flexibility</div><div class="bd">Formulate from acidic to alkaline without losing performance.</div></div></div>
       </div>
     </div>
   </div>
@@ -456,13 +472,13 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   <div class="section" style="padding-top:0;">
     <div class="wrap two-col">
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Description</span><span></span></div>
+        <div class="rv secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Description</span><span></span></div>
         <div class="desc-body"><p>A C10-based alkyl polyglucoside and the most versatile member of the family — mild enough for facial and baby cleansing, effective enough to carry a sulfate-free shampoo as the primary surfactant.</p><p>Generates stable, fine foam, tolerates electrolytes and hard water, and stays stable from acidic to alkaline pH. Plant-derived and readily biodegradable.</p></div>
-        <div class="secmeta" style="margin:48px 0 26px;"><span class="folio">03</span><span class="sname">Formulation notes</span><span></span></div>
+        <div class="rv secmeta" style="margin:48px 0 26px;"><span class="folio">03</span><span class="sname">Formulation notes</span><span></span></div>
         <div class="desc-body"><p>As primary, combine with betaine around 2:1 for foam density; cold process suitable.</p><p>Build viscosity via gums or glucamide — the salt curve is flat.</p></div>
       </div>
       <div>
-        <div class="secmeta" style="margin-bottom:36px;"><span class="folio">04</span><span class="sname">At a glance</span><span></span></div>
+        <div class="rv secmeta" style="margin-bottom:36px;"><span class="folio">04</span><span class="sname">At a glance</span><span></span></div>
         <table class="spectable">
           <tr><td>Function</td><td>Primary or co-surfactant</td></tr>
           <tr><td>Charge</td><td>Nonionic</td></tr>
@@ -471,7 +487,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
           <tr><td>Physical form</td><td>Aqueous solution</td></tr>
         </table>
         
-        <div class="staging" style="margin-top:28px;padding:28px 30px;grid-template-columns:1fr;gap:18px;">
+        <div class="rv staging" style="margin-top:28px;padding:28px 30px;grid-template-columns:1fr;gap:18px;">
           <div><h3 style="font-size:20px;">The full specification table lives in the Extended TDS.</h3>
           <p style="margin-top:6px;">Current revision, in English, on request — with SDS and batch COA.</p></div>
           <a class="btn btn-primary" style="justify-self:start;" href="/contact/?product=hs2000&type=tds">Request TDS</a>
@@ -483,7 +499,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
   <div class="section" style="padding-top:0;">
     <div class="wrap two-col">
       <div>
-        <div class="secmeta"><span class="folio">05</span><span class="sname">Applications &amp; use levels</span><span class="sright">As supplied, % w/w · typical</span></div>
+        <div class="rv secmeta"><span class="folio">05</span><span class="sname">Applications &amp; use levels</span><span class="sright">As supplied, % w/w · typical</span></div>
         <table class="spectable">
           <tr><th>System</th><th>Use level</th></tr>
           <tr><td>Sulfate-free shampoos</td><td>5–15 %</td></tr>
@@ -493,7 +509,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
         </table>
       </div>
       <div>
-        <div class="secmeta"><span class="folio">06</span><span class="sname">Commercial terms</span><span class="sright">Suzhou · export</span></div>
+        <div class="rv secmeta"><span class="folio">06</span><span class="sname">Commercial terms</span><span class="sright">Suzhou · export</span></div>
         <table class="spectable">
           <tr><td>Packaging (typical)</td><td>200 kg drums · 1,000 kg IBC (typical — confirmed per order)</td></tr>
           <tr><td>MOQ</td><td>On request</td></tr>
@@ -508,7 +524,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="darksec" style="padding:76px 0;">
     <div class="wrap">
-      <div class="doccta">
+      <div class="rv doccta">
         <div>
           <div class="kick" style="margin-bottom:14px;">Documentation</div>
           <h2>Every document, ready on request.</h2>
@@ -526,7 +542,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
   <div class="section" style="padding-bottom:110px;">
     <div class="wrap">
-      <div class="rangecta">
+      <div class="rv rangecta">
         <div>
           <div class="t">PC-01 · Surfactants</div>
           <div class="s">Related grades</div>
