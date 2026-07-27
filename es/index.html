@@ -468,6 +468,39 @@ a.showcard:hover .showfig img{transform:scale(1.04);}
   .statband{grid-template-columns:1fr 1fr;}
   .statn{font-size:38px;}
 }
+/* ===== home v12: substancia ===== */
+.mani{display:grid;grid-template-columns:6fr 6fr;gap:88px;align-items:start;}
+.manihead{font-size:44px;line-height:1.12;}
+.manibody p{font-weight:300;font-size:17px;line-height:1.7;}
+.manibody p+p{margin-top:16px;}
+.manifacts{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--hair);margin-top:34px;padding-top:22px;gap:18px;}
+.mf .mfn{font-family:'Fraunces',serif;font-weight:600;font-size:26px;display:block;}
+.mf .mfl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:6px;display:block;opacity:.6;}
+.featgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.featcard{background:var(--offwhite);padding:26px 26px 30px;text-decoration:none;color:var(--ink);display:block;transition:transform 200ms ease,box-shadow 200ms ease;}
+.featcard:hover{transform:translateY(-2px);box-shadow:0 2px 0 var(--hair-strong);}
+.featcard .fc-row{display:flex;justify-content:space-between;align-items:baseline;}
+.featcard .fc-code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;}
+.featcard .fc-fam{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--bronze);text-transform:uppercase;}
+.featcard .fc-inci{font-family:'IBM Plex Mono',monospace;font-size:12px;margin-top:12px;opacity:.75;}
+.featcard .fc-claim{font-family:'Fraunces',serif;font-weight:600;font-size:19px;margin-top:10px;line-height:1.3;}
+.featcard .fc-go{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:18px;display:block;}
+.bcard.bcta{display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:flex-start;}
+.certcard{border:1px solid var(--offwhite);padding:34px 36px;background:transparent;}
+.cc-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--offwhite);padding-bottom:16px;}
+.cc-iso{font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:var(--offwhite);}
+.cc-acc{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);}
+.cc-row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:13px 0;border-bottom:0.5px solid var(--hair-rev);}
+.cc-l{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);}
+.cc-v{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--offwhite);}
+.cc-foot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;margin-top:18px;opacity:.55;color:var(--offwhite);}
+.homecontact{display:grid;grid-template-columns:7fr 5fr;gap:88px;align-items:start;}
+@media (max-width:920px){
+  .mani,.homecontact{grid-template-columns:1fr;gap:44px;}
+  .manihead{font-size:32px;}
+  .manifacts{grid-template-columns:1fr 1fr;}
+  .featgrid{grid-template-columns:1fr;}
+}
 </style>
 <meta name="description" content="Casa de ingredientes y desarrollo en Suzhou, China — un portafolio verificado con documentación de estándar europeo, más formulación, sourcing a la medida y proyectos industriales.">
 <meta name="robots" content="noindex, nofollow">
@@ -520,10 +553,32 @@ a.showcard:hover .showfig img{transform:scale(1.04);}
 
   <div class="marq" aria-hidden="true"><div class="marqin"><span>HSO810 · Caprylyl/Capryl Glucoside</span> <span>HS215 · Caprylyl/Capryl Glucoside</span> <span>HS225N · Caprylyl/Capryl Glucoside</span> <span>HS818 · Coco-Glucoside</span> <span>HS425NE · Coco-Glucoside</span> <span>HS2000 · Decyl Glucoside</span> <span>HS1200 · Lauryl Glucoside</span> <span>HS 65 · Coco-Glucoside &amp; Glyceryl Oleate</span> <span>HS-SLES70 · Sodium Laureth Sulfate</span> <span>HS-CAB · Cocamidopropyl Betaine</span> <span>HS-CDEA · Cocamide DEA</span> <span>HS-SCI80 · Sodium Cocoyl Isethionate</span> <span>HS-SCI85 · Sodium Cocoyl Isethionate</span> <span>HS 200 · Dimethicone</span> <span>HS 245 · Cyclopentasiloxane</span> <span>HS 1501 · Cyclopentasiloxane &amp; Dimethiconol</span> <span>HS 1401 · Cyclotetrasiloxane, Cyclopentasiloxane &amp; Dimethiconol</span> <span>HS 503 · Dimethicone &amp; Dimethiconol</span> <span>HS 1401S · PEG-12 Dimethicone</span> <span>HS 556 · Phenyl Trimethicone</span> <span>HS 949 · Amodimethicone &amp; Cetrimonium Chloride &amp; Trideceth-12</span> <span>HS 9045 · Cyclopentasiloxane &amp; Dimethicone Crosspolymer</span> <span>HS-Ceteareth · Ceteareth series (grades on request)</span> <span>HS-Polysorbate · Polysorbate series (grades on request)</span> <span>HS-C940 · Carbomer</span> <span>HS-C980 · Carbomer</span> <span>HS-C21 · Carbomer</span> <span>HS-D Panthenol · Panthenol</span> <span>HS-DL Panthenol · Panthenol</span> <span>HS-SH · Sodium Hyaluronate</span> <span>HS-PG USP · Propylene Glycol</span> <span>HS-DPG · Dipropylene Glycol</span> <span>HS-K90 · PVP</span> <span>HS-K30 · PVP</span> <span>HS MBBT · Methylene Bis-Benzotriazolyl Tetramethylbutylphenol</span> <span>HS-BEMT · Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine</span> <span>HS-DBT · Diethylhexyl Butamido Triazone</span> <span>HS-DHHB · Diethylamino Hydroxybenzoyl Hexyl Benzoate</span> <span>HS-PBSA · Phenylbenzimidazole Sulfonic Acid</span> <span>HS-EHT · Ethylhexyl Triazone</span> <span>HS-AVB · Butyl Methoxydibenzoylmethane</span> <span>HS OCT · Octocrylene</span> <span>HS-HMS · Homosalate</span> <span>HS-OMC · Ethylhexyl Methoxycinnamate</span> <span>HS-OS · Ethylhexyl Salicylate</span> <span>HS-BP3 · Benzophenone-3</span> <span>HS-BP4 · Benzophenone-4</span> <span>HS-PQ7 · Polyquaternium-7</span> <span>HS-PQ10 · Polyquaternium-10</span> <span>HS-PQ39 · Polyquaternium-39</span> <span>HS-CreaPower · Creatine Monohydrate</span> <span>HS-AminoForce 2:1:1 · L-Leucine, L-Isoleucine, L-Valine (2:1:1)</span> <span>HS-AminoForce 4:1:1 · L-Leucine, L-Isoleucine, L-Valine (4:1:1)</span> <span>HS-ArgiPlus · L-Arginine</span> <span>HS-CarniLean · L-Carnitine</span> <span>HS-GlutaRecover · L-Glutamine</span> <span>HS-BetaEndure · Beta-Alanine</span> <span>HS-TaurineMax · Taurine</span> <span>HS-CustomBlend · Custom vitamin premix (OEM)</span> <span>HS-VitaC · Ascorbic Acid</span> <span>HS-VitaA · Retinol / Beta-Carotene</span> <span>HS-VitaD3 · Cholecalciferol</span><span>HSO810 · Caprylyl/Capryl Glucoside</span> <span>HS215 · Caprylyl/Capryl Glucoside</span> <span>HS225N · Caprylyl/Capryl Glucoside</span> <span>HS818 · Coco-Glucoside</span> <span>HS425NE · Coco-Glucoside</span> <span>HS2000 · Decyl Glucoside</span> <span>HS1200 · Lauryl Glucoside</span> <span>HS 65 · Coco-Glucoside &amp; Glyceryl Oleate</span> <span>HS-SLES70 · Sodium Laureth Sulfate</span> <span>HS-CAB · Cocamidopropyl Betaine</span> <span>HS-CDEA · Cocamide DEA</span> <span>HS-SCI80 · Sodium Cocoyl Isethionate</span> <span>HS-SCI85 · Sodium Cocoyl Isethionate</span> <span>HS 200 · Dimethicone</span> <span>HS 245 · Cyclopentasiloxane</span> <span>HS 1501 · Cyclopentasiloxane &amp; Dimethiconol</span> <span>HS 1401 · Cyclotetrasiloxane, Cyclopentasiloxane &amp; Dimethiconol</span> <span>HS 503 · Dimethicone &amp; Dimethiconol</span> <span>HS 1401S · PEG-12 Dimethicone</span> <span>HS 556 · Phenyl Trimethicone</span> <span>HS 949 · Amodimethicone &amp; Cetrimonium Chloride &amp; Trideceth-12</span> <span>HS 9045 · Cyclopentasiloxane &amp; Dimethicone Crosspolymer</span> <span>HS-Ceteareth · Ceteareth series (grades on request)</span> <span>HS-Polysorbate · Polysorbate series (grades on request)</span> <span>HS-C940 · Carbomer</span> <span>HS-C980 · Carbomer</span> <span>HS-C21 · Carbomer</span> <span>HS-D Panthenol · Panthenol</span> <span>HS-DL Panthenol · Panthenol</span> <span>HS-SH · Sodium Hyaluronate</span> <span>HS-PG USP · Propylene Glycol</span> <span>HS-DPG · Dipropylene Glycol</span> <span>HS-K90 · PVP</span> <span>HS-K30 · PVP</span> <span>HS MBBT · Methylene Bis-Benzotriazolyl Tetramethylbutylphenol</span> <span>HS-BEMT · Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine</span> <span>HS-DBT · Diethylhexyl Butamido Triazone</span> <span>HS-DHHB · Diethylamino Hydroxybenzoyl Hexyl Benzoate</span> <span>HS-PBSA · Phenylbenzimidazole Sulfonic Acid</span> <span>HS-EHT · Ethylhexyl Triazone</span> <span>HS-AVB · Butyl Methoxydibenzoylmethane</span> <span>HS OCT · Octocrylene</span> <span>HS-HMS · Homosalate</span> <span>HS-OMC · Ethylhexyl Methoxycinnamate</span> <span>HS-OS · Ethylhexyl Salicylate</span> <span>HS-BP3 · Benzophenone-3</span> <span>HS-BP4 · Benzophenone-4</span> <span>HS-PQ7 · Polyquaternium-7</span> <span>HS-PQ10 · Polyquaternium-10</span> <span>HS-PQ39 · Polyquaternium-39</span> <span>HS-CreaPower · Creatine Monohydrate</span> <span>HS-AminoForce 2:1:1 · L-Leucine, L-Isoleucine, L-Valine (2:1:1)</span> <span>HS-AminoForce 4:1:1 · L-Leucine, L-Isoleucine, L-Valine (4:1:1)</span> <span>HS-ArgiPlus · L-Arginine</span> <span>HS-CarniLean · L-Carnitine</span> <span>HS-GlutaRecover · L-Glutamine</span> <span>HS-BetaEndure · Beta-Alanine</span> <span>HS-TaurineMax · Taurine</span> <span>HS-CustomBlend · Custom vitamin premix (OEM)</span> <span>HS-VitaC · Ascorbic Acid</span> <span>HS-VitaA · Retinol / Beta-Carotene</span> <span>HS-VitaD3 · Cholecalciferol</span></div></div>
 
+  <div class="section">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">01</span><span class="sname">La casa</span><span class="sright">Suzhou · desde 2019</span></div>
+      <div class="mani">
+        <div>
+          <h2 class="manihead">Fundada en Suzhou.<br>Documentada a estándar europeo.<br>Construida para desarrollar.</h2>
+        </div>
+        <div class="manibody">
+          <p>Suzhou Huishuo Biotechnology Co., Ltd. es una casa de ingredientes y desarrollo fundada en 2019 en Suzhou High-tech Zone, China. La casa abastece seis industrias — del cuidado personal a la química industrial — y desarrolla formulaciones, líneas de producto terminado y proyectos industriales a la medida en su propio laboratorio.</p>
+          <p>La calidad es certificada y verificable: un sistema de gestión ISO 9001:2015 con acreditación IAS, doble verificación de QC en cada lote y un paquete documental — TDS extendido, SDS con estructura REACH, COA de lote — completado antes de que cualquier producto entre en línea.</p>
+          <p>La exportación sale por Shanghai, Ningbo y Qingdao bajo términos FOB y CIF, con una mesa comercial que responde en inglés y español.</p>
+          <div class="manifacts">
+            <div class="mf"><span class="mfn">2019</span><span class="mfl">Fundación</span></div>
+            <div class="mf"><span class="mfn">ISO</span><span class="mfl">certificado 9001:2015</span></div>
+            <div class="mf"><span class="mfn">3</span><span class="mfl">Puertos de exportación</span></div>
+            <div class="mf"><span class="mfn">EN·ES</span><span class="mfl">Mesa comercial</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section id="show">
     <div class="pin">
       <div class="wrap" style="max-width:none;padding:0 56px 34px;">
-        <div class="rv secmeta" style="margin-bottom:0;"><span class="folio">01</span><span class="sname">Divisiones</span><span class="sright">6 campos de suministro</span></div>
+        <div class="rv secmeta" style="margin-bottom:0;"><span class="folio">02</span><span class="sname">Divisiones</span><span class="sright">6 campos de suministro</span></div>
       </div>
       <div class="showtrack" id="showtrack">
         <a class="showcard" href="/es/divisions/personal-care/">
@@ -576,7 +631,7 @@ a.showcard:hover .showfig img{transform:scale(1.04);}
     <div class="floorpin">
       <div class="wrap floorgrid">
         <div class="floorleft">
-          <div class="rv secmeta rev" style="margin-bottom:44px;"><span class="folio">02</span><span class="sname">La casa</span><span class="sright">Tres pisos</span></div>
+          <div class="rv secmeta rev" style="margin-bottom:44px;"><span class="folio">03</span><span class="sname">Por dentro</span><span class="sright">Tres pisos</span></div>
           <h2 class="floorhead">Una casa.<br>Tres pisos.</h2>
           <div class="findex">
             <span class="fdot" data-fl="0">01 — Portafolio</span>
@@ -615,9 +670,68 @@ a.showcard:hover .showfig img{transform:scale(1.04);}
     </div>
   </section>
 
+
   <div class="section">
     <div class="wrap">
-      <div class="rv secmeta"><span class="folio">03</span><span class="sname">Hechos</span><span class="sright">Sin adjetivos</span></div>
+      <div class="rv secmeta"><span class="folio">04</span><span class="sname">Productos destacados</span><span class="sright">Ola 1 · Tensoactivos</span></div>
+      <div class="featgrid">
+<a class="featcard" href="/es/products/hs-cab/"><div class="fc-row"><span class="fc-code">HS-CAB</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Cocamidopropyl Betaine · CAS 61789-40-0</div><div class="fc-claim">Co-tensoactivo anfotérico para sistemas de limpieza suaves.}</div><span class="fc-go">Ver producto →</span></a>
+<a class="featcard" href="/products/hso810/"><div class="fc-row"><span class="fc-code">HSO810</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Caprylyl/Capryl Glucoside · CAS 68515-73-1</div><div class="fc-claim">Glucósido de cadena corta para sistemas micelares y ultra suaves.}</div><span class="fc-go">Ver producto →</span></a>
+<a class="featcard" href="/products/hs2000/"><div class="fc-row"><span class="fc-code">HS2000</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Decyl Glucoside · CAS 54549-25-6</div><div class="fc-claim">El glucósido versátil para la limpieza sin sulfatos.}</div><span class="fc-go">Ver producto →</span></a>
+<a class="featcard" href="/products/hs1200/"><div class="fc-row"><span class="fc-code">HS1200</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Lauryl Glucoside · CAS 110615-47-9</div><div class="fc-claim">Glucósido de espuma densa para formatos sin sulfatos.}</div><span class="fc-go">Ver producto →</span></a>
+<a class="featcard" href="/products/hs-sles70/"><div class="fc-row"><span class="fc-code">HS-SLES70</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Sodium Laureth Sulfate · CAS 3088-31-1</div><div class="fc-claim">Aniónico de alta espuma, el caballo de batalla, grado 70%.}</div><span class="fc-go">Ver producto →</span></a>
+<a class="featcard" href="/products/hs-sci85/"><div class="fc-row"><span class="fc-code">HS-SCI85</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Sodium Cocoyl Isethionate · CAS 61789-32-0</div><div class="fc-claim">El tensoactivo syndet — espuma densa, cremosa y suave. Grado 85%.}</div><span class="fc-go">Ver producto →</span></a>
+      </div>
+      <div class="rv rangecta" style="margin-top:44px;border-top:none;padding-top:0;">
+        <div><div class="t">El índice completo</div><div class="s">62 productos · código, INCI, CAS</div></div>
+        <a class="btn btn-ghost" href="/es/catalogue/">Explorar el catálogo</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">05</span><span class="sname">Desarrollo</span><span class="sright">Cinco formatos, cada uno con un entregable definido</span></div>
+      <div class="benef">
+        <div class="rv bcard"><span class="bn">01</span><div><div class="bt">Sourcing a la medida</div><div class="bd">Un grado calificado según su especificación — abastecido, verificado por nuestro control de calidad y enviado con documentación completa.</div></div></div>
+        <div class="rv bcard"><span class="bn">02</span><div><div class="bt">Desarrollo de formulación</div><div class="bd">Desarrollado en el laboratorio; entregado como informe de desarrollo, prototipo y guía de proceso.</div></div></div>
+        <div class="rv bcard"><span class="bn">03</span><div><div class="bt">Desarrollo de producto terminado</div><div class="bd">Líneas de producto completas desarrolladas para marcas — formulación, proceso y documentación, reduciendo costo y tiempo de producción.</div></div></div>
+        <div class="rv bcard"><span class="bn">04</span><div><div class="bt">Proyectos industriales a la medida</div><div class="bd">Definidos por proyecto — especificación, cronograma y entregables acordados por escrito antes de iniciar.</div></div></div>
+        <div class="rv bcard"><span class="bn">05</span><div><div class="bt">Programas de suministro</div><div class="bd">Suministro programado bajo asignación, documentado por lote — el formato con el que operan los compradores de largo plazo.</div></div></div>
+        <div class="bcard bcta"><a class="btn btn-primary" href="/es/contact/?type=project">Iniciar un proyecto</a><a class="btn btn-ghost" href="/es/development/">Desarrollo →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="darksec">
+    <div class="wrap">
+      <div class="rv secmeta rev"><span class="folio">06</span><span class="sname">Calidad y cumplimiento</span><span class="sright">Verificable, no declarado</span></div>
+      <div class="std">
+        <div>
+          <h2>Certificada, verificada dos veces, documentada.</h2>
+          <div class="stditems">
+            <div class="rv stditem"><span class="n">01</span><div><div class="t">Doble verificación de QC</div><div class="d">Cada lote es verificado dos veces por control de calidad antes de su liberación.</div></div></div>
+            <div class="rv stditem"><span class="n">02</span><div><div class="t">COA de lote</div><div class="d">Un Certificado de Análisis acompaña cada lote enviado.</div></div></div>
+            <div class="rv stditem"><span class="n">03</span><div><div class="t">Documentación antes de publicar</div><div class="d">Un producto solo entra en línea cuando su paquete de TDS, SDS y COA está completo.</div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="certcard">
+            <div class="cc-head"><span class="cc-iso">ISO 9001:2015</span><span class="cc-acc">Acreditación IAS</span></div>
+            <div class="cc-row"><span class="cc-l">Certificado</span><span class="cc-v">33924Q15021R0S</span></div>
+            <div class="cc-row"><span class="cc-l">Norma</span><span class="cc-v">GB/T19001-2016 / ISO 9001:2015</span></div>
+            <div class="cc-row"><span class="cc-l">Vigente hasta</span><span class="cc-v">08 / 2027</span></div>
+            <div class="cc-row"><span class="cc-l">Alcance</span><span class="cc-v">Venta de tensoactivos, siliconas, espesantes, conservantes, emulsificantes y aditivos alimentarios</span></div>
+            <div class="cc-foot">Suzhou Huishuo Biotechnology Co., Ltd. · Suzhou High-tech Zone</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">07</span><span class="sname">Hechos</span><span class="sright">Sin adjetivos</span></div>
       <div class="statband">
         <div class="stat"><span class="statn" data-count="62">62</span><span class="statl">Productos indexados</span></div>
         <div class="stat"><span class="statn" data-count="8">8</span><span class="statl">Familias</span></div>
@@ -633,6 +747,23 @@ a.showcard:hover .showfig img{transform:scale(1.04);}
     </div>
   </div>
 
+
+  <div class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">08</span><span class="sname">Contacto</span><span class="sright">Respuesta por correo</span></div>
+      <div class="homecontact">
+        <div>
+          <h2 style="font-size:38px;max-width:520px;">Línea directa con la mesa comercial.</h2>
+          <div class="cta-row" style="margin-top:34px;"><a class="btn btn-primary" href="/es/contact/?type=quote">Solicitar una cotización</a><a class="btn btn-ghost" href="/es/contact/?type=project">Iniciar un proyecto</a></div>
+        </div>
+        <div class="side">
+          <div class="blk"><div class="lab">Correo</div><div class="val"><a href="mailto:sales@huishuochem.com">sales@huishuochem.com</a><br><a href="mailto:info@huishuochem.com">info@huishuochem.com</a></div></div>
+          <div class="blk"><div class="lab">WhatsApp</div><div class="val"><a href="https://wa.me/5511932625665">+55 11 93262 5665</a></div></div>
+          <div class="blk"><div class="lab">Base</div><div class="val">Jinshi Building, Shishan Road<br>Suzhou High-tech Zone, China</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="finalcta">
     <div class="wrap">
       <h2>Pida el documento. Juzgue el estándar usted mismo.</h2>
@@ -646,7 +777,7 @@ a.showcard:hover .showfig img{transform:scale(1.04);}
         <div><img class="lockup-img" src="/img/brand/logo-h-rev.png" alt="huishuo"><p class="slogan">One standard, many worlds.</p></div>
         <div><h4>Divisiones</h4><a href="/es/divisions/personal-care/">Cuidado Personal</a><a href="/es/divisions/human-nutrition/">Nutrición Humana</a><a href="/es/divisions/">Alimentos</a><a href="/es/divisions/">Nutrición Animal</a><a href="/es/divisions/">Agro</a><a href="/es/divisions/">Industrial</a></div>
         <div><h4>Empresa</h4><a href="/es/company/">Acerca de</a><a href="/es/development/">Desarrollo</a><a href="/es/company/#logistics">Logística</a></div>
-        <div><h4>Contacto</h4><a href="/es/contact/?type=quote">Solicitar una cotización</a><a href="/es/contact/">Solicitar documentos</a></div>
+        <div><h4>Contacto</h4><a href="mailto:sales@huishuochem.com">sales@huishuochem.com</a><a href="https://wa.me/5511932625665">WhatsApp +55 11 93262 5665</a><a href="/es/contact/?type=quote">Solicitar una cotización</a><a href="/es/contact/">Solicitar documentos</a></div>
       </div>
       <div class="legal"><span>© 2026 Suzhou Huishuo Biotechnology Co., Ltd.</span><span>huishuochem.com</span></div>
     </div>

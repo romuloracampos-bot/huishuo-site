@@ -468,6 +468,39 @@ a.showcard:hover .showfig img{transform:scale(1.04);}
   .statband{grid-template-columns:1fr 1fr;}
   .statn{font-size:38px;}
 }
+/* ===== home v12: substancia ===== */
+.mani{display:grid;grid-template-columns:6fr 6fr;gap:88px;align-items:start;}
+.manihead{font-size:44px;line-height:1.12;}
+.manibody p{font-weight:300;font-size:17px;line-height:1.7;}
+.manibody p+p{margin-top:16px;}
+.manifacts{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--hair);margin-top:34px;padding-top:22px;gap:18px;}
+.mf .mfn{font-family:'Fraunces',serif;font-weight:600;font-size:26px;display:block;}
+.mf .mfl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:6px;display:block;opacity:.6;}
+.featgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.featcard{background:var(--offwhite);padding:26px 26px 30px;text-decoration:none;color:var(--ink);display:block;transition:transform 200ms ease,box-shadow 200ms ease;}
+.featcard:hover{transform:translateY(-2px);box-shadow:0 2px 0 var(--hair-strong);}
+.featcard .fc-row{display:flex;justify-content:space-between;align-items:baseline;}
+.featcard .fc-code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;}
+.featcard .fc-fam{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--bronze);text-transform:uppercase;}
+.featcard .fc-inci{font-family:'IBM Plex Mono',monospace;font-size:12px;margin-top:12px;opacity:.75;}
+.featcard .fc-claim{font-family:'Fraunces',serif;font-weight:600;font-size:19px;margin-top:10px;line-height:1.3;}
+.featcard .fc-go{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:18px;display:block;}
+.bcard.bcta{display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:flex-start;}
+.certcard{border:1px solid var(--offwhite);padding:34px 36px;background:transparent;}
+.cc-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--offwhite);padding-bottom:16px;}
+.cc-iso{font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:var(--offwhite);}
+.cc-acc{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);}
+.cc-row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:13px 0;border-bottom:0.5px solid var(--hair-rev);}
+.cc-l{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);}
+.cc-v{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--offwhite);}
+.cc-foot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;margin-top:18px;opacity:.55;color:var(--offwhite);}
+.homecontact{display:grid;grid-template-columns:7fr 5fr;gap:88px;align-items:start;}
+@media (max-width:920px){
+  .mani,.homecontact{grid-template-columns:1fr;gap:44px;}
+  .manihead{font-size:32px;}
+  .manifacts{grid-template-columns:1fr 1fr;}
+  .featgrid{grid-template-columns:1fr;}
+}
 </style>
 <meta name="description" content="Solicite TDS, SDS, COA, muestras o una cotización a Huishuo, Suzhou. Línea directa con la mesa comercial: sales@huishuochem.com.">
 <meta name="robots" content="noindex, nofollow">
