@@ -662,6 +662,86 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 
 #families{scroll-margin-top:96px;}
 [hidden]{display:none!important;}
+
+/* ---------- dossie comercial v3 (template AG-810) ---------- */
+.dhero{background:var(--ink);color:var(--offwhite);padding:120px 0 0;position:relative;overflow:hidden;}
+.dhero::after{content:"";position:absolute;top:0;right:0;width:42%;height:100%;background:linear-gradient(120deg,transparent,var(--acc));opacity:.16;pointer-events:none;}
+.dcrumb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;opacity:.6;margin-bottom:40px;}
+.dcrumb a{color:var(--offwhite);text-decoration:none;opacity:.8;}
+.dcrumb a:hover{opacity:1;color:var(--acc);}
+.dcrumb strong{color:var(--acc);font-weight:500;}
+.dcrumb span{opacity:.4;margin:0 6px;}
+.dkicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;}
+.dtitle{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(52px,8vw,104px);line-height:.9;letter-spacing:-.01em;}
+.dinci{font-family:'Spectral',serif;font-style:italic;font-weight:300;font-size:clamp(20px,2.4vw,28px);margin-top:16px;opacity:.9;}
+.dlead{font-weight:300;font-size:18px;line-height:1.65;max-width:620px;margin-top:26px;opacity:.92;}
+.dctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+.dstrip{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--hair-rev);margin-top:64px;}
+.dcell{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;padding:18px 24px 20px 0;border-right:0.5px solid var(--hair-rev);color:var(--offwhite);line-height:1.5;}
+.dcell:last-child{border-right:none;}
+.dcell .dl{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:5px;}
+.two-col-d{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+/* mechanism */
+.dmech{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.dmcard{border:0.5px solid var(--hair);padding:28px 26px 30px;background:var(--offwhite);}
+.dmn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--acc);display:block;margin-bottom:16px;}
+.dmt{font-family:'Fraunces',serif;font-weight:600;font-size:19px;line-height:1.15;margin-bottom:10px;}
+.dmd{font-weight:300;font-size:14.5px;line-height:1.6;opacity:.85;}
+/* performance */
+.dperf{display:grid;grid-template-columns:1fr 1fr;gap:34px 56px;}
+.dpblock{display:flex;flex-direction:column;gap:9px;}
+.dpttl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:3px;}
+.dprow{display:grid;grid-template-columns:1fr;gap:5px;}
+.dpk{font-family:'IBM Plex Mono',monospace;font-size:11.5px;opacity:.7;}
+.dpk-hi{opacity:1;color:var(--ink);font-weight:500;}
+.dptrack{display:block;height:9px;background:rgba(28,26,21,.07);position:relative;overflow:hidden;}
+.dpfill{position:absolute;left:0;top:0;height:100%;transform-origin:left;}
+.dpref{background:rgba(28,26,21,.24);}
+.dpour{background:var(--acc);}
+.dfoot{font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;opacity:.5;margin-top:26px;max-width:760px;}
+/* applications (darksec) */
+.dapps{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair-rev);border:0.5px solid var(--hair-rev);}
+.dapp{background:var(--ink);padding:20px 24px;font-weight:300;font-size:16px;display:flex;gap:14px;align-items:baseline;}
+.dax{color:var(--acc);font-family:'IBM Plex Mono',monospace;font-size:13px;flex:none;}
+/* formulation */
+.dform{border-top:1px solid var(--ink);margin-top:8px;}
+.dfrow{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:0.5px solid var(--hair);}
+.dfk{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);padding-top:2px;}
+.dfv{font-weight:400;font-size:15.5px;line-height:1.55;}
+.dtips{margin-top:22px;display:flex;flex-direction:column;gap:12px;}
+.dtip{font-weight:300;font-size:14.5px;line-height:1.6;padding-left:18px;position:relative;opacity:.9;}
+.dtip::before{content:"—";position:absolute;left:0;color:var(--acc);}
+/* specs */
+.dspec{border-top:1px solid var(--ink);margin-top:8px;}
+.dsrow{display:grid;grid-template-columns:1fr auto;gap:20px;padding:14px 0;border-bottom:0.5px solid var(--hair);font-family:'IBM Plex Mono',monospace;}
+.dsk{font-size:12px;opacity:.7;}
+.dsv{font-size:12.5px;font-weight:500;text-align:right;}
+/* commercial case */
+.dclose{background:var(--ink);color:var(--offwhite);}
+.dcase-lead{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.18;max-width:900px;margin-bottom:44px;}
+.dcase-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:36px;}
+.dcf{border:0.5px solid var(--hair-rev);padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;}
+.dcfk{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);}
+.dcfd{font-weight:300;font-size:14px;line-height:1.55;opacity:.85;}
+/* related */
+.drelated{display:flex;gap:8px;flex-wrap:wrap;}
+.drel{display:flex;flex-direction:column;gap:3px;border:0.5px solid var(--hair-strong);padding:12px 16px;text-decoration:none;color:var(--ink);transition:border-color 160ms ease,background 160ms ease;min-width:150px;}
+.drel:hover{border-color:var(--ink);background:rgba(28,26,21,.03);}
+.drc{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;}
+.dri{font-family:'IBM Plex Mono',monospace;font-size:10.5px;opacity:.6;}
+@media (max-width:900px){
+  .dhero{padding:96px 0 0;}
+  .dhero::after{width:100%;opacity:.1;}
+  .dstrip{grid-template-columns:1fr 1fr;margin-top:44px;}
+  .dcell{border-right:none;border-bottom:0.5px solid var(--hair-rev);}
+  .dmech{grid-template-columns:1fr;}
+  .dperf{grid-template-columns:1fr;gap:24px;}
+  .dapps{grid-template-columns:1fr;}
+  .two-col-d{grid-template-columns:1fr;gap:44px;}
+  .dcase-facts{grid-template-columns:1fr;}
+  .dfrow{grid-template-columns:1fr;gap:4px;}
+}
+.dapp-fill{background:var(--ink);}
 </style>
 <meta name="description" content="Surfactants, conditioning agents and functional ingredients for cleansing and care systems — with Extended TDS, REACH-structured SDS and batch COA.">
 <meta name="robots" content="noindex, nofollow">
@@ -717,20 +797,25 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 
   <div class="section" style="padding-top:0;">
     <div class="wrap">
-      <div class="rv secmeta"><span class="folio">PC</span><span class="sname">Documented products</span><span class="sright">Wave 1 · 12 of 101</span></div>
+      <div class="rv secmeta"><span class="folio">PC</span><span class="sname">Products online</span><span class="sright">Surfactants · 17 online</span></div>
       <div class="prodtable-h"><span>Code</span><span>INCI</span><span>Form</span><span></span></div>
-      <a class="prodrow" href="/products/hso810/"><span class="pcode">HSO810</span><span class="pinci">Caprylyl/Capryl Glucoside</span><span class="pform">Aqueous solution</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs215/"><span class="pcode">HS215</span><span class="pinci">Caprylyl/Capryl Glucoside</span><span class="pform">Aqueous solution</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs225n/"><span class="pcode">HS225N</span><span class="pinci">Caprylyl/Capryl Glucoside</span><span class="pform">Aqueous solution</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs818/"><span class="pcode">HS818</span><span class="pinci">Coco-Glucoside</span><span class="pform">Aqueous solution</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs425ne/"><span class="pcode">HS425NE</span><span class="pinci">Coco-Glucoside</span><span class="pform">Aqueous solution</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs2000/"><span class="pcode">HS2000</span><span class="pinci">Decyl Glucoside</span><span class="pform">Aqueous solution</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs1200/"><span class="pcode">HS1200</span><span class="pinci">Lauryl Glucoside</span><span class="pform">Aqueous solution</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs-65/"><span class="pcode">HS 65</span><span class="pinci">Coco-Glucoside &amp; Glyceryl Oleate</span><span class="pform">Aqueous blend</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs-sles70/"><span class="pcode">HS-SLES70</span><span class="pinci">Sodium Laureth Sulfate</span><span class="pform">Paste, 70% grade</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs-cdea/"><span class="pcode">HS-CDEA</span><span class="pinci">Cocamide DEA</span><span class="pform">Viscous liquid</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs-sci80/"><span class="pcode">HS-SCI80</span><span class="pinci">Sodium Cocoyl Isethionate</span><span class="pform">Solid — powder/granules, 80% grade</span><span class="plink">View →</span></a>
-      <a class="prodrow" href="/products/hs-sci85/"><span class="pcode">HS-SCI85</span><span class="pinci">Sodium Cocoyl Isethionate</span><span class="pform">Solid — powder/granules, 85% grade</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hso810/"><span class="pcode">HSO810</span><span class="pinci">Caprylyl/Capryl Glucoside</span><span class="pform">Aqueous solution, ~50% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs215/"><span class="pcode">HS215</span><span class="pinci">Caprylyl/Capryl Glucoside</span><span class="pform">Aqueous solution, ~50% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs225n/"><span class="pcode">HS225N</span><span class="pinci">Caprylyl/Capryl Glucoside</span><span class="pform">Aqueous solution, ~50% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs818/"><span class="pcode">HS818</span><span class="pinci">Coco-Glucoside</span><span class="pform">Aqueous solution, ~50% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs425ne/"><span class="pcode">HS425NE</span><span class="pinci">Coco-Glucoside</span><span class="pform">Aqueous solution, ~50% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs2000/"><span class="pcode">HS2000</span><span class="pinci">Decyl Glucoside</span><span class="pform">Aqueous solution, ~50% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs1200/"><span class="pcode">HS1200</span><span class="pinci">Lauryl Glucoside</span><span class="pform">Aqueous solution, ~50% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-65/"><span class="pcode">HS 65</span><span class="pinci">Coco-Glucoside &amp; Glyceryl Oleate</span><span class="pform">Aqueous liquid</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-sles70/"><span class="pcode">HS-SLES70</span><span class="pinci">Sodium Laureth Sulfate</span><span class="pform">Paste, 70% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-cab/"><span class="pcode">HS-CAB</span><span class="pinci">Cocamidopropyl Betaine</span><span class="pform">Aqueous solution, 30% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-cdea/"><span class="pcode">HS-CDEA</span><span class="pinci">Cocamide DEA</span><span class="pform">Viscous liquid, ≥85% amide</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-sci80/"><span class="pcode">HS-SCI80</span><span class="pinci">Sodium Cocoyl Isethionate</span><span class="pform">Powder / granules, ≥84% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-sci85/"><span class="pcode">HS-SCI85</span><span class="pinci">Sodium Cocoyl Isethionate</span><span class="pform">Powder / granules, ≥84% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-126n/"><span class="pcode">HS-126N</span><span class="pinci">Sodium Laureth Sulfate &amp; Glycol Distearate &amp; Cocamide DEA</span><span class="pform">Pearlized concentrate</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-cdea-nf/"><span class="pcode">HS-CDEA NF</span><span class="pinci">Cocamide DEA</span><span class="pform">Viscous liquid, ≥85% amide</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-ls30/"><span class="pcode">HS-LS30</span><span class="pinci">Sodium Lauroyl Sarcosinate</span><span class="pform">Aqueous solution, 30% active</span><span class="plink">View →</span></a>
+      <a class="prodrow" href="/products/hs-scs/"><span class="pcode">HS-SCS</span><span class="pinci">Sodium Coco-Sulfate</span><span class="pform">Needles / powder, ≥92% active</span><span class="plink">View →</span></a>
       <div class="rv staging">
         <div>
           <h3>The catalogue is published in verified waves.</h3>
