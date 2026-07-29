@@ -662,8 +662,88 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 
 #families{scroll-margin-top:96px;}
 [hidden]{display:none!important;}
+
+/* ---------- dossie comercial v3 (template AG-810) ---------- */
+.dhero{background:var(--ink);color:var(--offwhite);padding:120px 0 0;position:relative;overflow:hidden;}
+.dhero::after{content:"";position:absolute;top:0;right:0;width:42%;height:100%;background:linear-gradient(120deg,transparent,var(--acc));opacity:.16;pointer-events:none;}
+.dcrumb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;opacity:.6;margin-bottom:40px;}
+.dcrumb a{color:var(--offwhite);text-decoration:none;opacity:.8;}
+.dcrumb a:hover{opacity:1;color:var(--acc);}
+.dcrumb strong{color:var(--acc);font-weight:500;}
+.dcrumb span{opacity:.4;margin:0 6px;}
+.dkicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;}
+.dtitle{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(52px,8vw,104px);line-height:.9;letter-spacing:-.01em;}
+.dinci{font-family:'Spectral',serif;font-style:italic;font-weight:300;font-size:clamp(20px,2.4vw,28px);margin-top:16px;opacity:.9;}
+.dlead{font-weight:300;font-size:18px;line-height:1.65;max-width:620px;margin-top:26px;opacity:.92;}
+.dctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+.dstrip{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--hair-rev);margin-top:64px;}
+.dcell{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;padding:18px 24px 20px 0;border-right:0.5px solid var(--hair-rev);color:var(--offwhite);line-height:1.5;}
+.dcell:last-child{border-right:none;}
+.dcell .dl{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:5px;}
+.two-col-d{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+/* mechanism */
+.dmech{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.dmcard{border:0.5px solid var(--hair);padding:28px 26px 30px;background:var(--offwhite);}
+.dmn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--acc);display:block;margin-bottom:16px;}
+.dmt{font-family:'Fraunces',serif;font-weight:600;font-size:19px;line-height:1.15;margin-bottom:10px;}
+.dmd{font-weight:300;font-size:14.5px;line-height:1.6;opacity:.85;}
+/* performance */
+.dperf{display:grid;grid-template-columns:1fr 1fr;gap:34px 56px;}
+.dpblock{display:flex;flex-direction:column;gap:9px;}
+.dpttl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:3px;}
+.dprow{display:grid;grid-template-columns:1fr;gap:5px;}
+.dpk{font-family:'IBM Plex Mono',monospace;font-size:11.5px;opacity:.7;}
+.dpk-hi{opacity:1;color:var(--ink);font-weight:500;}
+.dptrack{display:block;height:9px;background:rgba(28,26,21,.07);position:relative;overflow:hidden;}
+.dpfill{position:absolute;left:0;top:0;height:100%;transform-origin:left;}
+.dpref{background:rgba(28,26,21,.24);}
+.dpour{background:var(--acc);}
+.dfoot{font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;opacity:.5;margin-top:26px;max-width:760px;}
+/* applications (darksec) */
+.dapps{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair-rev);border:0.5px solid var(--hair-rev);}
+.dapp{background:var(--ink);padding:20px 24px;font-weight:300;font-size:16px;display:flex;gap:14px;align-items:baseline;}
+.dax{color:var(--acc);font-family:'IBM Plex Mono',monospace;font-size:13px;flex:none;}
+/* formulation */
+.dform{border-top:1px solid var(--ink);margin-top:8px;}
+.dfrow{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:0.5px solid var(--hair);}
+.dfk{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);padding-top:2px;}
+.dfv{font-weight:400;font-size:15.5px;line-height:1.55;}
+.dtips{margin-top:22px;display:flex;flex-direction:column;gap:12px;}
+.dtip{font-weight:300;font-size:14.5px;line-height:1.6;padding-left:18px;position:relative;opacity:.9;}
+.dtip::before{content:"—";position:absolute;left:0;color:var(--acc);}
+/* specs */
+.dspec{border-top:1px solid var(--ink);margin-top:8px;}
+.dsrow{display:grid;grid-template-columns:1fr auto;gap:20px;padding:14px 0;border-bottom:0.5px solid var(--hair);font-family:'IBM Plex Mono',monospace;}
+.dsk{font-size:12px;opacity:.7;}
+.dsv{font-size:12.5px;font-weight:500;text-align:right;}
+/* commercial case */
+.dclose{background:var(--ink);color:var(--offwhite);}
+.dcase-lead{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.18;max-width:900px;margin-bottom:44px;}
+.dcase-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:36px;}
+.dcf{border:0.5px solid var(--hair-rev);padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;}
+.dcfk{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);}
+.dcfd{font-weight:300;font-size:14px;line-height:1.55;opacity:.85;}
+/* related */
+.drelated{display:flex;gap:8px;flex-wrap:wrap;}
+.drel{display:flex;flex-direction:column;gap:3px;border:0.5px solid var(--hair-strong);padding:12px 16px;text-decoration:none;color:var(--ink);transition:border-color 160ms ease,background 160ms ease;min-width:150px;}
+.drel:hover{border-color:var(--ink);background:rgba(28,26,21,.03);}
+.drc{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;}
+.dri{font-family:'IBM Plex Mono',monospace;font-size:10.5px;opacity:.6;}
+@media (max-width:900px){
+  .dhero{padding:96px 0 0;}
+  .dhero::after{width:100%;opacity:.1;}
+  .dstrip{grid-template-columns:1fr 1fr;margin-top:44px;}
+  .dcell{border-right:none;border-bottom:0.5px solid var(--hair-rev);}
+  .dmech{grid-template-columns:1fr;}
+  .dperf{grid-template-columns:1fr;gap:24px;}
+  .dapps{grid-template-columns:1fr;}
+  .two-col-d{grid-template-columns:1fr;gap:44px;}
+  .dcase-facts{grid-template-columns:1fr;}
+  .dfrow{grid-template-columns:1fr;gap:4px;}
+}
+.dapp-fill{background:var(--ink);}
 </style>
-<meta name="description" content="Cocamidopropyl Betaine (CAS 61789-40-0) — co-tensoactivo anfotérico, solución acuosa 28–32% activo. Solicite TDS, SDS, COA o muestra.">
+<meta name="description" content="Cocamidopropyl Betaine (CAS 61789-40-0) — El co-tensoactivo que el mercado estandarizó. Especificado en tambores que llegan idénticos, lote tras lote. Solicite TDS, SDS, COA o muestra.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/img/brand/favicon-512.png">
@@ -671,130 +751,138 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 <link rel="alternate" hreflang="en" href="/es/products/hs-cab/">
 <link rel="alternate" hreflang="es" href="/es/products/hs-cab/">
 <meta property="og:title" content="Cocamidopropyl Betaine | HS-CAB | Huishuo">
-<meta property="og:description" content="Cocamidopropyl Betaine (CAS 61789-40-0) — co-tensoactivo anfotérico, solución acuosa 28–32% activo. Solicite TDS, SDS, COA o muestra.">
+<meta property="og:description" content="Cocamidopropyl Betaine (CAS 61789-40-0) — El co-tensoactivo que el mercado estandarizó. Especificado en tambores que llegan idénticos, lote tras lote. Solicite TDS, SDS, COA o muestra.">
 <meta property="og:type" content="website">
 </head>
 <body>
+<header class="siteheader">
+  <div class="wrap">
+    <a class="logolink" href="/es/"><img class="lockup-img" src="/img/brand/logo-h-ink.png" alt="huishuo"></a>
+    <nav class="mainnav"><a href="/es/divisions/personal-care/">Divisiones</a><a href="/es/catalogue/">Catálogo</a><a href="/es/development/">Desarrollo</a><a href="/es/company/">Empresa</a><a href="/es/contact/">Contacto</a></nav>
+    <div class="hd-right"><div class="langswitch"><a class="off" href="/products/hs-cab/">EN</a><a class="sel" href="/es/products/hs-cab/" lang="es">ES</a></div><a class="btn btn-ghost btn-sm" href="/es/contact/">Solicitar docs</a></div>
+  </div>
+</header>
 
 <main>
-
-  <header class="siteheader">
+  <div class="dhero" style="--acc:var(--pc01);">
     <div class="wrap">
-      <a class="logolink" href="/es/"><img class="lockup-img" src="/img/brand/logo-h-ink.png" alt="huishuo"></a>
-      <nav class="mainnav"><a href="/es/divisions/">Divisiones</a><a href="/es/catalogue/">Catálogo</a><a href="/es/development/">Desarrollo</a><a href="/es/company/">Empresa</a><a href="/es/contact/">Contacto</a></nav>
-      <div class="hd-right"><div class="langswitch"><a class="off" href="/products/hs-cab/">EN</a><a class="sel" href="/es/products/hs-cab/" lang="es">ES</a></div><a class="btn btn-ghost btn-sm" href="/es/contact/">Solicitar docs</a></div>
-    </div>
-  </header>
-
-  <div class="wrap">
-    <div class="endorse" style="padding-top:0;">
-      <img class="lockup-img sm" src="/img/brand/logo-h-ink.png" alt="huishuo"><span class="sep"></span><span class="desc" style="color:var(--pc);">Personal Care</span>
-    </div>
-    <div class="crumb">Divisiones / Cuidado Personal / PC-01 / <strong>HS-CAB</strong></div>
-
-    <div class="rv prodhero">
-      <div class="info">
-        <h1 class="prod-title">HS-CAB</h1>
-        <p class="claim">Co-tensoactivo anfotérico para sistemas de limpieza suaves.</p>
-        <div class="ctas">
-          <a class="btn btn-primary" href="/es/contact/?product=hs-cab&type=tds">Solicitar TDS</a>
-          <a class="btn btn-ghost" href="/es/contact/?product=hs-cab&type=sample">Solicitar muestra</a>
-        </div>
+      <div class="dcrumb"><a href="/es/catalogue/">Catálogo</a> <span>/</span> <a href="/es/divisions/personal-care/">Cuidado Personal</a> <span>/</span> PC-01 <span>/</span> <strong>HS-CAB</strong></div>
+      <div class="dkicker">TENSOACTIVOS · CUIDADO PERSONAL</div>
+      <h1 class="dtitle">HS-CAB</h1>
+      <div class="dinci">Cocamidopropyl Betaine</div>
+      <p class="dlead">El co-tensoactivo anfótero universal: espesa, estabiliza la espuma y reduce la irritación de las bases aniónicas — presente en prácticamente toda fórmula de limpieza moderna.</p>
+      <div class="dctas">
+        <a class="btn btn-rev-solid" href="/es/contact/?product=hs-cab&amp;type=sample">Solicitar muestra</a>
+        <a class="btn btn-rev" href="/es/contact/?product=hs-cab&amp;type=tds">Solicitar el TDS</a>
       </div>
-      <div class="figside">
-        <img src="/img/prod-fluid.jpg" alt="Solución tensoactiva acuosa, estudio de superficie">
-        <span class="figret">HS-CAB · fase acuosa</span>
-        <span class="figcap">Estudio PC-01 · solución tensoactiva</span>
+      <div class="dstrip">
+        <div class="dcell"><span class="dl">INCI</span>Cocamidopropyl Betaine</div>
+        <div class="dcell"><span class="dl">CAS</span>61789-40-0</div>
+        <div class="dcell"><span class="dl">Familia</span>PC-01 · Tensoactivos</div>
+        <div class="dcell"><span class="dl">Suministrado como</span>Solución acuosa, 30% activo</div>
       </div>
-    </div>
-    <div class="rv techid">
-      <div class="cell"><div class="t-label">INCI</div><div class="t-val">Cocamidopropyl Betaine</div></div>
-      <div class="cell"><div class="t-label">CAS</div><div class="t-val">61789-40-0</div></div>
-      <div class="cell"><div class="t-label">EC</div><div class="t-val">263-058-8</div></div>
-      <div class="cell"><div class="t-label">Subfamilia</div><div class="t-val">PC-01</div></div>
-      <div class="cell"><div class="t-label">Forma física</div><div class="t-val">Solución acuosa, 28–32% activo</div></div>
     </div>
   </div>
 
-  <div class="section">
-    <div class="wrap two-col">
+  <div class="section" style="--acc:var(--pc01);">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">01</span><span class="sname">Cómo funciona</span><span class="sright">Mecanismo</span></div>
+      <div class="dmech">
+        <div class="dmcard"><span class="dmn">01</span><div class="dmt">Carga que se adapta</div><div class="dmd">Anfótero: catiónico a pH bajo, zwitteriónico a pH de uso — se asocia con aniónicos en micelas mixtas más grandes y suaves.</div></div>
+        <div class="dmcard"><span class="dmn">02</span><div class="dmt">Calidad de espuma</div><div class="dmd">Densifica y estabiliza la espuma, convirtiendo burbujas grandes en crema.</div></div>
+        <div class="dmcard"><span class="dmn">03</span><div class="dmt">Sinergia de viscosidad</div><div class="dmd">Con SLES y sal, construye cuerpo sin espesantes poliméricos.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;--acc:var(--pc01);">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">02</span><span class="sname">Desempeño</span><span class="sright">Direccional · datos de clase</span></div>
+      <div class="dperf">
+        <div class="dpblock"><div class="dpttl">Irritación de base SLES (datos de clase)</div><div class="dprow"><span class="dpk">SLES solo</span><span class="dptrack"><span class="dpfill dpref" style="width:100%"></span></span></div><div class="dprow"><span class="dpk dpk-hi">SLES + CAPB 3:1</span><span class="dptrack"><span class="dpfill dpour" style="width:45%"></span></span></div></div>
+        <div class="dpblock"><div class="dpttl">Estabilidad de espuma a 5 min</div><div class="dprow"><span class="dpk">Base aniónica sola</span><span class="dptrack"><span class="dpfill dpref" style="width:55%"></span></span></div><div class="dprow"><span class="dpk dpk-hi">Con betaína</span><span class="dptrack"><span class="dpfill dpour" style="width:95%"></span></span></div></div>
+      </div>
+      <p class="dfoot">Valores representativos de la clase del ingrediente, basados en literatura técnica publicada y mostrados de forma direccional para comparación. El desempeño final debe validarse en la formulación del cliente.</p>
+    </div>
+  </div>
+
+  <div class="section darksec" style="--acc:var(--pc01);">
+    <div class="wrap">
+      <div class="rv secmeta rev"><span class="folio">03</span><span class="sname">Dónde se usa</span><span class="sright">Aplicaciones</span></div>
+      <div class="dapps">
+        <div class="dapp"><span class="dax">→</span>Champús, geles de ducha, jabones de manos</div>
+        <div class="dapp"><span class="dax">→</span>Cuidado infantil e íntimo</div>
+        <div class="dapp"><span class="dax">→</span>Lavavajillas</div>
+        <div class="dapp"><span class="dax">→</span>Limpiadores faciales espumosos</div>
+        <div class="dapp"><span class="dax">→</span>Cuidado de mascotas</div>
+        <div class="dapp dapp-fill" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="--acc:var(--pc01);">
+    <div class="wrap two-col-d">
       <div>
-        <div class="rv secmeta" style="margin-bottom:36px;"><span class="folio">01</span><span class="sname">Descripción</span><span></span></div>
-        <div class="desc-body">
-          <p>HS-CAB es un tensoactivo anfotérico derivado del coco, suministrado como solución acuosa con 28–32% de materia activa. En sistemas de limpieza aniónicos potencia y estabiliza la espuma, construye viscosidad y reduce de forma medible el perfil de irritación de la mezcla total de tensoactivos.</p>
-          <p>Se mantiene estable en un rango amplio de pH y es compatible con sistemas aniónicos, no iónicos y catiónicos, lo que lo convierte en un co-tensoactivo estándar en fórmulas de enjuague, de champús a limpiadores faciales.</p>
+        <div class="rv secmeta"><span class="folio">04</span><span class="sname">Guía de formulación</span><span class="sright">Punto de partida</span></div>
+        <div class="dform">
+          <div class="dfrow"><span class="dfk">Nivel de uso típico</span><span class="dfv">3–10%</span></div>
+          <div class="dfrow"><span class="dfk">pH y condiciones</span><span class="dfv">Estable pH 4–9</span></div>
+        </div>
+        <div class="dtips">
+          <div class="dtip">Añadir después de la base aniónica; verificar la viscosidad final — la betaína desplaza la curva de sal.</div>
+          <div class="dtip">Para sistemas sin sulfatos, combinar con glucósidos y un sarcosinato para velocidad de espuma.</div>
         </div>
       </div>
       <div>
-        <div class="rv secmeta" style="margin-bottom:36px;"><span class="folio">02</span><span class="sname">Especificaciones</span><span class="sright">Tal como se suministra</span></div>
-        <table class="spectable">
-          <tr><th>Parámetro</th><th>Especificación</th></tr>
-          <tr><td>Apariencia (25 °C)</td><td>Líquido claro a amarillo pálido</td></tr>
-          <tr><td>Materia activa</td><td>28–32 %</td></tr>
-          <tr><td>Contenido de sólidos</td><td>≥ 35 %</td></tr>
-          <tr><td>pH (1 % aq., 25 °C)</td><td>4.0–7.0</td></tr>
-          <tr><td>Cloruro de sodio</td><td>≤ 6.0 %</td></tr>
-          <tr><td>Amina libre</td><td>≤ 0.5 %</td></tr>
-          <tr><td>Color (Hazen)</td><td>≤ 100</td></tr>
-        </table>
-        <div class="tbl-note">Extracto — la especificación completa vive en el TDS</div>
+        <div class="rv secmeta"><span class="folio">05</span><span class="sname">Especificación</span><span class="sright">Típica</span></div>
+        <div class="dspec">
+          <div class="dsrow"><span class="dsk">Apariencia</span><span class="dsv">Líquido claro a amarillo pálido</span></div>
+          <div class="dsrow"><span class="dsk">Materia activa</span><span class="dsv">28–32%</span></div>
+          <div class="dsrow"><span class="dsk">pH (solución al 10%)</span><span class="dsv">4.5–7.5</span></div>
+          <div class="dsrow"><span class="dsk">NaCl</span><span class="dsv">4.5–7.5%</span></div>
+        </div>
+        <p class="dfoot">Parámetros típicos. Rigen la especificación del TDS vigente y el Certificado de Análisis de cada lote.</p>
       </div>
     </div>
   </div>
 
-  <div class="section" style="padding-top:0;">
+  <div class="section dclose" style="--acc:var(--pc01);">
     <div class="wrap">
-      <div class="rv secmeta"><span class="folio">03</span><span class="sname">Aplicaciones y niveles de uso</span><span class="sright">Tal como se suministra, % p/p</span></div>
-      <table class="spectable" style="max-width:680px;">
-        <tr><th>Sistema</th><th>Nivel de uso</th></tr>
-        <tr><td>Champús</td><td>2–12 %</td></tr>
-        <tr><td>Geles de baño y jabones de manos</td><td>1–10 %</td></tr>
-        <tr><td>Baño de burbujas</td><td>2–12 %</td></tr>
-        <tr><td>Limpiadores faciales</td><td>1–2 %</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="darksec" style="padding:76px 0;">
-    <div class="wrap">
-      <div class="rv doccta">
-        <div>
-          <div class="kick" style="margin-bottom:14px;">Documentation</div>
-          <h2>Cada documento, listo bajo solicitud.</h2>
-          <p>TDS extendido, SDS con estructura REACH y COA de lote — completos antes de que el producto entrara en línea.</p>
+      <div class="rv secmeta rev"><span class="folio">06</span><span class="sname">El caso comercial</span><span class="sright">Por qué esta casa</span></div>
+      <div class="dcase">
+        <p class="dcase-lead">El co-tensoactivo que el mercado estandarizó. Especificado en tambores que llegan idénticos, lote tras lote.</p>
+        <div class="dcase-facts">
+          <div class="dcf"><span class="dcfk">Producción propia</span><span class="dcfd">Fabricado en Suzhou High-tech Zone — control directo de calidad y escala.</span></div>
+          <div class="dcf"><span class="dcfk">COA por lote</span><span class="dcfd">Cada embarque viaja con un Certificado de Análisis contra el TDS.</span></div>
+          <div class="dcf"><span class="dcfk">Dossier listo</span><span class="dcfd">TDS, SDS y documentación disponibles para calificación.</span></div>
         </div>
-        <div class="btns">
-          <a class="btn btn-rev-solid" href="/es/contact/?product=hs-cab&type=tds">Solicitar TDS</a>
-          <a class="btn btn-rev-solid" href="/es/contact/?product=hs-cab&type=sds">Solicitar SDS</a>
-          <a class="btn btn-rev-solid" href="/es/contact/?product=hs-cab&type=coa">Solicitar COA</a>
-          <a class="btn btn-rev" href="/es/contact/?product=hs-cab&type=sample">Solicitar muestra</a>
+        <div class="dctas">
+          <a class="btn btn-rev-solid" href="/es/contact/?product=hs-cab&amp;type=quote">Solicitar una cotización</a>
+          <a class="btn btn-rev" href="/es/contact/?product=hs-cab&amp;type=sample">Solicitar muestra</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="section" style="padding-bottom:110px;">
+  <div class="section" style="--acc:var(--pc01);">
     <div class="wrap">
       <div class="rv rangecta">
         <div>
-          <div class="t">PC-01 · Tensoactivos anfotéricos</div>
-          <div class="s">Más grados en preparación — documentación primero</div>
+          <div class="t">Grados relacionados en Tensoactivos</div>
+          <div class="s">Misma familia, mismo estándar</div>
         </div>
-        <a class="btn btn-ghost" href="/es/contact/?type=availability">Solicitar la lista de la gama</a>
+        <div class="drelated"><a class="drel" href="/products/hso810/"><span class="drc">HSO810</span><span class="dri">Caprylyl/Capryl Glucoside</span></a><a class="drel" href="/products/hs215/"><span class="drc">HS215</span><span class="dri">Caprylyl/Capryl Glucoside</span></a><a class="drel" href="/products/hs225n/"><span class="drc">HS225N</span><span class="dri">Caprylyl/Capryl Glucoside</span></a><a class="drel" href="/products/hs818/"><span class="drc">HS818</span><span class="dri">Coco-Glucoside</span></a></div>
       </div>
     </div>
   </div>
-
-  <footer class="footer-compact">
-    <div class="wrap">
-      <img class="lockup-img sm" src="/img/brand/logo-h-rev.png" alt="huishuo">
-      <span class="slogan">One standard, many worlds.</span>
-      <span class="lg">© 2026 Suzhou Huishuo Biotechnology Co., Ltd.</span>
-    </div>
-  </footer>
 </main>
-
-
+<footer class="footer-compact">
+  <div class="wrap">
+    <img class="lockup-img sm" src="/img/brand/logo-h-rev.png" alt="huishuo">
+    <span class="slogan">One standard, many worlds.</span>
+    <span class="lg">© 2026 Suzhou Huishuo Biotechnology Co., Ltd.</span>
+  </div>
+</footer>
 
 </body>
 </html>
