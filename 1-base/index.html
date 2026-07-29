@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huishuo — Ingredient &amp; development house, Suzhou | One standard, many worlds.</title>
+<style>
+@font-face{font-family:'Fraunces';font-weight:600;font-style:normal;font-display:swap;src:url(/fonts/fraunces-600.woff2) format('woff2');}
+@font-face{font-family:'Spectral';font-weight:300;font-style:normal;font-display:swap;src:url(/fonts/spectral-300.woff2) format('woff2');}
+@font-face{font-family:'Spectral';font-weight:300;font-style:italic;font-display:swap;src:url(/fonts/spectral-300i.woff2) format('woff2');}
+@font-face{font-family:'Spectral';font-weight:400;font-style:normal;font-display:swap;src:url(/fonts/spectral-400.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;src:url(/fonts/plexmono-400.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;src:url(/fonts/plexmono-500.woff2) format('woff2');}
+</style>
+<style>
+:root{
+  --offwhite:#F4EEE2;
+  --ink:#1C1A15;
+  --bronze:#9C7B43;
+  --pc:#3D5A73; --hn:#4A6B3D; --fd:#A64B2A; --an:#7A4A5E; --ag:#5C6638; --in:#4A5259;
+  --hn01:#556B3D; --hn02:#5C854C; --pc07:#2C7A8C; --pc08:#8A5A78; --pc01:#3D6873; --pc02:#4B6F8E; --pc03:#2F3B58; --pc04:#5A5DA8; --pc05:#366664; --pc06:#62529B;
+  --hair:rgba(28,26,21,.22);
+  --hair-strong:rgba(28,26,21,.55);
+  --hair-rev:rgba(244,238,226,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--offwhite);color:var(--ink);font-family:'Spectral',serif;font-weight:400;font-size:17px;line-height:1.68;padding-top:0;}
+::selection{background:var(--ink);color:var(--offwhite);}
+a{color:inherit;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+
+
+/* system */
+.wrap{max-width:1320px;margin:0 auto;padding:0 56px;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.06;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.kick{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);}
+.secmeta{display:grid;grid-template-columns:120px 1fr auto;align-items:baseline;gap:32px;border-top:1px solid var(--ink);padding-top:16px;margin-bottom:56px;}
+.secmeta .folio{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.2em;color:var(--bronze);}
+.secmeta .sname{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.28em;text-transform:uppercase;}
+.secmeta .sright{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;opacity:.55;}
+.secmeta.rev{border-top-color:var(--offwhite);}
+.secmeta.rev .sname{color:var(--offwhite);}
+.secmeta.rev .sright{color:var(--offwhite);opacity:.5;}
+
+/* header */
+.siteheader{border-bottom:0.5px solid var(--bronze);background:var(--offwhite);}
+.siteheader .wrap{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:48px;padding-top:22px;padding-bottom:22px;}
+.lockup{font-family:'Fraunces',serif;font-weight:600;font-size:23px;letter-spacing:.005em;text-transform:lowercase;text-decoration:none;}
+.logolink{display:inline-block;text-decoration:none;}
+.lockup-img{display:block;height:30px;width:auto;}
+.lockup-img.sm{height:24px;}
+.lockup-img.xs{height:16px;}
+.biglockup-img{display:block;width:560px;max-width:82%;height:auto;}
+nav.mainnav{display:flex;gap:36px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;}
+nav.mainnav a{text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color 160ms ease;}
+nav.mainnav a:hover{border-bottom-color:var(--ink);}
+nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+.hd-right{display:flex;align-items:center;gap:28px;}
+.langswitch{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;}
+.langswitch .sel{font-weight:500;border-bottom:1px solid var(--ink);}
+.langswitch .off{opacity:.4;margin-left:8px;}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:14px 28px;text-decoration:none;cursor:pointer;transition:all 180ms ease;display:inline-block;border:1px solid var(--ink);}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.btn-primary{background:var(--ink);color:var(--offwhite);}
+.btn-primary:hover{background:var(--offwhite);color:var(--ink);}
+.btn-ghost{background:none;color:var(--ink);}
+.btn-ghost:hover{background:var(--ink);color:var(--offwhite);}
+.btn-sm{padding:9px 18px;font-size:11px;}
+.btn-rev{border-color:var(--offwhite);color:var(--offwhite);background:none;}
+.btn-rev:hover{background:var(--offwhite);color:var(--ink);}
+.btn-rev-solid{border-color:var(--offwhite);background:var(--offwhite);color:var(--ink);}
+.btn-rev-solid:hover{background:transparent;color:var(--offwhite);}
+
+/* ===== HERO cinematografico ===== */
+.hero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
+.hero .bg{position:absolute;inset:0;}
+.hero .bg img{opacity:.92;}
+.hero .content{position:relative;z-index:2;padding:150px 0 0;}
+.hero .biglockup{font-family:'Fraunces',serif;font-weight:600;font-size:128px;line-height:.94;text-transform:lowercase;letter-spacing:-.005em;}
+.hero .slogan{font-family:'Spectral',serif;font-weight:300;font-style:italic;font-size:27px;margin-top:28px;}
+.hero .positioning{font-weight:300;font-size:19px;max-width:560px;margin-top:26px;opacity:.92;}
+.cta-row{display:flex;gap:16px;margin-top:44px;flex-wrap:wrap;}
+/* retícula técnica */
+.reticle{position:absolute;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--offwhite);opacity:.75;text-transform:uppercase;}
+.reticle .tick{display:inline-block;width:14px;height:14px;border-left:1px solid var(--offwhite);border-top:1px solid var(--offwhite);vertical-align:middle;margin-right:10px;}
+.rt-tr{top:52px;right:56px;text-align:right;}
+.rt-tr .tick{border-left:none;border-right:1px solid var(--offwhite);margin-right:0;margin-left:10px;}
+.rt-bl{bottom:120px;left:56px;}
+.cross{position:absolute;z-index:2;width:15px;height:15px;opacity:.55;}
+.cross::before,.cross::after{content:"";position:absolute;background:var(--offwhite);}
+.cross::before{left:7px;top:0;width:1px;height:15px;}
+.cross::after{top:7px;left:0;height:1px;width:15px;}
+/* datastrip do hero */
+.hero .datastrip{position:relative;z-index:2;margin-top:120px;border-top:0.5px solid var(--hair-rev);background:rgba(28,26,21,.55);}
+.hero .datastrip .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
+.hero .datastrip .cell{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;padding:16px 24px 16px 0;border-right:0.5px solid var(--hair-rev);color:var(--offwhite);}
+.hero .datastrip .cell:last-child{border-right:none;}
+.hero .datastrip .lab{color:var(--bronze);font-weight:500;letter-spacing:.2em;display:block;font-size:10px;margin-bottom:3px;text-transform:uppercase;}
+
+.section{padding:96px 0;}
+
+/* divisions com textura */
+.divgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.divcard{text-decoration:none;color:var(--ink);position:relative;display:block;transition:transform 180ms ease,box-shadow 180ms ease;background:var(--offwhite);}
+.divcard:hover{transform:translateY(-2px);box-shadow:0 2px 0 var(--hair-strong);z-index:2;}
+.divcard:focus-visible{outline:2px solid var(--ink);outline-offset:-2px;}
+.divcard .fig{position:relative;height:150px;overflow:hidden;}
+.divcard .fig .cap{position:absolute;left:14px;bottom:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--offwhite);text-transform:uppercase;opacity:.85;}
+.divcard .bar{height:4px;}
+.divcard .inner{padding:26px 26px 30px;}
+.divcard .row1{display:flex;justify-content:space-between;align-items:baseline;}
+.divcard .code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.26em;color:var(--bronze);}
+.divcard .idx{font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.4;}
+.divcard .name{font-family:'Fraunces',serif;font-weight:600;font-size:25px;margin-top:12px;}
+.divcard .desc{font-weight:300;font-size:14.5px;line-height:1.55;margin-top:8px;min-height:45px;}
+.divcard .status{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:18px;display:flex;justify-content:space-between;}
+.divcard .status .arr{transition:transform 160ms ease;}
+.divcard:hover .status .arr{transform:translateX(4px);}
+
+/* ===== THE STANDARD — campo Tinta ===== */
+.darksec{background:var(--ink);color:var(--offwhite);padding:96px 0 104px;}
+.std{display:grid;grid-template-columns:6fr 6fr;gap:88px;align-items:start;}
+.std h2{font-size:42px;max-width:480px;color:var(--offwhite);}
+.stditems{margin-top:44px;}
+.stditem{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:24px 0;border-top:0.5px solid var(--hair-rev);}
+.stditem:last-child{border-bottom:0.5px solid var(--hair-rev);}
+.stditem .n{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:var(--bronze);padding-top:3px;}
+.stditem .t{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--offwhite);}
+.stditem .d{font-weight:300;font-size:15.5px;margin-top:6px;opacity:.85;}
+.docstack{position:relative;padding:0 0 26px 26px;}
+.sheet{border:0.5px solid var(--hair-rev);background:var(--offwhite);color:var(--ink);}
+.sheet.back{position:absolute;top:26px;left:0;right:52px;bottom:0;z-index:0;opacity:.55;}
+.sheet.front{position:relative;z-index:1;margin-left:26px;padding:34px 36px 38px;}
+.doc-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:14px;}
+.doc-h .doc-lockup{font-family:'Fraunces',serif;font-weight:600;font-size:15px;text-transform:lowercase;}
+.doc-h .doc-type{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;}
+.doc-id{display:flex;gap:26px;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.06em;padding:12px 0;border-bottom:0.5px solid var(--hair);}
+.doc-id b{font-weight:500;color:var(--bronze);text-transform:uppercase;letter-spacing:.16em;display:block;font-size:7.5px;}
+.doc-sec{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:8px;letter-spacing:.2em;text-transform:uppercase;margin:16px 0 8px;color:var(--bronze);}
+.doc-tbl{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:8.5px;}
+.doc-tbl td{padding:5px 0;border-bottom:0.5px solid var(--hair);}
+.doc-tbl td:last-child{text-align:right;}
+.doc-idx{columns:2;column-gap:30px;font-family:'IBM Plex Mono',monospace;font-size:7.8px;line-height:2.05;letter-spacing:.03em;margin-top:8px;}
+.doc-foot{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:.1em;margin-top:20px;padding-top:10px;border-top:0.5px solid var(--bronze);color:var(--bronze);text-transform:uppercase;}
+
+/* logistics */
+.logi{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:0.5px solid var(--hair);border-top:0.5px solid var(--hair);}
+.logi .cell{border-right:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);padding:28px 30px 32px;}
+.logi .num{font-family:'Fraunces',serif;font-weight:600;font-size:52px;line-height:1;}
+.logi .lab{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;margin-top:14px;}
+.logi .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;margin-top:8px;opacity:.55;letter-spacing:.04em;}
+.ports{display:grid;grid-template-columns:repeat(3,1fr);border-left:0.5px solid var(--hair);}
+.port{border-right:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);padding:18px 30px;display:flex;justify-content:space-between;align-items:baseline;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;}
+.port .coord{opacity:.5;font-size:10.5px;}
+
+.finalcta{border-top:1px solid var(--ink);padding:88px 0 100px;}
+.finalcta h2{font-size:52px;max-width:760px;}
+
+/* footer */
+.sitefooter{background:var(--ink);color:var(--offwhite);padding:78px 0 40px;}
+.sitefooter .lockup{color:var(--offwhite);}
+.sitefooter .slogan{font-family:'Spectral',serif;font-weight:300;font-style:italic;font-size:17px;margin-top:16px;opacity:.85;}
+.fcols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:70px;}
+.fcols h4{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:18px;}
+.fcols a{display:block;color:var(--offwhite);text-decoration:none;font-weight:300;font-size:15px;padding:4px 0;opacity:.85;transition:opacity 160ms ease;}
+.fcols a:hover{opacity:1;}
+.legal{border-top:0.5px solid var(--bronze);padding-top:20px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;opacity:.6;display:flex;justify-content:space-between;}
+.footer-compact{background:var(--ink);color:var(--offwhite);padding:40px 0;}
+.footer-compact .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;}
+.footer-compact .slogan{font-family:'Spectral',serif;font-weight:300;font-style:italic;font-size:15px;opacity:.85;}
+.footer-compact .lg{font-family:'IBM Plex Mono',monospace;font-size:10.5px;opacity:.6;letter-spacing:.06em;}
+
+/* ===== DIVISION page ===== */
+.divhero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
+.divhero .bg{position:absolute;inset:0;}
+.divhero .bg img{opacity:.9;}
+.divhero .content{position:relative;z-index:2;padding:84px 0 0;}
+.endorse{display:flex;align-items:center;gap:18px;}
+.endorse .lockup{font-size:20px;}
+.endorse .sep{width:0.5px;height:24px;background:var(--ink);}
+.endorse .desc{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.24em;text-transform:uppercase;}
+.endorse.rev .sep{background:var(--offwhite);}
+.endorse.rev .lockup{color:var(--offwhite);}
+.divhero h1{font-size:92px;color:var(--offwhite);margin-top:48px;}
+.divhero .intro{font-weight:300;font-size:18.5px;max-width:560px;margin-top:24px;opacity:.92;}
+.divhero .divbar{height:4px;margin-top:72px;position:relative;z-index:2;}
+.subfam{border-top:0.5px solid var(--hair);display:grid;grid-template-columns:110px 110px 1fr auto;gap:28px;align-items:center;min-height:76px;text-decoration:none;color:var(--ink);transition:background 160ms ease;}
+.subfam:last-of-type{border-bottom:0.5px solid var(--hair);}
+.subfam:hover{background:rgba(28,26,21,.04);}
+.subfam .chipbar{width:64px;height:4px;}
+.subfam .code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.14em;}
+.subfam .name{font-family:'Fraunces',serif;font-weight:600;font-size:21px;}
+.subfam .right{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;text-align:right;}
+.subfam .right .muted{opacity:.45;}
+.prodtable-h{display:grid;grid-template-columns:160px 1fr 170px 130px;gap:28px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding-bottom:12px;border-bottom:1px solid var(--ink);}
+.prodrow{display:grid;grid-template-columns:160px 1fr 170px 130px;gap:28px;align-items:center;padding:18px 0;border-bottom:0.5px solid var(--hair);text-decoration:none;color:var(--ink);transition:background 160ms ease;}
+.prodrow:hover{background:rgba(28,26,21,.04);}
+.prodrow .pcode{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13.5px;}
+.prodrow .pinci{font-family:'IBM Plex Mono',monospace;font-size:13.5px;}
+.prodrow .pform{font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.55;}
+.prodrow .plink{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;text-align:right;}
+.staging{border:0.5px solid var(--hair-strong);padding:38px 40px;margin-top:48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+.staging h3{font-size:24px;max-width:520px;}
+.staging p{font-weight:300;font-size:15px;margin-top:8px;max-width:520px;}
+
+/* ===== PRODUCT page ===== */
+.crumb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;padding-top:0;opacity:.55;}
+.prodhero{display:grid;grid-template-columns:6fr 6fr;gap:0;align-items:stretch;margin-top:40px;border:0.5px solid var(--hair-strong);}
+.prodhero .info{padding:56px 60px 60px;}
+.prod-title{font-size:76px;}
+.claim{font-weight:300;font-size:20px;margin-top:16px;max-width:460px;}
+.prodhero .figside{position:relative;border-left:0.5px solid var(--hair-strong);min-height:420px;overflow:hidden;background:var(--ink);}
+.prodhero .figside img{opacity:.92;}
+.figcap{position:absolute;left:20px;bottom:16px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--offwhite);text-transform:uppercase;opacity:.85;z-index:2;}
+.figret{position:absolute;top:16px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--offwhite);opacity:.75;text-transform:uppercase;z-index:2;}
+.prodhero .ctas{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap;}
+.techid{margin-top:0;border:0.5px solid var(--hair-strong);border-top:none;display:grid;grid-template-columns:1.5fr 1fr 1fr 0.8fr 1.7fr;background:var(--offwhite);}
+.techid .cell{padding:22px 28px 24px;border-right:0.5px solid var(--hair);}
+.techid .cell:last-child{border-right:none;}
+.techid .t-label{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);}
+.techid .t-val{font-family:'IBM Plex Mono',monospace;font-size:14px;margin-top:10px;}
+.two-col{display:grid;grid-template-columns:6fr 6fr;gap:88px;align-items:start;}
+.desc-body{font-weight:300;font-size:16.5px;max-width:520px;}
+.desc-body p+p{margin-top:14px;}
+.spectable{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:13px;}
+.spectable th{font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;text-align:left;padding:12px 0;border-bottom:1px solid var(--ink);}
+.spectable th:last-child,.spectable td:last-child{text-align:right;}
+.spectable td{padding:13px 0;border-bottom:0.5px solid var(--hair);}
+.tbl-note{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--bronze);margin-top:14px;text-transform:uppercase;}
+.doccta{border:1px solid var(--offwhite);padding:52px 56px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
+.doccta h2{font-size:34px;max-width:420px;color:var(--offwhite);}
+.doccta p{font-weight:300;font-size:15px;margin-top:10px;max-width:420px;opacity:.85;}
+.doccta .btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.rangecta{border-top:0.5px solid var(--hair);padding-top:36px;display:flex;justify-content:space-between;align-items:center;gap:40px;}
+.rangecta .t{font-family:'Fraunces',serif;font-weight:600;font-size:22px;}
+.rangecta .s{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;opacity:.55;margin-top:6px;text-transform:uppercase;}
+
+@media (max-width:980px){
+  .wrap{padding:0 24px;}
+  .std,.two-col,.prodhero{grid-template-columns:1fr;}
+  .hero .biglockup{font-size:64px;}
+  .divgrid{grid-template-columns:1fr;}
+  .hero .datastrip .wrap,.logi,.ports{grid-template-columns:1fr;}
+  .techid{grid-template-columns:1fr;}
+  .doccta{grid-template-columns:1fr;}
+  .doccta .btns{grid-template-columns:1fr;}
+  .prod-title{font-size:48px;}
+  .divhero h1{font-size:52px;}
+  .fcols{grid-template-columns:1fr 1fr;}
+  .rt-tr,.rt-bl,.cross{display:none;}
+}
+</style>
+<script src="/js/motion.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<link rel="preload" as="image" href="/img/hero-crystal-960.jpg" fetchpriority="high">
+<style>
+/* ===== rotas institucionais ===== */
+.pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
+.pagehero .bg{position:absolute;inset:0;}
+.pagehero .bg img{opacity:.85;}
+.pagehero .content{position:relative;z-index:2;padding:110px 0 96px;}
+.pagehero h1{font-size:76px;color:var(--offwhite);}
+.pagehero .sub{font-weight:300;font-size:18.5px;max-width:600px;margin-top:22px;opacity:.92;}
+.doc3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.doccard{background:var(--offwhite);padding:34px 30px 40px;display:flex;flex-direction:column;}
+.doccard .dk{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);}
+.doccard h3{font-family:'Fraunces',serif;font-weight:600;font-size:25px;margin-top:14px;}
+.doccard p{font-weight:300;font-size:15px;margin-top:12px;line-height:1.6;}
+.doccard ul{list-style:none;margin-top:22px;border-top:0.5px solid var(--hair);}
+.doccard li{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.05em;padding:10px 0;border-bottom:0.5px solid var(--hair);}
+.tdsidx{display:grid;grid-template-columns:repeat(3,1fr);border-top:0.5px solid var(--hair);border-left:0.5px solid var(--hair);}
+.tdsidx .c{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;padding:16px 18px;border-right:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);}
+.tdsidx .c b{font-weight:500;color:var(--bronze);margin-right:10px;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:0.5px solid var(--hair);border-top:0.5px solid var(--hair);}
+.step{border-right:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);padding:30px 30px 36px;}
+.step .n{font-family:'Fraunces',serif;font-weight:600;font-size:44px;}
+.step .t{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-top:12px;}
+.step p{font-weight:300;font-size:15px;margin-top:10px;line-height:1.6;}
+/* formulario RFQ */
+.rfqgrid{display:grid;grid-template-columns:7fr 5fr;gap:88px;align-items:start;}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:24px 26px;}
+.field{display:flex;flex-direction:column;gap:9px;}
+.field.full{grid-column:1 / -1;}
+.field label{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;}
+.field input,.field select,.field textarea{background:transparent;border:0.5px solid var(--hair-strong);padding:13px 14px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink);border-radius:0;appearance:none;-webkit-appearance:none;}
+.field select{background-image:none;}
+.field textarea{min-height:130px;resize:vertical;}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:2px solid var(--ink);outline-offset:1px;}
+.form .actions{grid-column:1 / -1;display:flex;align-items:center;gap:26px;margin-top:8px;flex-wrap:wrap;}
+.form .note{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;opacity:.55;}
+.hp{position:absolute;left:-9999px;top:-9999px;}
+.side{border:0.5px solid var(--hair-strong);}
+.side .blk{padding:26px 30px;border-bottom:0.5px solid var(--hair);}
+.side .blk:last-child{border-bottom:none;}
+.side .lab{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);}
+.side .val{font-family:'IBM Plex Mono',monospace;font-size:13.5px;margin-top:10px;line-height:1.8;}
+.side .val a{text-decoration:none;border-bottom:1px solid var(--hair-strong);}
+@media (max-width:980px){
+  .doc3,.tdsidx,.steps{grid-template-columns:1fr;}
+  .rfqgrid{grid-template-columns:1fr;gap:48px;}
+  .form{grid-template-columns:1fr;}
+  .pagehero h1{font-size:48px;}
+}
+/* strip do standard */
+.stdstrip{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);}
+.stdstrip .c{padding:22px 26px 24px 0;border-right:0.5px solid var(--hair);}
+.stdstrip .c:last-child{border-right:none;}
+.stdstrip .l{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);}
+.stdstrip .v{font-family:'IBM Plex Mono',monospace;font-size:12.5px;margin-top:9px;}
+@media (max-width:980px){ .stdstrip{grid-template-columns:1fr 1fr;} .stdstrip .c{border-bottom:0.5px solid var(--hair);} }
+.langswitch a{text-decoration:none;color:inherit;}
+/* header mobile */
+@media (max-width:760px){
+  .siteheader .wrap{grid-template-columns:1fr auto;row-gap:14px;}
+  nav.mainnav{grid-column:1 / -1;grid-row:2;gap:20px;font-size:10.5px;overflow-x:auto;padding-bottom:2px;}
+  .hd-right .btn{display:none;}
+  .hero .content{padding-top:90px;}
+  .prodhero .info{padding:36px 26px 40px;}
+  .doccta{padding:34px 26px;}
+}
+@media (max-width:760px){
+  .secmeta{grid-template-columns:auto 1fr;gap:12px 18px;}
+  .secmeta .sright{display:none;}
+  .secmeta .sname{letter-spacing:.18em;font-size:10px;}
+}
+/* correcoes responsivas — vencem estilos inline */
+@media (max-width:920px){
+  .siteheader .wrap{grid-template-columns:1fr auto;row-gap:14px;}
+  nav.mainnav{grid-column:1 / -1;grid-row:2;gap:20px;font-size:10.5px;overflow-x:auto;padding-bottom:2px;}
+  .hd-right .btn{display:none;}
+}
+@media (max-width:760px){
+  .subfam{grid-template-columns:26px 62px 1fr;gap:12px;min-height:60px;}
+  .subfam .chipbar{width:26px;}
+  .subfam .name{font-size:17px;}
+  .subfam .right{display:none;}
+  .doc3{grid-template-columns:1fr !important;}
+  .steps{grid-template-columns:1fr 1fr !important;}
+  .std{grid-template-columns:1fr !important;gap:44px;}
+}
+@media (max-width:760px){
+  .prodtable-h{display:none;}
+  .prodrow{grid-template-columns:1fr auto;gap:6px 14px;}
+  .prodrow .pinci{grid-column:1 / -1;}
+  .prodrow .pform{display:none;}
+  .docstack{padding:0;}
+  .docstack .sheet.back{display:none;}
+  .docstack .sheet.front{margin-left:0;padding:22px 18px;}
+  .doc-id{flex-wrap:wrap;gap:8px 18px;}
+}
+.field{min-width:0;}
+.field input,.field select,.field textarea{width:100%;min-width:0;}
+@media (max-width:760px){
+  h1{font-size:clamp(32px,10vw,44px) !important;}
+  .finalcta h2{font-size:34px;}
+}
+.langswitch .off{margin-left:0;}
+.langswitch a+a{margin-left:14px;}
+/* catalogo */
+.catbar{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-bottom:34px;}
+#cat-q{background:transparent;border:0.5px solid var(--hair-strong);padding:13px 16px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink);width:320px;max-width:100%;border-radius:0;appearance:none;}
+#cat-q:focus-visible{outline:2px solid var(--ink);outline-offset:1px;}
+.fchips{display:flex;gap:8px;flex-wrap:wrap;}
+.fchip{background:none;border:0.5px solid var(--hair-strong);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:9px 14px;cursor:pointer;transition:all 160ms ease;display:inline-flex;align-items:center;gap:8px;}
+.fchip .dot{width:10px;height:10px;display:inline-block;}
+.fchip:hover{border-color:var(--ink);}
+.fchip.active{background:var(--ink);color:var(--offwhite);border-color:var(--ink);}
+.fchip:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.cattable-h{display:grid;grid-template-columns:130px 1fr 130px 190px 170px 110px;gap:20px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding-bottom:12px;border-bottom:1px solid var(--ink);}
+.catrow{display:grid;grid-template-columns:130px 1fr 130px 190px 170px 110px;gap:20px;align-items:center;padding:15px 0;border-bottom:0.5px solid var(--hair);text-decoration:none;color:var(--ink);transition:background 160ms ease;}
+.catrow:hover{background:rgba(28,26,21,.04);}
+.catrow .c-code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;}
+.catrow .c-inci{font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
+.catrow .c-cas{font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.75;}
+.catrow .c-fam{display:flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;}
+.catrow .c-fam .dot{width:9px;height:9px;flex:none;}
+.catrow .c-cluster{font-family:'IBM Plex Mono',monospace;font-size:10.5px;opacity:.6;letter-spacing:.05em;}
+.catrow .c-act{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:right;}
+.catempty{font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:34px 0;opacity:.6;}
+@media (max-width:920px){
+  .cattable-h{display:none;}
+  .catrow{grid-template-columns:1fr auto;gap:5px 14px;}
+  .catrow .c-cas,.catrow .c-cluster{display:none;}
+  .catrow .c-inci{grid-column:1 / -1;}
+  .catrow .c-fam{grid-column:1 / -1;}
+}
+/* pagina comercial de produto */
+.ptags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.ptag{border:0.5px solid var(--hair-strong);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;}
+.benef{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.bcard{background:var(--offwhite);padding:26px 28px 30px;display:grid;grid-template-columns:46px 1fr;gap:16px;}
+.bcard .bn{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;color:var(--bronze);padding-top:4px;}
+.bcard .bt{font-family:'Fraunces',serif;font-weight:600;font-size:20px;}
+.bcard .bd{font-weight:300;font-size:15px;margin-top:8px;line-height:1.6;}
+@media (max-width:760px){ .benef{grid-template-columns:1fr;} }
+/* ===== camada de movimento (SaaS-premium no sistema) ===== */
+.siteheader{position:sticky;top:0;z-index:60;background:rgba(244,238,226,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.rv{opacity:0;transform:translateY(14px);transition:opacity 520ms cubic-bezier(.22,.6,.2,1),transform 520ms cubic-bezier(.22,.6,.2,1);}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none;} }
+#haze{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 900ms ease;}
+#haze.live{opacity:1;}
+.hero .bg img{transition:opacity 900ms ease;}
+#haze.live + img{opacity:0;}
+.divcard .fig img,.figside img{transition:transform 600ms cubic-bezier(.22,.6,.2,1);}
+.divcard:hover .fig img{transform:scale(1.03);}
+.scrollcue{position:absolute;left:56px;bottom:104px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.22em;color:var(--offwhite);opacity:.6;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.scrollcue .line{width:1px;height:26px;background:var(--offwhite);animation:cue 2.2s ease-in-out infinite;transform-origin:top;}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .scrollcue .line{animation:none;} }
+/* ===== home imersiva v11 ===== */
+.marq{overflow:hidden;border-top:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);padding:16px 0;background:var(--offwhite);}
+.marqin{display:inline-flex;gap:56px;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;animation:marq 60s linear infinite;will-change:transform;}
+.marqin span{opacity:.65;}
+@keyframes marq{to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion: reduce){ .marqin{animation:none;} }
+#show{height:340vh;position:relative;}
+#show .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;background:var(--offwhite);}
+.showtrack{display:flex;gap:26px;padding:0 56px;will-change:transform;}
+.showcard{flex:0 0 min(44vw,620px);background:var(--offwhite);border:0.5px solid var(--hair-strong);text-decoration:none;color:var(--ink);display:block;transition:transform 220ms ease;}
+a.showcard:hover{transform:translateY(-2px);}
+.showfig{position:relative;height:44vh;min-height:280px;overflow:hidden;}
+.showfig img{transition:transform 700ms cubic-bezier(.22,.6,.2,1);}
+a.showcard:hover .showfig img{transform:scale(1.04);}
+.showfig .cap{position:absolute;left:16px;bottom:12px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:var(--offwhite);text-transform:uppercase;opacity:.85;}
+.showbar{height:4px;}
+.showinner{padding:24px 26px 28px;}
+.showinner .row1{display:flex;justify-content:space-between;align-items:baseline;}
+.showinner .code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.26em;color:var(--bronze);}
+.showinner .idx{font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.4;}
+.showinner .name{font-family:'Fraunces',serif;font-weight:600;font-size:27px;margin-top:12px;}
+.showinner .desc{font-weight:300;font-size:14.5px;line-height:1.55;margin-top:8px;}
+.showinner .status{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:18px;display:flex;justify-content:space-between;}
+.showend{border:0.5px solid var(--ink);}
+#floors{height:320vh;position:relative;background:var(--ink);color:var(--offwhite);}
+.floorpin{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden;}
+.floorgrid{display:grid;grid-template-columns:5fr 6fr;gap:80px;align-items:center;width:100%;}
+.floorhead{font-size:56px;color:var(--offwhite);}
+.findex{display:flex;flex-direction:column;gap:14px;margin-top:44px;}
+.fdot{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.35;transition:opacity 300ms ease;}
+.fdot.on{opacity:1;color:var(--bronze);}
+.fprog{width:180px;height:1px;background:var(--hair-rev);margin-top:28px;}
+.fprog span{display:block;height:1px;background:var(--bronze);width:0;transition:width 200ms linear;}
+.fpanels{position:relative;min-height:60vh;}
+.fpanel{position:absolute;inset:0;opacity:0;transform:translateY(26px);transition:opacity 480ms ease,transform 480ms cubic-bezier(.22,.6,.2,1);pointer-events:none;display:flex;flex-direction:column;justify-content:center;}
+.fpanel.on{opacity:1;transform:none;pointer-events:auto;}
+.fstat .fnum{font-family:'Fraunces',serif;font-weight:600;font-size:96px;line-height:1;display:block;}
+.fstat .flab{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;margin-top:10px;display:block;opacity:.7;}
+.fstatrow{display:flex;gap:56px;margin:34px 0;}
+.fstat.sm .fnum{font-size:44px;}
+.ftext{font-weight:300;font-size:16.5px;max-width:420px;margin-bottom:30px;opacity:.85;}
+.statband{display:grid;grid-template-columns:repeat(5,1fr);border-left:0.5px solid var(--hair);border-top:0.5px solid var(--hair);}
+.stat{border-right:0.5px solid var(--hair);border-bottom:0.5px solid var(--hair);padding:30px 28px 34px;}
+.statn{font-family:'Fraunces',serif;font-weight:600;font-size:56px;line-height:1;display:block;}
+.statl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;margin-top:12px;display:block;opacity:.6;}
+@media (max-width:920px){
+  #show{height:auto;}
+  #show .pin{position:static;height:auto;overflow:visible;padding:40px 0;}
+  .showtrack{overflow-x:auto;scroll-snap-type:x mandatory;padding:0 24px;-webkit-overflow-scrolling:touch;}
+  .showcard{flex:0 0 82vw;scroll-snap-align:start;}
+  #floors{height:auto;}
+  .floorpin{position:static;height:auto;padding:70px 0;}
+  .floorgrid{grid-template-columns:1fr;gap:48px;}
+  .fpanels{min-height:0;}
+  .fpanel{position:static;opacity:1;transform:none;pointer-events:auto;margin-bottom:44px;}
+  .fprog,.findex{display:none;}
+  .floorhead{font-size:38px;}
+  .statband{grid-template-columns:1fr 1fr;}
+  .statn{font-size:38px;}
+}
+/* ===== home v12: substancia ===== */
+.mani{display:grid;grid-template-columns:6fr 6fr;gap:88px;align-items:start;}
+.manihead{font-size:44px;line-height:1.12;}
+.manibody p{font-weight:300;font-size:17px;line-height:1.7;}
+.manibody p+p{margin-top:16px;}
+.manifacts{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--hair);margin-top:34px;padding-top:22px;gap:18px;}
+.mf .mfn{font-family:'Fraunces',serif;font-weight:600;font-size:26px;display:block;}
+.mf .mfl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:6px;display:block;opacity:.6;}
+.featgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hair);border:0.5px solid var(--hair);}
+.featcard{background:var(--offwhite);padding:26px 26px 30px;text-decoration:none;color:var(--ink);display:block;transition:transform 200ms ease,box-shadow 200ms ease;}
+.featcard:hover{transform:translateY(-2px);box-shadow:0 2px 0 var(--hair-strong);}
+.featcard .fc-row{display:flex;justify-content:space-between;align-items:baseline;}
+.featcard .fc-code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;}
+.featcard .fc-fam{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--bronze);text-transform:uppercase;}
+.featcard .fc-inci{font-family:'IBM Plex Mono',monospace;font-size:12px;margin-top:12px;opacity:.75;}
+.featcard .fc-claim{font-family:'Fraunces',serif;font-weight:600;font-size:19px;margin-top:10px;line-height:1.3;}
+.featcard .fc-go{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:18px;display:block;}
+.bcard.bcta{display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:flex-start;}
+.certcard{border:1px solid var(--offwhite);padding:34px 36px;background:transparent;}
+.cc-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--offwhite);padding-bottom:16px;}
+.cc-iso{font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:var(--offwhite);}
+.cc-acc{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);}
+.cc-row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:13px 0;border-bottom:0.5px solid var(--hair-rev);}
+.cc-l{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);}
+.cc-v{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--offwhite);}
+.cc-foot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;margin-top:18px;opacity:.55;color:var(--offwhite);}
+.homecontact{display:grid;grid-template-columns:7fr 5fr;gap:88px;align-items:start;}
+@media (max-width:920px){
+  .mani,.homecontact{grid-template-columns:1fr;gap:44px;}
+  .manihead{font-size:32px;}
+  .manifacts{grid-template-columns:1fr 1fr;}
+  .featgrid{grid-template-columns:1fr;}
+}
+/* ===== home v13: DNA e geografia ===== */
+.marqin{animation-duration:150s;font-size:13px;letter-spacing:.14em;text-transform:uppercase;}
+.marqin span{opacity:.7;}
+.reachrow{display:flex;gap:14px;flex-wrap:wrap;border-top:0.5px solid var(--hair);margin-top:34px;padding-top:24px;}
+.reachrow span{border:0.5px solid var(--hair-strong);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;}
+.reachsvg{display:block;width:100%;height:auto;}
+.reachsvg .arcs path{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.2s cubic-bezier(.22,.6,.2,1);}
+.reachwrap.in .arcs path{stroke-dashoffset:0;}
+.reachwrap.in .arcs path:nth-child(2){transition-delay:.2s;}
+.reachwrap.in .arcs path:nth-child(3){transition-delay:.4s;}
+.reachwrap.in .arcs path:nth-child(4){transition-delay:.6s;}
+@media (prefers-reduced-motion: reduce){ .reachsvg .arcs path{stroke-dashoffset:0;transition:none;} }
+.reachports{display:grid;grid-template-columns:repeat(3,1fr);border-left:0.5px solid var(--hair);margin-top:44px;}
+.showfig .tint{position:absolute;inset:0;mix-blend-mode:multiply;opacity:.34;transition:opacity 400ms ease;}
+a.showcard:hover .showfig .tint{opacity:.14;}
+.showfig .bigcode{position:absolute;right:18px;top:12px;font-family:'Fraunces',serif;font-weight:600;font-size:64px;color:var(--offwhite);opacity:.9;line-height:1;}
+.showinner .divname{font-family:'Fraunces',serif;font-weight:600;font-size:27px;}
+.showinner .dna{font-family:'Spectral',serif;font-weight:300;font-style:italic;font-size:17px;margin-top:10px;}
+.showinner .kws{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.showinner .kws span{border:0.5px solid var(--hair-strong);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;}
+.fbig{font-family:'Fraunces',serif;font-weight:600;font-size:34px;color:var(--offwhite);max-width:520px;line-height:1.2;}
+.fpanel .ftext{margin-top:18px;}
+.facil{background:var(--offwhite);}
+.fband{position:relative;height:72vh;min-height:420px;overflow:hidden;margin-top:2px;}
+.fband img{position:absolute;inset:-12% 0;height:124%;will-change:transform;}
+.fband::after{content:"";position:absolute;inset:0;background:rgba(28,26,21,.34);}
+.fband-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 56px 44px;color:var(--offwhite);max-width:820px;}
+.fb-kick{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);display:block;margin-bottom:14px;}
+.fband-cap h3{font-size:44px;color:var(--offwhite);}
+.fband-cap p{font-weight:300;font-size:16.5px;margin-top:10px;opacity:.9;max-width:560px;}
+@media (max-width:920px){
+  .fband{height:52vh;min-height:320px;}
+  .fband-cap{padding:0 24px 30px;}
+  .fband-cap h3{font-size:28px;}
+  .reachports{grid-template-columns:1fr;}
+  .showfig .bigcode{font-size:44px;}
+}
+/* ===== v14: correcoes da critica ===== */
+.reachsvg .route path{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.2s cubic-bezier(.22,.6,.2,1),stroke 200ms ease,stroke-width 200ms ease;}
+.reachwrap.in .route path{stroke-dashoffset:0;}
+.reachwrap.in .route:nth-of-type(2) path{transition-delay:.2s;}
+.reachwrap.in .route:nth-of-type(3) path{transition-delay:.4s;}
+.reachwrap.in .route:nth-of-type(4) path{transition-delay:.6s;}
+.reachsvg .route{cursor:default;}
+.reachsvg .route circle{transition:transform 250ms ease;transform-box:fill-box;transform-origin:center;}
+.reachsvg .route text{transition:fill 200ms ease;}
+.reachsvg .route:hover path{stroke:#9C7B43;stroke-width:2;}
+.reachsvg .route:hover circle{transform:scale(1.7);}
+.reachsvg .route:hover text{fill:#9C7B43;}
+/* development em campo Tinta */
+.darksec .benef{background:transparent;border-color:var(--hair-rev);gap:2px;}
+.darksec .bcard{background:transparent;border:0.5px solid var(--hair-rev);margin:-1px 0 0 -1px;}
+.darksec .bcard .bt{color:var(--offwhite);}
+.darksec .bcard .bd{color:var(--offwhite);opacity:.82;}
+.darksec + .darksec{padding-top:0;}
+/* clamp da vitrine em viewports baixos */
+@media (max-height:840px) and (min-width:921px){
+  .showfig{height:36vh;min-height:220px;}
+  .showinner{padding:18px 22px 22px;}
+  .showinner .divname{font-size:23px;}
+  .showinner .dna{font-size:15px;margin-top:8px;}
+  #show .pin{justify-content:flex-start;padding-top:76px;}
+}
+/* v14: acessibilidade (contraste, alvos, hierarquia) */
+.langswitch .off{opacity:.62;}
+.langswitch a{padding:10px 4px;display:inline-block;}
+.showinner .idx{opacity:.58;}
+.divcard .idx{opacity:.58;}
+.fcols .h4{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:18px;}
+/* ===== facilities v2: triptico-acordeao ===== */
+.factri{display:flex;gap:2px;height:72vh;min-height:480px;background:var(--hair);}
+.fpan{position:relative;overflow:hidden;flex:1;transition:flex 700ms cubic-bezier(.22,.6,.2,1);cursor:pointer;background:var(--ink);}
+.fpan.on{flex:2.7;cursor:default;}
+.fpan img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8;transition:opacity 500ms ease,transform 900ms cubic-bezier(.22,.6,.2,1);}
+.fpan.on img{opacity:.55;transform:scale(1.02);}
+.fpan::after{content:"";position:absolute;inset:0;background:rgba(28,26,21,.30);}
+.fpan.on::after{background:rgba(28,26,21,.52);}
+.fpan:focus-visible{outline:2px solid var(--offwhite);outline-offset:-4px;}
+.fp-mini{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);writing-mode:vertical-rl;z-index:2;
+  font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--offwhite);
+  opacity:1;transition:opacity 300ms ease;}
+.fpan.on .fp-mini{opacity:0;}
+.fp-full{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 44px 40px;color:var(--offwhite);opacity:0;transform:translateY(14px);transition:opacity 450ms ease 180ms,transform 450ms cubic-bezier(.22,.6,.2,1) 180ms;pointer-events:none;}
+.fpan.on .fp-full{opacity:1;transform:none;pointer-events:auto;}
+.fp-full h3{font-size:36px;color:var(--offwhite);}
+.fp-full p{font-weight:300;font-size:15.5px;margin-top:10px;max-width:520px;opacity:.9;}
+.fp-data{margin-top:22px;border-top:0.5px solid var(--hair-rev);max-width:520px;}
+.fp-row{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:10px 0;border-bottom:0.5px solid var(--hair-rev);}
+.fp-l{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);padding-top:2px;}
+.fp-v{font-family:'IBM Plex Mono',monospace;font-size:12px;}
+.fp-go{display:inline-block;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--offwhite);text-decoration:none;border-bottom:1px solid var(--hair-rev);padding-bottom:3px;transition:border-color 200ms ease;}
+.fp-go:hover{border-color:var(--offwhite);}
+@media (max-width:920px){
+  .factri{flex-direction:column;height:auto;}
+  .fpan{min-height:300px;flex:none;}
+  .fpan .fp-mini{display:none;}
+  .fpan .fp-full{opacity:1;transform:none;pointer-events:auto;padding:0 24px 26px;}
+  .fpan img{opacity:.5;}
+  .fp-full h3{font-size:26px;}
+}
+@media (prefers-reduced-motion: reduce){ .fpan,.fpan img,.fp-full{transition:none;} }
+/* ===== floors v2: percurso curto + artefatos ===== */
+#floors{height:230vh;}
+.fpanel{transition:opacity 380ms ease,transform 380ms cubic-bezier(.22,.6,.2,1);}
+.fmini{margin-top:26px;border-top:0.5px solid var(--hair-rev);max-width:560px;}
+.fmrow{display:grid;grid-template-columns:150px 1fr 30px;gap:16px;align-items:center;padding:12px 0;border-bottom:0.5px solid var(--hair-rev);text-decoration:none;color:var(--offwhite);transition:background 160ms ease;}
+.fmrow:hover{background:rgba(244,238,226,.06);}
+.fmc{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;}
+.fmi{font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.75;}
+.fma{font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:right;opacity:.6;}
+.fdocs{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:26px;max-width:620px;}
+.fdoc{border:0.5px solid var(--hair-rev);padding:20px 20px 22px;}
+.fdk{font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:var(--offwhite);display:block;}
+.fdt{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);margin-top:8px;display:block;}
+.kws.frev{margin-top:26px;max-width:560px;}
+.kws.frev span{border-color:var(--hair-rev);color:var(--offwhite);font-size:10.5px;padding:8px 13px;}
+@media (max-width:920px){
+  .fdocs{grid-template-columns:1fr;}
+  .fmrow{grid-template-columns:110px 1fr 20px;}
+}
+
+/* ---------- catalogue v2: indice vivo ---------- */
+.cathero .content{padding-top:128px;}
+.cathero .datastrip{margin-top:88px;}
+.cathero .secmeta{border-top-color:var(--hair-rev);margin-bottom:44px;}
+.cath1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(46px,6.6vw,92px);line-height:.98;letter-spacing:-.008em;max-width:920px;}
+.catlead{font-weight:300;font-size:18px;line-height:1.65;max-width:600px;margin-top:24px;opacity:.9;}
+.famnav{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.famcard{position:relative;text-align:left;background:none;border:0.5px solid var(--hair-strong);padding:20px 20px 18px;cursor:pointer;color:var(--ink);transition:border-color 180ms ease,background 180ms ease,color 180ms ease;display:flex;flex-direction:column;gap:7px;}
+.famcard .fn-bar{display:block;width:34px;height:3px;transition:width 320ms cubic-bezier(.22,.6,.2,1);margin-bottom:6px;}
+.famcard:hover .fn-bar,.famcard.active .fn-bar{width:100%;}
+.famcard .fn-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+.famcard .fn-code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.18em;color:var(--bronze);}
+.famcard .fn-div{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.45;}
+.famcard .fn-name{font-family:'Fraunces',serif;font-weight:500;font-size:21px;line-height:1.1;}
+.famcard .fn-n{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;opacity:.6;}
+.famcard:hover{border-color:var(--ink);}
+.famcard.active{background:var(--ink);color:var(--offwhite);border-color:var(--ink);}
+.famcard.active .fn-div,.famcard.active .fn-n{opacity:.65;}
+.famcard:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+.catbar{position:sticky;top:58px;z-index:40;background:rgba(244,238,226,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:14px 0;margin-bottom:30px;border-bottom:0.5px solid var(--hair-strong);}
+.catcount{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;opacity:.75;margin-left:auto;}
+.catcount b{font-weight:500;color:var(--bronze);}
+.catrow .c-act{transition:transform 200ms ease,color 200ms ease;}
+.catrow:hover .c-act{transform:translateX(4px);color:var(--bronze);}
+@media (max-width:960px){ .famnav{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:720px){
+  .famnav{grid-template-columns:1fr 1fr;}
+  .famcard{padding:14px 14px 13px;}
+  .famcard .fn-name{font-size:16px;}
+  .famcard .fn-div{display:none;}
+  .cathero .content{padding-top:104px;}
+  .cathero .datastrip{margin-top:64px;}
+  .catbar{top:52px;}
+  .catcount{margin-left:0;}
+}
+
+#families{scroll-margin-top:96px;}
+[hidden]{display:none!important;}
+
+/* ---------- dossie comercial v3 (template AG-810) ---------- */
+.dhero{background:var(--ink);color:var(--offwhite);padding:120px 0 0;position:relative;overflow:hidden;}
+.dhero::after{content:"";position:absolute;top:0;right:0;width:42%;height:100%;background:linear-gradient(120deg,transparent,var(--acc));opacity:.16;pointer-events:none;}
+.dcrumb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;opacity:.6;margin-bottom:40px;}
+.dcrumb a{color:var(--offwhite);text-decoration:none;opacity:.8;}
+.dcrumb a:hover{opacity:1;color:var(--acc);}
+.dcrumb strong{color:var(--acc);font-weight:500;}
+.dcrumb span{opacity:.4;margin:0 6px;}
+.dkicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;}
+.dtitle{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(52px,8vw,104px);line-height:.9;letter-spacing:-.01em;}
+.dinci{font-family:'Spectral',serif;font-style:italic;font-weight:300;font-size:clamp(20px,2.4vw,28px);margin-top:16px;opacity:.9;}
+.dlead{font-weight:300;font-size:18px;line-height:1.65;max-width:620px;margin-top:26px;opacity:.92;}
+.dctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+.dstrip{display:grid;grid-template-columns:repeat(4,1fr);border-top:0.5px solid var(--hair-rev);margin-top:64px;}
+.dcell{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;padding:18px 24px 20px 0;border-right:0.5px solid var(--hair-rev);color:var(--offwhite);line-height:1.5;}
+.dcell:last-child{border-right:none;}
+.dcell .dl{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:5px;}
+.two-col-d{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+/* mechanism */
+.dmech{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.dmcard{border:0.5px solid var(--hair);padding:28px 26px 30px;background:var(--offwhite);}
+.dmn{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--acc);display:block;margin-bottom:16px;}
+.dmt{font-family:'Fraunces',serif;font-weight:600;font-size:19px;line-height:1.15;margin-bottom:10px;}
+.dmd{font-weight:300;font-size:14.5px;line-height:1.6;opacity:.85;}
+/* performance */
+.dperf{display:grid;grid-template-columns:1fr 1fr;gap:34px 56px;}
+.dpblock{display:flex;flex-direction:column;gap:9px;}
+.dpttl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:3px;}
+.dprow{display:grid;grid-template-columns:1fr;gap:5px;}
+.dpk{font-family:'IBM Plex Mono',monospace;font-size:11.5px;opacity:.7;}
+.dpk-hi{opacity:1;color:var(--ink);font-weight:500;}
+.dptrack{display:block;height:9px;background:rgba(28,26,21,.07);position:relative;overflow:hidden;}
+.dpfill{position:absolute;left:0;top:0;height:100%;transform-origin:left;}
+.dpref{background:rgba(28,26,21,.24);}
+.dpour{background:var(--acc);}
+.dfoot{font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6;opacity:.5;margin-top:26px;max-width:760px;}
+/* applications (darksec) */
+.dapps{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair-rev);border:0.5px solid var(--hair-rev);}
+.dapp{background:var(--ink);padding:20px 24px;font-weight:300;font-size:16px;display:flex;gap:14px;align-items:baseline;}
+.dax{color:var(--acc);font-family:'IBM Plex Mono',monospace;font-size:13px;flex:none;}
+/* formulation */
+.dform{border-top:1px solid var(--ink);margin-top:8px;}
+.dfrow{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:0.5px solid var(--hair);}
+.dfk{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);padding-top:2px;}
+.dfv{font-weight:400;font-size:15.5px;line-height:1.55;}
+.dtips{margin-top:22px;display:flex;flex-direction:column;gap:12px;}
+.dtip{font-weight:300;font-size:14.5px;line-height:1.6;padding-left:18px;position:relative;opacity:.9;}
+.dtip::before{content:"—";position:absolute;left:0;color:var(--acc);}
+/* specs */
+.dspec{border-top:1px solid var(--ink);margin-top:8px;}
+.dsrow{display:grid;grid-template-columns:1fr auto;gap:20px;padding:14px 0;border-bottom:0.5px solid var(--hair);font-family:'IBM Plex Mono',monospace;}
+.dsk{font-size:12px;opacity:.7;}
+.dsv{font-size:12.5px;font-weight:500;text-align:right;}
+/* commercial case */
+.dclose{background:var(--ink);color:var(--offwhite);}
+.dcase-lead{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.18;max-width:900px;margin-bottom:44px;}
+.dcase-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:36px;}
+.dcf{border:0.5px solid var(--hair-rev);padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;}
+.dcfk{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);}
+.dcfd{font-weight:300;font-size:14px;line-height:1.55;opacity:.85;}
+/* related */
+.drelated{display:flex;gap:8px;flex-wrap:wrap;}
+.drel{display:flex;flex-direction:column;gap:3px;border:0.5px solid var(--hair-strong);padding:12px 16px;text-decoration:none;color:var(--ink);transition:border-color 160ms ease,background 160ms ease;min-width:150px;}
+.drel:hover{border-color:var(--ink);background:rgba(28,26,21,.03);}
+.drc{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;}
+.dri{font-family:'IBM Plex Mono',monospace;font-size:10.5px;opacity:.6;}
+@media (max-width:900px){
+  .dhero{padding:96px 0 0;}
+  .dhero::after{width:100%;opacity:.1;}
+  .dstrip{grid-template-columns:1fr 1fr;margin-top:44px;}
+  .dcell{border-right:none;border-bottom:0.5px solid var(--hair-rev);}
+  .dmech{grid-template-columns:1fr;}
+  .dperf{grid-template-columns:1fr;gap:24px;}
+  .dapps{grid-template-columns:1fr;}
+  .two-col-d{grid-template-columns:1fr;gap:44px;}
+  .dcase-facts{grid-template-columns:1fr;}
+  .dfrow{grid-template-columns:1fr;gap:4px;}
+}
+.dapp-fill{background:var(--ink);}
+</style>
+<meta name="description" content="Ingredient and development house in Suzhou, China — serving Latin America, the Middle East, Canada and South Africa with ingredients, formulations and finished lines.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/img/brand/favicon-512.png">
+<link rel="apple-touch-icon" href="/img/brand/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="/">
+<link rel="alternate" hreflang="es" href="/es/">
+<meta property="og:title" content="Huishuo — Ingredient & development house, Suzhou | One standard, many worlds.">
+<meta property="og:description" content="Ingredient and development house in Suzhou, China — serving Latin America, the Middle East, Canada and South Africa with ingredients, formulations and finished lines.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<header class="siteheader">
+  <div class="wrap">
+    <a class="logolink" href="/"><img class="lockup-img" src="/img/brand/logo-h-ink.png" alt="huishuo"></a>
+    <nav class="mainnav"><a href="/divisions/personal-care/">Divisions</a><a href="/catalogue/">Catalogue</a><a href="/development/">Development</a><a href="/company/">Company</a><a href="/contact/">Contact</a></nav>
+    <div class="hd-right"><div class="langswitch"><a class="sel" href="/">EN</a><a class="off" href="/es/" lang="es">ES</a></div><a class="btn btn-ghost btn-sm" href="/contact/">Request docs</a></div>
+  </div>
+</header>
+
+<main>
+  <div class="hero" id="hero">
+    <div class="bg"><canvas id="haze"></canvas><img src="/img/hero-crystal.jpg" srcset="/img/hero-crystal-960.jpg 960w, /img/hero-crystal-1366.jpg 1366w, /img/hero-crystal.jpg 1680w" sizes="100vw" fetchpriority="high" alt="Raw material surface, macro study"></div>
+    <div class="reticle rt-tr"><span>Material study 01 · raw surface</span><span class="tick"></span></div>
+    <div class="reticle rt-bl"><span class="tick"></span><span>Suzhou · 31.30°N 120.58°E</span></div>
+    <div class="cross" style="top:38%;left:63%;"></div>
+    <div class="cross" style="top:64%;left:87%;"></div>
+    <div class="content" id="heroContent">
+      <div class="wrap">
+        <img class="biglockup-img" src="/img/brand/logo-h-rev.png" alt="huishuo">
+        <p class="slogan">One standard, many worlds.</p>
+        <p class="positioning">From Suzhou, China to formulators across Latin America, the Middle East, Canada and South Africa — ingredients, formulations and finished lines, developed in-house.</p>
+        <div class="cta-row">
+          <a class="btn btn-rev-solid" href="/contact/?type=quote">Request a quote</a>
+          <a class="btn btn-rev" href="/divisions/">Explore divisions</a>
+        </div>
+      </div>
+      <div class="scrollcue"><span class="line"></span><span>Scroll</span></div>
+      <div class="datastrip">
+        <div class="wrap">
+          <div class="cell"><span class="lab">Base</span>Suzhou High-tech Zone, CN</div>
+          <div class="cell"><span class="lab">Export</span>Shanghai · Ningbo · Qingdao</div>
+          <div class="cell"><span class="lab">Reach</span>Latin America · Middle East · Canada · South Africa</div>
+          <div class="cell"><span class="lab">Development</span>Lab · formulation · projects</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marq" aria-hidden="true"><div class="marqin"><span>Shipped from Suzhou</span><span>Serving Latin America</span><span>The Middle East</span><span>Canada</span><span>South Africa</span><span>Six industries</span><span>Developed in-house</span><span>Shipped from Suzhou</span><span>Serving Latin America</span><span>The Middle East</span><span>Canada</span><span>South Africa</span><span>Six industries</span><span>Developed in-house</span></div></div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">01</span><span class="sname">The house</span><span class="sright">Suzhou · since 2019</span></div>
+      <div class="mani">
+        <div>
+          <h2 class="manihead">A Chinese house,<br>at home in<br>many worlds.</h2>
+        </div>
+        <div class="manibody">
+          <p>Huishuo is an ingredient and development house based in Suzhou, China. Everything the house ships leaves Chinese ports — and arrives the way formulators everywhere expect it to arrive.</p>
+          <p>The house supplies six industries, from personal care to industrial chemistry, and develops what the portfolio doesn't yet hold: formulations, finished product lines and tailored industrial projects, built in its own laboratory.</p>
+          <p>One way of working carries all of it — quiet, specified in writing, verified before it ships. That is the standard the name stands on.</p>
+          <div class="reachrow">
+            <span>Latin America</span><span>Middle East</span><span>Canada</span><span>South Africa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">02</span><span class="sname">Reach</span><span class="sright">Shipped from Suzhou</span></div>
+      <div class="reachwrap rv">
+        <svg class="reachsvg" viewBox="0 0 1200 420" role="img" aria-label="Routes from Suzhou to Latin America, the Middle East, Canada and South Africa">
+          <line x1="0" y1="370" x2="1200" y2="370" stroke="#1C1A15" stroke-width="1"/>
+          <g class="route">
+            <path fill="none" stroke="#1C1A15" stroke-width="1.2" d="M 1060 370 C 900 80, 420 60, 150 370"/>
+            <circle cx="150" cy="370" r="4" fill="#9C7B43"/>
+            <text x="150" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">LATIN AMERICA</text>
+          </g>
+          <g class="route">
+            <path fill="none" stroke="#1C1A15" stroke-width="1.2" d="M 1060 370 C 950 150, 640 140, 430 370"/>
+            <circle cx="430" cy="370" r="4" fill="#9C7B43"/>
+            <text x="430" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">SOUTH AFRICA</text>
+          </g>
+          <g class="route">
+            <path fill="none" stroke="#1C1A15" stroke-width="1.2" d="M 1060 370 C 980 120, 760 100, 640 370"/>
+            <circle cx="640" cy="370" r="4" fill="#9C7B43"/>
+            <text x="640" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">MIDDLE EAST</text>
+          </g>
+          <g class="route">
+            <path fill="none" stroke="#1C1A15" stroke-width="1.2" d="M 1060 370 C 1000 200, 900 190, 850 370"/>
+            <circle cx="850" cy="370" r="4" fill="#9C7B43"/>
+            <text x="850" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">CANADA</text>
+          </g>
+          <g class="hub">
+            <circle cx="1060" cy="370" r="6" fill="#9C7B43"/>
+            <text x="1060" y="400" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#1C1A15" letter-spacing="1.5">SUZHOU</text>
+            <text x="1060" y="345" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#9C7B43" letter-spacing="1.5">31.30°N 120.58°E</text>
+          </g>
+        </svg>
+        <div class="reachports">
+          <div class="port"><span>SHANGHAI</span><span class="coord">31.23°N 121.47°E</span></div>
+          <div class="port"><span>NINGBO</span><span class="coord">29.87°N 121.55°E</span></div>
+          <div class="port"><span>QINGDAO</span><span class="coord">36.07°N 120.38°E</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="show">
+    <div class="pin">
+      <div class="wrap" style="max-width:none;padding:0 56px 34px;">
+        <div class="rv secmeta" style="margin-bottom:0;"><span class="folio">03</span><span class="sname">Divisions</span><span class="sright">6 fields of supply</span></div>
+      </div>
+      <div class="showtrack" id="showtrack">
+        <a class="showcard" href="/divisions/personal-care/">
+          <div class="showfig"><img loading="lazy" src="/img/div-pc.jpg" alt="Surfactant solution, surface study"><span class="tint" style="background:var(--pc)"></span><span class="cap">Study PC · surfactant system</span><span class="bigcode">PC</span></div>
+          <div class="showbar" style="background:var(--pc)"></div>
+          <div class="showinner"><div class="row1"><span class="divname" style="color:var(--pc)">Personal Care</span><span class="idx">01 / 06</span></div>
+          <div class="dna">The chemistry people touch every day.</div>
+          <div class="kws"><span>Surfactants</span><span>Silicones</span><span>UV filters</span><span>Conditioners</span></div>
+          <div class="status"><span>Catalogue online</span><span class="arr">→</span></div></div></a>
+        <a class="showcard" href="/divisions/human-nutrition/">
+          <div class="showfig"><img loading="lazy" src="/img/div-hn.jpg" alt="Granulate, surface study"><span class="tint" style="background:var(--hn)"></span><span class="cap">Study HN · granulate</span><span class="bigcode">HN</span></div>
+          <div class="showbar" style="background:var(--hn)"></div>
+          <div class="showinner"><div class="row1"><span class="divname" style="color:var(--hn)">Human Nutrition</span><span class="idx">02 / 06</span></div>
+          <div class="dna">Actives for how people fuel and recover.</div>
+          <div class="kws"><span>Amino acids</span><span>Creatine</span><span>Vitamins</span><span>Premixes</span></div>
+          <div class="status"><span>Catalogue online</span><span class="arr">→</span></div></div></a>
+        <div class="showcard">
+          <div class="showfig"><img loading="lazy" src="/img/div-fd.jpg" alt="Crystalline material, surface study"><span class="tint" style="background:var(--fd)"></span><span class="cap">Study FD · crystalline</span><span class="bigcode">FD</span></div>
+          <div class="showbar" style="background:var(--fd)"></div>
+          <div class="showinner"><div class="row1"><span class="divname" style="color:var(--fd)">Food</span><span class="idx">03 / 06</span></div>
+          <div class="dna">Function and safety for what the world eats.</div>
+          <div class="kws"><span>Additives</span><span>Ingredients</span></div>
+          <div class="status"><span>By request</span></div></div></div>
+        <div class="showcard">
+          <div class="showfig"><img loading="lazy" src="/img/div-an.jpg" alt="Particulate, surface study"><span class="tint" style="background:var(--an)"></span><span class="cap">Study AN · particulate</span><span class="bigcode">AN</span></div>
+          <div class="showbar" style="background:var(--an)"></div>
+          <div class="showinner"><div class="row1"><span class="divname" style="color:var(--an)">Animal Nutrition</span><span class="idx">04 / 06</span></div>
+          <div class="dna">Nutrition for the herds the world relies on.</div>
+          <div class="kws"><span>Feed additives</span><span>Nutritional inputs</span></div>
+          <div class="status"><span>By request</span></div></div></div>
+        <div class="showcard">
+          <div class="showfig"><img loading="lazy" src="/img/div-ag.jpg" alt="Fine powder, surface study"><span class="tint" style="background:var(--ag)"></span><span class="cap">Study AG · fine powder</span><span class="bigcode">AG</span></div>
+          <div class="showbar" style="background:var(--ag)"></div>
+          <div class="showinner"><div class="row1"><span class="divname" style="color:var(--ag)">Agro</span><span class="idx">05 / 06</span></div>
+          <div class="dna">Inputs for the fields that feed everyone.</div>
+          <div class="kws"><span>Crop protection</span><span>Intermediates</span></div>
+          <div class="status"><span>By request</span></div></div></div>
+        <div class="showcard">
+          <div class="showfig"><img loading="lazy" src="/img/div-in.jpg" alt="Lamellar structure, surface study"><span class="tint" style="background:var(--in)"></span><span class="cap">Study IN · lamellar</span><span class="bigcode">IN</span></div>
+          <div class="showbar" style="background:var(--in)"></div>
+          <div class="showinner"><div class="row1"><span class="divname" style="color:var(--in)">Industrial</span><span class="idx">06 / 06</span></div>
+          <div class="dna">The chemistry behind industry itself.</div>
+          <div class="kws"><span>Process chemicals</span><span>Raw materials</span></div>
+          <div class="status"><span>By request</span></div></div></div>
+        <a class="showcard showend" href="/catalogue/">
+          <div class="showinner" style="display:flex;flex-direction:column;justify-content:center;height:100%;">
+            <span class="kick">Index</span>
+            <div class="name" style="font-size:34px;margin-top:14px;">The catalogue.</div>
+            <div class="status" style="margin-top:26px;"><span>Open the index</span><span class="arr">→</span></div>
+          </div></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="floors">
+    <div class="floorpin">
+      <div class="wrap floorgrid">
+        <div class="floorleft">
+          <div class="rv secmeta rev" style="margin-bottom:44px;"><span class="folio">04</span><span class="sname">Inside</span><span class="sright">Three floors</span></div>
+          <h2 class="floorhead">One house.<br>Three floors.</h2>
+          <div class="findex">
+            <span class="fdot" data-fl="0">01 — Portfolio</span>
+            <span class="fdot" data-fl="1">02 — The standard</span>
+            <span class="fdot" data-fl="2">03 — Development</span>
+          </div>
+          <div class="fprog"><span id="fprogbar"></span></div>
+        </div>
+        <div class="fpanels">
+          <div class="fpanel" data-fl="0">
+            <h3 class="fbig">Every product the house ships, indexed in one place.</h3>
+            <p class="ftext">Search it, filter it by family, open the product and ask for what you need.</p>
+            <div class="fmini">
+              <a class="fmrow" href="/products/hs-cab/"><span class="fmc">HS-CAB</span><span class="fmi">Cocamidopropyl Betaine</span><span class="fma">→</span></a>
+              <a class="fmrow" href="/products/hs2000/"><span class="fmc">HS2000</span><span class="fmi">Decyl Glucoside</span><span class="fma">→</span></a>
+              <a class="fmrow" href="/catalogue/?family=hn-01"><span class="fmc">HS-CreaPower</span><span class="fmi">Creatine Monohydrate</span><span class="fma">→</span></a>
+              <a class="fmrow" href="/catalogue/?family=hn-02"><span class="fmc">HS-VitaC</span><span class="fmi">Ascorbic Acid</span><span class="fma">→</span></a>
+            </div>
+            <a class="btn btn-rev-solid" style="margin-top:26px;" href="/catalogue/">Browse the catalogue</a>
+          </div>
+          <div class="fpanel" data-fl="1">
+            <h3 class="fbig">Ask for any document, from any page.</h3>
+            <p class="ftext">It arrives ready for your regulatory desk — and every lot ships with its own certificate.</p>
+            <div class="fdocs">
+              <div class="fdoc"><span class="fdk">TDS</span><span class="fdt">Extended · 18 sections</span></div>
+              <div class="fdoc"><span class="fdk">SDS</span><span class="fdt">Regulation (EU) 2020/878</span></div>
+              <div class="fdoc"><span class="fdk">COA</span><span class="fdt">Per batch · QC 2×</span></div>
+            </div>
+            <a class="btn btn-rev-solid" style="margin-top:26px;" href="/contact/">Request documentation</a>
+          </div>
+          <div class="fpanel" data-fl="2">
+            <h3 class="fbig">And when the portfolio isn't enough, the laboratory takes the brief.</h3>
+            <p class="ftext">Five formats, each with a named deliverable — answered in writing.</p>
+            <div class="kws frev">
+              <span>Custom sourcing</span><span>Formulation</span><span>Finished product lines</span><span>Industrial projects</span><span>Supply programs</span>
+            </div>
+            <a class="btn btn-rev-solid" style="margin-top:26px;" href="/development/">Start a project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="facil">
+    <div class="wrap" style="padding-top:96px;">
+      <div class="rv secmeta"><span class="folio">05</span><span class="sname">Facilities</span><span class="sright">Felt, not counted</span></div>
+    </div>
+    <div class="factri">
+      <div class="fpan on" tabindex="0" role="button" aria-expanded="true">
+        <img loading="lazy" src="/img/doc-lamellar.jpg" alt="Layered material, surface study">
+        <span class="fp-mini">The laboratory</span>
+        <div class="fp-full">
+          <span class="fb-kick">The laboratory</span>
+          <h3>Where briefs become prototypes.</h3>
+          <p>Formulation and analysis under one roof — the floor where the development formats run.</p>
+          <div class="fp-data">
+            <div class="fp-row"><span class="fp-l">Function</span><span class="fp-v">Formulation · analysis</span></div>
+            <div class="fp-row"><span class="fp-l">Base</span><span class="fp-v">Suzhou, China</span></div>
+            <div class="fp-row"><span class="fp-l">Delivers</span><span class="fp-v">Prototypes · reports · process guides</span></div>
+          </div>
+          <a class="fp-go" href="/development/">Development →</a>
+        </div>
+      </div>
+      <div class="fpan" tabindex="0" role="button" aria-expanded="false">
+        <img loading="lazy" src="/img/div-in.jpg" alt="Lamellar structure, surface study">
+        <span class="fp-mini">The ports</span>
+        <div class="fp-full">
+          <span class="fb-kick">The ports</span>
+          <h3>Stocked where the ships leave.</h3>
+          <p>Warehouses at China's main export ports keep lead times short and shipments steady.</p>
+          <div class="fp-data">
+            <div class="fp-row"><span class="fp-l">Function</span><span class="fp-v">Stock &amp; dispatch</span></div>
+            <div class="fp-row"><span class="fp-l">Ports</span><span class="fp-v">Shanghai · Ningbo · Qingdao</span></div>
+            <div class="fp-row"><span class="fp-l">Terms</span><span class="fp-v">FOB · CIF</span></div>
+          </div>
+          <a class="fp-go" href="/company/#logistics">Logistics →</a>
+        </div>
+      </div>
+      <div class="fpan" tabindex="0" role="button" aria-expanded="false">
+        <img loading="lazy" src="/img/prod-fluid.jpg" alt="Aqueous surfactant solution, surface study">
+        <span class="fp-mini">The base</span>
+        <div class="fp-full">
+          <span class="fb-kick">The base</span>
+          <h3>Suzhou High-tech Zone.</h3>
+          <p>Where the house was founded in 2019 — the commercial desk, QC coordination and the daily work of the standard.</p>
+          <div class="fp-data">
+            <div class="fp-row"><span class="fp-l">Address</span><span class="fp-v">Jinshi Building, Shishan Road</span></div>
+            <div class="fp-row"><span class="fp-l">Since</span><span class="fp-v">2019</span></div>
+            <div class="fp-row"><span class="fp-l">Desk</span><span class="fp-v">EN · ES</span></div>
+          </div>
+          <a class="fp-go" href="/company/">Company →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">06</span><span class="sname">Featured products</span><span class="sright">Wave 1 · Surfactants</span></div>
+      <div class="featgrid">
+<a class="featcard" href="/products/hs-cab/"><div class="fc-row"><span class="fc-code">HS-CAB</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Cocamidopropyl Betaine · CAS 61789-40-0</div><div class="fc-claim">Amphoteric co-surfactant for mild cleansing systems.}</div><span class="fc-go">View product →</span></a>
+<a class="featcard" href="/products/hso810/"><div class="fc-row"><span class="fc-code">HSO810</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Caprylyl/Capryl Glucoside · CAS 68515-73-1</div><div class="fc-claim">Short-chain glucoside for micellar and ultra-mild systems.}</div><span class="fc-go">View product →</span></a>
+<a class="featcard" href="/products/hs2000/"><div class="fc-row"><span class="fc-code">HS2000</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Decyl Glucoside · CAS 54549-25-6</div><div class="fc-claim">The versatile glucoside for sulfate-free cleansing.}</div><span class="fc-go">View product →</span></a>
+<a class="featcard" href="/products/hs1200/"><div class="fc-row"><span class="fc-code">HS1200</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Lauryl Glucoside · CAS 110615-47-9</div><div class="fc-claim">Dense-foam glucoside for sulfate-free formats.}</div><span class="fc-go">View product →</span></a>
+<a class="featcard" href="/products/hs-sles70/"><div class="fc-row"><span class="fc-code">HS-SLES70</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Sodium Laureth Sulfate · CAS 3088-31-1</div><div class="fc-claim">High-foam anionic workhorse, 70% grade.}</div><span class="fc-go">View product →</span></a>
+<a class="featcard" href="/products/hs-sci85/"><div class="fc-row"><span class="fc-code">HS-SCI85</span><span class="fc-fam">Surfactants</span></div><div class="fc-inci">Sodium Cocoyl Isethionate · CAS 61789-32-0</div><div class="fc-claim">The syndet surfactant — dense, creamy, mild foam. 85% grade.}</div><span class="fc-go">View product →</span></a>
+      </div>
+      <div class="rv rangecta" style="margin-top:44px;border-top:none;padding-top:0;">
+        <div><div class="t">The full index</div><div class="s">Code · INCI · CAS · by family</div></div>
+        <a class="btn btn-ghost" href="/catalogue/">Browse the catalogue</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="darksec">
+    <div class="wrap">
+      <div class="rv secmeta rev"><span class="folio">07</span><span class="sname">Development</span><span class="sright">Five formats, each with a named deliverable</span></div>
+      <div class="benef">
+        <div class="rv bcard"><span class="bn">01</span><div><div class="bt">Custom sourcing</div><div class="bd">A grade qualified to your specification — sourced, verified by our QC and shipped with a complete documentation set.</div></div></div>
+        <div class="rv bcard"><span class="bn">02</span><div><div class="bt">Formulation development</div><div class="bd">Developed in the laboratory; delivered as a development report, a prototype and a process guide.</div></div></div>
+        <div class="rv bcard"><span class="bn">03</span><div><div class="bt">Finished product development</div><div class="bd">Complete product lines developed for brands — formulation, process and documentation, cutting cost and time to production.</div></div></div>
+        <div class="rv bcard"><span class="bn">04</span><div><div class="bt">Tailored industrial projects</div><div class="bd">Scoped per project — specification, timeline and deliverables agreed in writing before work starts.</div></div></div>
+        <div class="rv bcard"><span class="bn">05</span><div><div class="bt">Supply programs</div><div class="bd">Scheduled supply under allocation, documented per batch — the format long-term buyers run on.</div></div></div>
+        <div class="bcard bcta"><a class="btn btn-primary" href="/contact/?type=project">Start a project</a><a class="btn btn-ghost" href="/development/">Development →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="darksec">
+    <div class="wrap">
+      <div class="rv secmeta rev"><span class="folio">08</span><span class="sname">Quality &amp; compliance</span><span class="sright">Verifiable, not declared</span></div>
+      <div class="std">
+        <div>
+          <h2>Certified, twice-checked, documented.</h2>
+          <div class="stditems">
+            <div class="rv stditem"><span class="n">01</span><div><div class="t">Double-check QC</div><div class="d">Every batch is verified twice by quality control before release.</div></div></div>
+            <div class="rv stditem"><span class="n">02</span><div><div class="t">Batch COA</div><div class="d">A Certificate of Analysis accompanies every shipped lot.</div></div></div>
+            <div class="rv stditem"><span class="n">03</span><div><div class="t">Documentation before listing</div><div class="d">A product only goes online after its TDS, SDS and COA set is complete.</div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="certcard">
+            <div class="cc-head"><span class="cc-iso">ISO 9001:2015</span><span class="cc-acc">IAS-accredited</span></div>
+            <div class="cc-row"><span class="cc-l">Certificate</span><span class="cc-v">33924Q15021R0S</span></div>
+            <div class="cc-row"><span class="cc-l">Standard</span><span class="cc-v">GB/T19001-2016 / ISO 9001:2015</span></div>
+            <div class="cc-row"><span class="cc-l">Valid through</span><span class="cc-v">08 / 2027</span></div>
+            <div class="cc-row"><span class="cc-l">Scope</span><span class="cc-v">Sales of surfactants, silicones, thickeners, preservatives, emulsifiers and food additives</span></div>
+            <div class="cc-foot">Suzhou Huishuo Biotechnology Co., Ltd. · Suzhou High-tech Zone</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="rv secmeta"><span class="folio">09</span><span class="sname">Contact</span><span class="sright">Response within 24 business hours</span></div>
+      <div class="homecontact">
+        <div>
+          <h2 style="font-size:38px;max-width:520px;">Direct line to the commercial desk.</h2>
+          <div class="cta-row" style="margin-top:34px;"><a class="btn btn-primary" href="/contact/?type=quote">Request a quote</a><a class="btn btn-ghost" href="/contact/?type=project">Start a project</a></div>
+        </div>
+        <div class="side">
+          <div class="blk"><div class="lab">E-mail</div><div class="val"><a href="mailto:sales@huishuochem.com">sales@huishuochem.com</a><br><a href="mailto:info@huishuochem.com">info@huishuochem.com</a></div></div>
+          <div class="blk"><div class="lab">WhatsApp</div><div class="val"><a href="https://wa.me/5511932625665">+55 11 93262 5665</a></div></div>
+          <div class="blk"><div class="lab">Base</div><div class="val">Jinshi Building, Shishan Road<br>Suzhou High-tech Zone, China</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="finalcta">
+    <div class="wrap">
+      <h2>Ask for the document. Judge the standard yourself.</h2>
+      <div class="cta-row"><a class="btn btn-primary" href="/contact/">Request documentation</a></div>
+    </div>
+  </div>
+
+  <footer class="sitefooter">
+    <div class="wrap">
+      <div class="fcols">
+        <div><img class="lockup-img" src="/img/brand/logo-h-rev.png" alt="huishuo"><p class="slogan">One standard, many worlds.</p></div>
+        <div><div class="h4">Divisions</div><a href="/divisions/personal-care/">Personal Care</a><a href="/divisions/human-nutrition/">Human Nutrition</a><a href="/divisions/">Food</a><a href="/divisions/">Animal Nutrition</a><a href="/divisions/">Agro</a><a href="/divisions/">Industrial</a></div>
+        <div><div class="h4">Company</div><a href="/company/">About</a><a href="/development/">Development</a><a href="/company/#logistics">Logistics</a></div>
+        <div><div class="h4">Contact</div><a href="mailto:sales@huishuochem.com">sales@huishuochem.com</a><a href="https://wa.me/5511932625665">WhatsApp +55 11 93262 5665</a><a href="/contact/?type=quote">Request a quote</a><a href="/contact/">Request documents</a></div>
+      </div>
+      <div class="legal"><span>© 2026 Suzhou Huishuo Biotechnology Co., Ltd.</span><span>huishuochem.com</span></div>
+    </div>
+  </footer>
+</main>
+
+
+</body>
+</html>
