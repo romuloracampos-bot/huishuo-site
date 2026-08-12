@@ -665,7 +665,13 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 
 /* ---------- dossie comercial v3 (template AG-810) ---------- */
 .dhero{background:var(--ink);color:var(--offwhite);padding:120px 0 0;position:relative;overflow:hidden;}
-.dhero::after{content:"";position:absolute;top:0;right:0;width:42%;height:100%;background:linear-gradient(120deg,transparent,var(--acc));opacity:.16;pointer-events:none;}
+.dherofig{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.dherofig img{position:absolute;right:0;top:0;height:100%;width:64%;object-fit:cover;opacity:.5;filter:grayscale(.35) contrast(1.05);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 62%);mask-image:linear-gradient(90deg,transparent 0%,#000 62%);}
+.dhero::after{content:"";position:absolute;top:0;right:0;width:64%;height:100%;background:linear-gradient(115deg,transparent 30%,var(--acc));opacity:.5;mix-blend-mode:multiply;pointer-events:none;z-index:1;}
+.dhero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 30%,transparent 78%);z-index:1;pointer-events:none;}
+.dhero .wrap{position:relative;z-index:2;}
+.dhreticle{position:absolute;top:120px;right:40px;z-index:2;display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--offwhite);opacity:.5;}
+.dhtick{width:26px;height:0.5px;background:var(--acc);opacity:.9;}
 .dcrumb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;opacity:.6;margin-bottom:40px;}
 .dcrumb a{color:var(--offwhite);text-decoration:none;opacity:.8;}
 .dcrumb a:hover{opacity:1;color:var(--acc);}
@@ -742,6 +748,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
   .dfrow{grid-template-columns:1fr;gap:4px;}
 }
 .dapp-fill{background:var(--ink);}
+@media (max-width:760px){ .dhreticle{display:none;} .dherofig img{opacity:.32;} }
 </style>
 <meta name="description" content="L-Leucine, L-Isoleucine, L-Valine (4:1:1) (CAS 61-90-5) — The recovery claim of the sports aisle — in the ratio and the solubility the brand specifies. Request TDS, SDS, COA or a sample.">
 <meta name="robots" content="noindex, nofollow">
@@ -765,6 +772,8 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 
 <main>
   <div class="dhero" style="--acc:var(--hn01);">
+    <div class="dherofig"><img loading="lazy" src="/img/div-hn.jpg" alt="" aria-hidden="true"></div>
+    <div class="dhreticle"><span>HN-01 · material study</span><span class="dhtick"></span></div>
     <div class="wrap">
       <div class="dcrumb"><a href="/catalogue/">Catalogue</a> <span>/</span> <a href="/divisions/human-nutrition/">Human Nutrition</a> <span>/</span> HN-01 <span>/</span> <strong>HS-AminoForce 4:1:1</strong></div>
       <div class="dkicker">SPORTS NUTRITION · HUMAN NUTRITION</div>
