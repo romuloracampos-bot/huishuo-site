@@ -254,7 +254,8 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 </style>
 <script src="/js/motion.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
-<link rel="preload" as="image" href="/img/hero-crystal-960.jpg" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-600.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/spectral-300.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/plexmono-400.woff2" crossorigin>
+
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -749,6 +750,22 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 }
 .dapp-fill{background:var(--ink);}
 @media (max-width:760px){ .dhreticle{display:none;} .dherofig img{opacity:.32;} }
+
+/* ---------- auditoria a11y: contraste ---------- */
+.dfoot{opacity:.72;}
+.dclose .dcfk,.dhero .dkicker,.dhero .dl,.dapps .dax,.dcrumb strong{color:color-mix(in srgb, var(--acc) 45%, var(--offwhite));}
+
+/* ---------- melhoria: elevacao do predio no painel Inside ---------- */
+.felev{width:150px;height:128px;margin-top:44px;display:block;}
+.felev .fe{fill:transparent;stroke:var(--hair-rev);stroke-width:1;transition:fill 380ms ease,stroke 380ms ease;}
+.felev .fe.on{fill:rgba(156,123,67,.22);stroke:var(--bronze);}
+.felev .fet{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;fill:var(--offwhite);opacity:.55;}
+@media (max-width:920px){ .felev{display:none;} }
+
+/* ---------- melhoria: regua unica de heros institucionais ---------- */
+.pagehero h1{font-size:clamp(46px,6.6vw,92px);line-height:.98;letter-spacing:-.008em;}
+/* acentos sobre fundo claro: puxados para a tinta (pior caso 5.07:1) */
+.dmcard .dmn,.dform .dfk{color:color-mix(in srgb, var(--acc) 78%, var(--ink));}
 </style>
 <meta name="description" content="Request TDS, SDS, COA, samples or a quote from Huishuo, Suzhou. Direct line to the commercial desk: info@huishuochem.com.">
 <meta name="robots" content="noindex, nofollow">
@@ -795,7 +812,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
             <optgroup label="Conditioners"><option value="hs-pq7">HS-PQ7 — Polyquaternium-7</option><option value="hs-pq10">HS-PQ10 — Polyquaternium-10</option><option value="hs-pq39">HS-PQ39 — Polyquaternium-39</option><option value="hs-btms-25">HS BTMS 25 — Behentrimonium Methosulfate (25% blend)</option><option value="hs-btms-50">HS BTMS 50 — Behentrimonium Methosulfate (50% blend)</option></optgroup>
             <optgroup label="Actives & Vitamins"><option value="hs-ve">HS VE — Tocopheryl Acetate</option><option value="hs-vitamin-c">HS Vitamin C — Ascorbic Acid</option><option value="hs-vc">HS VC — Sodium Ascorbyl Phosphate</option><option value="hs-vb2">HS VB2 — Sodium Riboflavin Phosphate</option><option value="hs-coenzyme-q10">HS Coenzyme Q10 — Ubiquinone</option><option value="hs-salicylic-acid">HS Salicylic Acid — Salicylic Acid</option><option value="hs-mandelic-acid">HS Mandelic Acid — Mandelic Acid</option><option value="hs-kojic-acid">HS Kojic Acid — Kojic Acid</option><option value="hs-copper-peptide">HS Copper Peptide — Copper Tripeptide-1</option><option value="hs-acetyl-tetrapeptide-5">HS Acetyl Tetrapeptide-5 — Acetyl Tetrapeptide-5</option><option value="hs-biotinoyl-tripeptide-1">HS Biotinoyl Tripeptide-1 — Biotinoyl Tripeptide-1</option><option value="hs-bakuchiol">HS Bakuchiol — Bakuchiol</option><option value="hs-menthol">HS Menthol — Menthol</option><option value="hs-allantoin">HS Allantoin — Allantoin</option><option value="hs-methyl-salicylate">HS Methyl Salicylate — Methyl Salicylate</option></optgroup>
             <optgroup label="Preservatives & Chelants"><option value="hs-phenoxyethanol">HS Phenoxyethanol — Phenoxyethanol</option><option value="hs-phenoxyethanol-ehg">HS Phenoxyethanol EHG — Phenoxyethanol &amp; Ethylhexylglycerin</option><option value="hs-gxy">HS GXY — Benzisothiazolinone &amp; Propanediol</option><option value="hs-dmdm">HS DMDM — DMDM Hydantoin</option><option value="hs-methyl-paraben">HS Methyl Paraben — Methylparaben</option><option value="hs-propyl-paraben">HS Propyl Paraben — Propylparaben</option><option value="hs-bht">HS BHT — BHT</option><option value="hs-edta-2na">HS EDTA 2Na — Disodium EDTA</option><option value="hs-edta-4na">HS EDTA 4Na — Tetrasodium EDTA</option><option value="hs-msh">HS MSH — Magnesium Sulfate (heptahydrate)</option></optgroup>
-            <optgroup label="Sports Nutrition"><option value="hs-creapower">HS-CreaPower — Creatine Monohydrate</option><option value="hs-aminoforce-2:1:1">HS-AminoForce 2:1:1 — L-Leucine, L-Isoleucine, L-Valine (2:1:1)</option><option value="hs-aminoforce-4:1:1">HS-AminoForce 4:1:1 — L-Leucine, L-Isoleucine, L-Valine (4:1:1)</option><option value="hs-argiplus">HS-ArgiPlus — L-Arginine</option><option value="hs-carnilean">HS-CarniLean — L-Carnitine</option><option value="hs-glutarecover">HS-GlutaRecover — L-Glutamine</option><option value="hs-betaendure">HS-BetaEndure — Beta-Alanine</option><option value="hs-taurinemax">HS-TaurineMax — Taurine</option></optgroup>
+            <optgroup label="Sports Nutrition"><option value="hs-creapower">HS-CreaPower — Creatine Monohydrate</option><option value="hs-aminoforce-211">HS-AminoForce 2:1:1 — L-Leucine, L-Isoleucine, L-Valine (2:1:1)</option><option value="hs-aminoforce-411">HS-AminoForce 4:1:1 — L-Leucine, L-Isoleucine, L-Valine (4:1:1)</option><option value="hs-argiplus">HS-ArgiPlus — L-Arginine</option><option value="hs-carnilean">HS-CarniLean — L-Carnitine</option><option value="hs-glutarecover">HS-GlutaRecover — L-Glutamine</option><option value="hs-betaendure">HS-BetaEndure — Beta-Alanine</option><option value="hs-taurinemax">HS-TaurineMax — Taurine</option></optgroup>
             <optgroup label="Vitamins & Minerals"><option value="hs-customblend">HS-CustomBlend — Custom vitamin premix (OEM)</option><option value="hs-vitac">HS-VitaC — Ascorbic Acid</option><option value="hs-vitaa">HS-VitaA — Retinol / Beta-Carotene</option><option value="hs-vitad3">HS-VitaD3 — Cholecalciferol</option></optgroup>
           </select>
         </div>
