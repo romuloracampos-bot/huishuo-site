@@ -217,3 +217,45 @@
     p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(p); } });
   });
 })();
+
+/* ---------- v5: view transitions catalogo <-> dossie (nome dinamico) ---------- */
+(function () {
+  'use strict';
+  if (!('onpageswap' in window) || !('onpagereveal' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var PROD = /\/products\/([a-z0-9.-]+)\.html$/;
+
+  function catRowEl(slug) {
+    var a = document.querySelector('.catrow[href$="/products/' + slug + '.html"]');
+    return a ? a.querySelector('.c-code') : null;
+  }
+  function tag(el, slug) { if (el) el.style.viewTransitionName = 'p-' + slug; }
+  function untag(el) { if (el) el.style.viewTransitionName = ''; }
+
+  window.addEventListener('pageswap', function (e) {
+    if (!e.viewTransition || !e.activation) return;
+    var to = e.activation.entry && e.activation.entry.url;
+    var m = to && to.match(PROD);
+    if (m) {
+      // indo para um dossie: marca a linha clicada no catalogo, ou o titulo atual
+      tag(catRowEl(m[1]) || document.querySelector('h1.dtitle'), m[1]);
+    } else {
+      // saindo de um dossie de volta ao catalogo: marca o titulo
+      var cur = location.pathname.match(PROD);
+      if (cur) tag(document.querySelector('h1.dtitle'), cur[1]);
+    }
+  });
+
+  window.addEventListener('pagereveal', function (e) {
+    if (!e.viewTransition) return;
+    var el = null, cur = location.pathname.match(PROD);
+    if (cur) {
+      el = document.querySelector('h1.dtitle');
+      tag(el, cur[1]);
+    } else if (window.navigation && navigation.activation && navigation.activation.from) {
+      var m = (navigation.activation.from.url || '').match(PROD);
+      if (m) { el = catRowEl(m[1]); tag(el, m[1]); }
+    }
+    if (el) e.viewTransition.finished.then(function () { untag(el); });
+  });
+})();
