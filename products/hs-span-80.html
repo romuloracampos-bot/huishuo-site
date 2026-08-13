@@ -254,7 +254,8 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 </style>
 <script src="/js/motion.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
-<link rel="preload" as="image" href="/img/hero-crystal-960.jpg" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-600.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/spectral-300.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/plexmono-400.woff2" crossorigin>
+<link rel="preload" as="image" href="/img/cover-sorbitan-esters.jpg" fetchpriority="high">
 <style>
 /* ===== rotas institucionais ===== */
 .pagehero{position:relative;background:var(--ink);color:var(--offwhite);overflow:hidden;}
@@ -749,6 +750,22 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 }
 .dapp-fill{background:var(--ink);}
 @media (max-width:760px){ .dhreticle{display:none;} .dherofig img{opacity:.32;} }
+
+/* ---------- auditoria a11y: contraste ---------- */
+.dfoot{opacity:.72;}
+.dclose .dcfk,.dhero .dkicker,.dhero .dl,.dapps .dax,.dcrumb strong{color:color-mix(in srgb, var(--acc) 45%, var(--offwhite));}
+
+/* ---------- melhoria: elevacao do predio no painel Inside ---------- */
+.felev{width:150px;height:128px;margin-top:44px;display:block;}
+.felev .fe{fill:transparent;stroke:var(--hair-rev);stroke-width:1;transition:fill 380ms ease,stroke 380ms ease;}
+.felev .fe.on{fill:rgba(156,123,67,.22);stroke:var(--bronze);}
+.felev .fet{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;fill:var(--offwhite);opacity:.55;}
+@media (max-width:920px){ .felev{display:none;} }
+
+/* ---------- melhoria: regua unica de heros institucionais ---------- */
+.pagehero h1{font-size:clamp(46px,6.6vw,92px);line-height:.98;letter-spacing:-.008em;}
+/* acentos sobre fundo claro: puxados para a tinta (pior caso 5.07:1) */
+.dmcard .dmn,.dform .dfk{color:color-mix(in srgb, var(--acc) 78%, var(--ink));}
 </style>
 <meta name="description" content="Sorbitan Oleate (CAS 1338-43-8) — Sixty years of emulsion literature assume this molecule is on your bench. Request TDS, SDS, COA or a sample.">
 <meta name="robots" content="noindex, nofollow">
@@ -772,7 +789,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 
 <main>
   <div class="dhero" style="--acc:var(--pc03);">
-    <div class="dherofig"><img src="/img/doc-lamellar.jpg" alt="" aria-hidden="true"></div>
+    <div class="dherofig"><img src="/img/cover-sorbitan-esters.jpg" alt="" aria-hidden="true" fetchpriority="high" width="1200" height="930"></div>
     <div class="dhreticle"><span>PC-03 · material study</span><span class="dhtick"></span></div>
     <div class="wrap">
       <div class="dcrumb"><a href="/catalogue/">Catalogue</a> <span>/</span> <a href="/divisions/personal-care/">Personal Care</a> <span>/</span> PC-03 <span>/</span> <strong>HS Span 80</strong></div>
