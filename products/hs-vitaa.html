@@ -253,6 +253,7 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 }
 </style>
 <script src="/js/motion.js" defer></script>
+<script src="/js/omni.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-600.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/spectral-300.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/plexmono-400.woff2" crossorigin>
 <link rel="preload" as="image" href="/img/cover-vitamins.jpg" fetchpriority="high">
@@ -766,6 +767,68 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 .pagehero h1{font-size:clamp(46px,6.6vw,92px);line-height:.98;letter-spacing:-.008em;}
 /* acentos sobre fundo claro: puxados para a tinta (pior caso 5.07:1) */
 .dmcard .dmn,.dform .dfk{color:color-mix(in srgb, var(--acc) 78%, var(--ink));}
+
+/* ========== ONDA A ========== */
+/* A4: scrim direcional — texto sempre legivel sobre as capas institucionais */
+.pagehero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(76deg,rgba(28,26,21,.62) 0%,rgba(28,26,21,.22) 44%,rgba(28,26,21,0) 72%);}
+
+/* A5: colophon editorial */
+.colophon{background:var(--ink);color:var(--offwhite);padding:84px 0 40px;}
+.colophon a{color:var(--offwhite);text-decoration:none;opacity:.82;transition:opacity 160ms ease,color 160ms ease;}
+.colophon a:hover{opacity:1;color:color-mix(in srgb, var(--bronze) 52%, var(--offwhite));}
+.col-grid{display:grid;grid-template-columns:5fr 2.3fr 2.3fr 2.6fr;gap:56px;align-items:start;}
+.col-slogan{font-family:'Fraunces',serif;font-weight:600;font-size:21px;margin-top:20px;}
+.col-desc{font-weight:300;font-size:14.5px;line-height:1.65;opacity:.68;max-width:330px;margin-top:12px;}
+.col-col{display:flex;flex-direction:column;gap:11px;}
+.col-col a{font-weight:300;font-size:14.5px;line-height:1.35;}
+.col-k{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:color-mix(in srgb, var(--bronze) 62%, var(--offwhite));margin-bottom:7px;}
+.col-legal{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:0.5px solid var(--hair-rev);margin-top:72px;padding-top:26px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;opacity:.55;}
+@media (max-width:920px){
+  .col-grid{grid-template-columns:1fr 1fr;gap:44px 28px;}
+  .col-brand{grid-column:1/-1;}
+  .col-legal{flex-direction:column;gap:8px;margin-top:56px;}
+  .colophon{padding-top:64px;}
+}
+
+/* A3: polimento do snap mobile */
+@media (max-width:920px){
+  .showtrack{scrollbar-width:none;scroll-padding-left:24px;}
+  .showtrack::-webkit-scrollbar{display:none;}
+  .showcard{scroll-snap-stop:always;}
+}
+
+/* A1: omnibox */
+.omni-btn{display:inline-flex;align-items:center;gap:9px;background:transparent;border:0.5px solid var(--hair-strong);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;padding:9px 13px;cursor:pointer;transition:border-color 160ms ease,background 160ms ease;}
+.omni-btn:hover{border-color:var(--bronze);background:color-mix(in srgb, var(--bronze) 8%, transparent);}
+.omni-btn kbd{font-family:inherit;font-size:9.5px;border:0.5px solid var(--hair-strong);padding:2px 5px;opacity:.65;}
+.omni-btn .ok-icon{font-size:14px;line-height:1;}
+@media (max-width:920px){.omni-btn .ok-txt,.omni-btn kbd{display:none;}.omni-btn{padding:8px 10px;}}
+.omni{position:fixed;inset:0;z-index:300;display:none;}
+.omni.open{display:block;}
+.omni-back{position:absolute;inset:0;background:rgba(28,26,21,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+.omni-panel{position:relative;max-width:640px;margin:12vh auto 0;background:var(--offwhite);border:0.5px solid var(--hair-strong);box-shadow:0 24px 80px rgba(28,26,21,.35);}
+.omni-inp{display:flex;align-items:center;gap:14px;padding:20px 24px;border-bottom:0.5px solid var(--hair);}
+.omni-inp .oi-glyph{font-size:17px;opacity:.5;}
+.omni-inp input{flex:1;border:0;background:transparent;outline:none;font-family:'Spectral',serif;font-weight:300;font-size:18px;color:var(--ink);}
+.omni-inp input::placeholder{color:var(--ink);opacity:.35;}
+.omni-inp kbd{font-family:'IBM Plex Mono',monospace;font-size:9.5px;border:0.5px solid var(--hair);padding:3px 6px;opacity:.55;}
+.omni-list{max-height:min(52vh,430px);overflow-y:auto;overscroll-behavior:contain;}
+.omni-row{display:grid;grid-template-columns:120px 1fr auto;gap:16px;align-items:baseline;padding:13px 24px;text-decoration:none;color:var(--ink);border-bottom:0.5px solid var(--hair);cursor:pointer;}
+.omni-row .or-code{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12.5px;}
+.omni-row .or-name{font-weight:300;font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.omni-row .or-fam{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;white-space:nowrap;}
+.omni-row.on{background:color-mix(in srgb, var(--bronze) 10%, var(--offwhite));}
+.omni-row.on .or-code{color:color-mix(in srgb, var(--bronze) 85%, var(--ink));}
+.omni-empty{padding:26px 24px;font-weight:300;font-size:14.5px;opacity:.6;}
+.omni-hints{display:flex;gap:20px;padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.5;border-top:0.5px solid var(--hair);}
+@media (max-width:920px){.omni-panel{margin:0;max-width:none;height:100%;display:flex;flex-direction:column;border:0;}.omni-list{max-height:none;flex:1;}.omni-inp kbd{display:none;}}
+
+/* A2: view transitions entre catalogo e dossie */
+@media (prefers-reduced-motion:no-preference){
+  @view-transition{navigation:auto;}
+  ::view-transition-old(root){animation-duration:190ms;}
+  ::view-transition-new(root){animation-duration:190ms;}
+}
 </style>
 <meta name="description" content="Retinol / Beta-Carotene (CAS 68-26-8) — Fortification is arithmetic — it only works when the assay on the drum matches the number on the COA. Request TDS, SDS, COA or a sample.">
 <meta name="robots" content="noindex, nofollow">
@@ -783,7 +846,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
   <div class="wrap">
     <a class="logolink" href="/"><img class="lockup-img" src="/img/brand/logo-h-ink.png" alt="huishuo"></a>
     <nav class="mainnav"><a href="/divisions/personal-care/">Divisions</a><a href="/catalogue/">Catalogue</a><a href="/development/">Development</a><a href="/company/">Company</a><a href="/contact/">Contact</a></nav>
-    <div class="hd-right"><div class="langswitch"><a class="sel" href="/products/hs-vitaa.html">EN</a><a class="off" href="/es/products/hs-vitaa.html" lang="es">ES</a></div><a class="btn btn-ghost btn-sm" href="/contact/">Request docs</a></div>
+    <div class="hd-right"><button class="omni-btn" type="button" data-omni aria-label="Search the catalogue" aria-haspopup="dialog"><span class="ok-icon">⌕</span><span class="ok-txt">Search</span><kbd data-okbd>⌘K</kbd></button><div class="langswitch"><a class="sel" href="/products/hs-vitaa.html">EN</a><a class="off" href="/es/products/hs-vitaa.html" lang="es">ES</a></div><a class="btn btn-ghost btn-sm" href="/contact/">Request docs</a></div>
   </div>
 </header>
 
@@ -884,6 +947,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
         <div class="dctas">
           <a class="btn btn-rev-solid" href="/contact/?product=hs-vitaa&amp;type=quote">Request a quote</a>
           <a class="btn btn-rev" href="/contact/?product=hs-vitaa&amp;type=sample">Request a sample</a>
+          <a class="btn btn-rev" href="/docs/hs-vitaa.pdf" download>Download summary (PDF)</a>
         </div>
       </div>
     </div>
@@ -901,11 +965,41 @@ a.showcard:hover .showfig .tint{opacity:.14;}
     </div>
   </div>
 </main>
-<footer class="footer-compact">
+<footer class="colophon">
   <div class="wrap">
-    <img class="lockup-img sm" src="/img/brand/logo-h-rev.png" alt="huishuo">
-    <span class="slogan">One standard, many worlds.</span>
-    <span class="lg">© 2026 Suzhou Huishuo Biotechnology Co., Ltd.</span>
+    <div class="col-grid">
+      <div class="col-brand">
+        <img class="lockup-img sm" src="/img/brand/logo-h-rev.png" alt="huishuo">
+        <p class="col-slogan">One standard, many worlds.</p>
+        <p class="col-desc">Ingredient &amp; development house — Suzhou, China. Serving Latin America, the Middle East, Canada and South Africa.</p>
+      </div>
+      <nav class="col-col" aria-label="Divisions">
+        <span class="col-k">Divisions</span>
+        <a href="/divisions/personal-care/">Personal Care</a>
+        <a href="/divisions/human-nutrition/">Human Nutrition</a>
+        <a href="/divisions/">All six fields</a>
+      </nav>
+      <nav class="col-col" aria-label="House">
+        <span class="col-k">House</span>
+        <a href="/catalogue/">Catalogue</a>
+        <a href="/development/">Development</a>
+        <a href="/company/">Company</a>
+        <a href="/company/#logistics">Logistics</a>
+      </nav>
+      <nav class="col-col" aria-label="Desk">
+        <span class="col-k">Desk</span>
+        <a href="/contact/">Request documents</a>
+        <a href="/contact/?type=sample">Request a sample</a>
+        <a href="/contact/?type=availability">Availability list</a>
+        <a href="mailto:sales@huishuochem.com">sales@huishuochem.com</a>
+        <a href="https://wa.me/5511932625665" rel="noopener">WhatsApp +55 11 93262 5665</a>
+      </nav>
+    </div>
+    <div class="col-legal">
+      <span>© 2026 Suzhou Huishuo Biotechnology Co., Ltd.</span>
+      <span>ISO 9001:2015 · certificate 33924Q15021R0S</span>
+      <span>Suzhou High-tech Zone, Jiangsu, CN · 31.30°N 120.58°E</span>
+    </div>
   </div>
 </footer>
 
