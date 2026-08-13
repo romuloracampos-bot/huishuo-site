@@ -135,6 +135,7 @@
   var floors = document.getElementById('floors');
   var fbar = document.getElementById('fprogbar');
   var fdots = Array.prototype.slice.call(document.querySelectorAll('.fdot'));
+  var felev = Array.prototype.slice.call(document.querySelectorAll('.felev .fe'));
   var fpanels = Array.prototype.slice.call(document.querySelectorAll('.fpanel'));
   if (!heroC && !show && !floors) return;
 
@@ -161,6 +162,7 @@
       var idx = Math.floor(fp * 3);
       fpanels.forEach(function (el, i) { el.classList.toggle('on', i === idx); el.setAttribute('aria-hidden', i === idx ? 'false' : 'true'); });
       fdots.forEach(function (el, i) { el.classList.toggle('on', i === idx); });
+      felev.forEach(function (el) { el.classList.toggle('on', parseInt(el.getAttribute('data-fl'), 10) === idx); });
       if (fbar) fbar.style.width = (fp * 100) + '%';
     }
   }
@@ -174,6 +176,7 @@
   update();
   if (fpanels.length) fpanels[0].classList.add('on');
   if (fdots.length) fdots[0].classList.add('on');
+  felev.forEach(function (el) { el.classList.toggle('on', el.getAttribute('data-fl') === '0'); });
   requestAnimationFrame(raf);
 })();
 
