@@ -18,7 +18,7 @@
   --ink:#1C1A15;
   --bronze:#9C7B43;
   --pc:#3D5A73; --hn:#4A6B3D; --fd:#A64B2A; --an:#7A4A5E; --ag:#5C6638; --in:#4A5259;
-  --hn01:#556B3D; --hn02:#5C854C; --pc07:#2C7A8C; --pc08:#8A5A78; --ag01:#666538; --ag02:#748046; --ag03:#3C4C2A; --ag04:#699B55; --in01:#4A5659; --in02:#5D676F; --in03:#4C5067; --in04:#373B43; --in05:#29485A; --in06:#688290; --in07:#6F7086; --fd01:#A62C2A; --fd02:#C75A32; --fd03:#855522; --fd04:#9C831C; --fd05:#962640; --fd06:#90815C; --fd07:#52302B; --fd08:#A4787D; --fd09:#C86966; --pc01:#3D6873; --pc02:#4B6F8E; --pc03:#2F3B58; --pc04:#5A5DA8; --pc05:#366664; --pc06:#62529B;
+  --hn01:#556B3D; --hn02:#5C854C; --pc07:#2C7A8C; --pc08:#8A5A78; --ag01:#666538; --ag02:#748046; --ag03:#3C4C2A; --ag04:#699B55; --in01:#4A5659; --in02:#5D676F; --in03:#4C5067; --in04:#373B43; --in05:#29485A; --in06:#688290; --in07:#6F7086; --fd01:#A62C2A; --fd02:#C75A32; --fd03:#855522; --fd04:#9C831C; --fd05:#962640; --fd06:#90815C; --fd07:#52302B; --fd08:#A4787D; --fd09:#C86966; --an01:#7A4A5E; --an02:#473721; --an03:#705448; --an04:#472127; --an05:#80443B; --an06:#7A755F; --an07:#472140; --pc01:#3D6873; --pc02:#4B6F8E; --pc03:#2F3B58; --pc04:#5A5DA8; --pc05:#366664; --pc06:#62529B;
   --hair:rgba(28,26,21,.22);
   --hair-strong:rgba(28,26,21,.55);
   --hair-rev:rgba(244,238,226,.28);
@@ -254,7 +254,6 @@ nav.mainnav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 </style>
 <script src="/js/motion.js" defer></script>
 <script src="/js/omni.js" defer></script>
-<script defer src="/_vercel/insights/script.js"></script>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-600.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/spectral-300.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/plexmono-400.woff2" crossorigin>
 <link rel="preload" as="image" href="/img/prod-fluid.jpg" fetchpriority="high">
 <style>
@@ -1062,17 +1061,42 @@ a.showcard:hover .showfig .tint{opacity:.14;}
   .staging .btn{width:100%;justify-content:center;}
 }
 .blk .sub2{display:block;margin-top:6px;font-size:11.5px;opacity:.62;}
+
+/* ---------------------------------------------------------------------------
+   v33 · h1 da home
+   A home nao tinha h1: o lockup e imagem, o slogan e <p> e o primeiro titulo
+   real era um h2. Uma pagina sem h1 e falha de estrutura para leitor de tela e
+   para buscador. O titulo do manifesto virou h1 — mas a regra base `h1` deste
+   site foi escrita para o hero revertido (`color:var(--offwhite)` sobre tinta),
+   e o manifesto vive sobre off-white: sem esta correcao o h1 sairia off-white
+   sobre off-white, ou seja, invisivel. Contraste medido: 15,7:1.
+--------------------------------------------------------------------------- */
+h1.manihead{color:var(--ink);margin-top:0;}
 </style>
 <meta name="description" content="Sodium hyaluronate, food grade (CAS 9067-32-7) — Produced by Streptococcus zooepidemicus fermentation and supplied across molecular weight fractions, since the fraction  Request TDS, SDS, COA or a sample.">
 <meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.huishuochem.com/products/hs-fd-0921.html">
+<meta name="theme-color" content="#1C1A15">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/img/brand/favicon-512.png">
 <link rel="apple-touch-icon" href="/img/brand/apple-touch-icon.png">
-<link rel="alternate" hreflang="en" href="/products/hs-fd-0921.html">
-<link rel="alternate" hreflang="es" href="/es/products/hs-fd-0921.html">
+<link rel="alternate" hreflang="en" href="https://www.huishuochem.com/products/hs-fd-0921.html">
+<link rel="alternate" hreflang="es" href="https://www.huishuochem.com/es/products/hs-fd-0921.html">
+<link rel="alternate" hreflang="x-default" href="https://www.huishuochem.com/products/hs-fd-0921.html">
 <meta property="og:title" content="Sodium hyaluronate, food grade | HS Sodium Hyaluronate FG | Huishuo">
 <meta property="og:description" content="Sodium hyaluronate, food grade (CAS 9067-32-7) — Produced by Streptococcus zooepidemicus fermentation and supplied across molecular weight fractions, since the fraction  Request TDS, SDS, COA or a sample.">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Huishuo">
+<meta property="og:url" content="https://www.huishuochem.com/products/hs-fd-0921.html">
+<meta property="og:image" content="https://www.huishuochem.com/img/og/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sodium hyaluronate, food grade | HS Sodium Hyaluronate FG | Huishuo">
+<meta name="twitter:description" content="Sodium hyaluronate, food grade (CAS 9067-32-7) — Produced by Streptococcus zooepidemicus fermentation and supplied across molecular weight fractions, since the fraction  Request TDS, SDS, COA or a sample.">
+<meta name="twitter:image" content="https://www.huishuochem.com/img/og/og-home.jpg">
 </head>
 <body>
 <header class="siteheader">
@@ -1190,7 +1214,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
         <a href="/contact/?type=sample">Request a sample</a>
         <a href="/contact/?type=availability">Availability list</a>
         <a href="mailto:sales@huishuochem.com">sales@huishuochem.com</a>
-        <a href="https://wa.me/5511932625665" rel="noopener">WhatsApp · Latin America</a>
+        <a href="https://wa.me/5511932625665" rel="noopener noreferrer external">WhatsApp · Latin America</a>
       </nav>
     </div>
     <div class="col-legal">
