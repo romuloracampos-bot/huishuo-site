@@ -1,0 +1,4 @@
+# Ambiente de pre-producao — indexacao bloqueada de proposito.
+# O TI libera virando INDEXAR = True em build_site.py e reconstruindo.
+User-agent: *
+Disallow: /
