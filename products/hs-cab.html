@@ -18,7 +18,7 @@
   --ink:#1C1A15;
   --bronze:#9C7B43;
   --pc:#3D5A73; --hn:#4A6B3D; --fd:#A64B2A; --an:#7A4A5E; --ag:#5C6638; --in:#4A5259;
-  --hn01:#556B3D; --hn02:#5C854C; --pc07:#2C7A8C; --pc08:#8A5A78; --pc01:#3D6873; --pc02:#4B6F8E; --pc03:#2F3B58; --pc04:#5A5DA8; --pc05:#366664; --pc06:#62529B;
+  --hn01:#556B3D; --hn02:#5C854C; --pc07:#2C7A8C; --pc08:#8A5A78; --ag01:#666538; --ag02:#748046; --ag03:#3C4C2A; --ag04:#699B55; --in01:#4A5659; --in02:#5D676F; --in03:#4C5067; --in04:#373B43; --in05:#29485A; --in06:#688290; --in07:#6F7086; --pc01:#3D6873; --pc02:#4B6F8E; --pc03:#2F3B58; --pc04:#5A5DA8; --pc05:#366664; --pc06:#62529B;
   --hair:rgba(28,26,21,.22);
   --hair-strong:rgba(28,26,21,.55);
   --hair-rev:rgba(244,238,226,.28);
@@ -716,6 +716,110 @@ a.showcard:hover .showfig .tint{opacity:.14;}
 .dsrow{display:grid;grid-template-columns:1fr auto;gap:20px;padding:14px 0;border-bottom:0.5px solid var(--hair);font-family:'IBM Plex Mono',monospace;}
 .dsk{font-size:11.5px;opacity:.7;}
 .dsv{font-size:13px;font-weight:500;text-align:right;}
+/* specs · coluna de lote medido (evidence.json). A especificacao perde peso e a
+   medida assume a leitura primaria — e o unico dado de laboratorio da pagina.
+   Filete de acento a esquerda em vez de preenchimento: marcar sem decorar. */
+/* Uma grade unica para a tabela inteira, nao uma grade por linha: com tres
+   colunas, largura fixa quebrava 'Shelf life' em quatro linhas e largura auto
+   por linha fazia a coluna do lote dancar de linha para linha. display:contents
+   promove as celulas a itens da grade da tabela — as colunas passam a se
+   alinhar de verdade e as duas de valor dimensionam pelo conteudo mais largo. */
+.dspec.has-lot{display:grid;grid-template-columns:minmax(0,1fr) auto auto;}
+.dspec.has-lot .dshead,.dspec.has-lot .dsrow{display:contents;}
+.dspec.has-lot .dsrow > *{padding:14px 0;border-bottom:0.5px solid var(--hair);}
+.dspec.has-lot .dsk{padding-right:20px;}
+.dspec.has-lot .dsv{font-weight:400;opacity:.62;padding-right:16px;}
+.dslot{font-size:13px;font-weight:500;text-align:right;padding-left:14px;border-left:0.5px solid var(--acc);}
+.dslot.na{opacity:.3;font-weight:400;}
+.dshead{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.5;}
+.dspec.has-lot .dshead > span{padding:0 0 9px;border-bottom:0.5px solid var(--hair);}
+.dspec.has-lot .dshead > span:nth-child(2),
+.dspec.has-lot .dshead > span:nth-child(3){text-align:right;}
+.dspec.has-lot .dshead > span:nth-child(2){padding:0 16px 9px 0;}
+.dspec.has-lot .dshead > span:nth-child(3){padding:0 0 9px 14px;}
+/* Abaixo de 620px a coluna do rotulo cai abaixo do proprio min-content e o texto
+   invade a coluna vizinha. O rotulo passa a ocupar a linha inteira e os dois
+   valores dividem a linha de baixo — a comparacao especificacao/lote continua
+   lado a lado, que e a unica coisa que a tabela precisa preservar. */
+@media (max-width:620px){
+  .dspec.has-lot{grid-template-columns:minmax(0,1fr) auto;}
+  .dspec.has-lot .dshead > span:nth-child(1){display:none;}
+  .dspec.has-lot .dsk{grid-column:1 / -1;padding:15px 0 3px;border-bottom:0;font-size:11px;}
+  .dspec.has-lot .dsv{text-align:left;padding:0 14px 13px 0;font-size:12.5px;}
+  .dspec.has-lot .dslot{text-align:right;padding:0 0 13px 14px;font-size:12.5px;}
+}
+/* Hero de divisao: veu de tinta sob o texto revertido.
+   Medido: PC entregava 2,49:1 no intro e HN 2,53:1 no H1 — abaixo do minimo WCAG
+   (4,5:1 corpo, 3:1 texto grande) desde a v23, porque a legibilidade dependia da
+   luminancia da textura em vez de um piso garantido. A pagina de produto ja
+   resolvia isso com .dhero::before; a de divisao nao tinha equivalente.
+   Com este veu: PC 6,9/7,6 · HN 6,2/6,2 · AG 6,6/7,1. A textura segue inteira
+   a partir de 64% da largura, onde nao ha texto. */
+.divhero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(28,26,21,.72) 0%,rgba(28,26,21,.55) 32%,rgba(28,26,21,0) 64%);}
+.divhero .reticle{z-index:2;}
+@media (max-width:760px){
+  .divhero::after{background:linear-gradient(180deg,rgba(28,26,21,.42) 0%,rgba(28,26,21,.72) 45%,rgba(28,26,21,.80) 100%);}
+}
+/* ficha de catalogo — a nota que decide e as aplicacoes */
+.fnote{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(20px,2.4vw,26px);line-height:1.32;
+  padding-left:22px;border-left:2px solid var(--acc);max-width:560px;}
+.fapps{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:20px;}
+.fapps .dapp{background:transparent;color:var(--ink);border:0.5px solid var(--hair-strong);
+  padding:16px 18px;font-weight:300;font-size:14.5px;display:flex;gap:10px;align-items:baseline;}
+.fapps .dax{color:var(--acc);font-family:'IBM Plex Mono',monospace;font-size:11px;flex:none;}
+.fapps .dapp-fill{border-color:transparent;background:transparent;}
+@media (max-width:560px){ .fapps{grid-template-columns:1fr;} }
+/* escada de grades IN-01 — 33 grades em 6 colunas numericas.
+   Tabela de dados de verdade: nao cabe em 390 px sem mentir sobre os numeros,
+   entao rola na horizontal com a coluna do grade fixa. O cabecalho gruda no
+   topo enquanto a serie rola, senao a partir da terceira serie o leitor perde
+   qual coluna e metoxil e qual e hidroxipropoxil. */
+.ladwrap{margin-top:26px;border-top:1px solid var(--ink);overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;}
+.ladder{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;min-width:660px;}
+.ladder th,.ladder td{text-align:right;padding:11px 14px;border-bottom:0.5px solid var(--hair);white-space:nowrap;}
+.ladhead th{background:var(--offwhite);font-weight:500;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.62;padding-top:4px;padding-bottom:9px;}
+.ladder th.lg,.ladder td.lg{text-align:left;position:sticky;left:0;background:var(--offwhite);z-index:1;padding-left:0;}
+.ladder td{font-size:12.5px;}
+.ladder td.lg{font-weight:500;font-size:13px;}
+.ladser td{border-bottom:0.5px solid var(--ink);padding-top:26px;padding-bottom:8px;background:var(--offwhite);}
+.ladser .ls-n{font-family:'Fraunces',serif;font-weight:600;font-size:17px;letter-spacing:0;text-transform:none;}
+.ladser .ls-a{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.55;margin-left:14px;}
+.ladser .ls-bar{display:inline-block;width:40px;height:3px;vertical-align:middle;margin-right:14px;background:var(--in01);}
+.ladder tbody tr:not(.ladser):hover td{background:rgba(28,26,21,.035);}
+.ladder tbody tr:not(.ladser):hover td.lg{background:#EDE6D8;}
+.ladhint{display:none;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.45;margin-top:10px;}
+@media (max-width:760px){
+  .ladhint{display:block;}
+  .ladder th,.ladder td{padding:10px 11px;}
+  .ladder td{font-size:12px;}
+}
+/* divisao AG — escopo declarado e artigo unico documentado */
+.agnote{font-weight:300;font-size:16.5px;line-height:1.62;max-width:760px;opacity:.82;margin:0 0 30px;}
+.subfam.pend{cursor:default;}
+.subfam.pend:hover{background:transparent;}
+/* recuo medido, nao estimado: .40 dava 2,45:1 e reprovava no minimo WCAG.
+   .name e Fraunces 600/21px (texto grande, min 3:1) -> .55 = 3,73:1
+   .code e .right sao mono 13/10,5px (corpo, min 4,5:1) -> .64 = 4,9:1 */
+.subfam.pend .chipbar{opacity:.42;}
+.subfam.pend .name{opacity:.55;}
+.subfam.pend .code,.subfam.pend .right{opacity:.64;}
+.agfeat{border-top:1px solid var(--ink);display:grid;grid-template-columns:1.05fr 1fr;gap:56px;padding-top:34px;margin-top:30px;align-items:start;}
+.agf-code{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.6;display:block;margin-bottom:10px;}
+.agf-rn{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.12;}
+.agf-lead{font-weight:300;font-size:16.5px;line-height:1.62;margin-top:16px;max-width:560px;}
+.agf-id{margin-top:26px;border-top:0.5px solid var(--hair);}
+.agf-idrow{display:grid;grid-template-columns:128px 1fr;gap:18px;padding:11px 0;border-bottom:0.5px solid var(--hair);font-family:'IBM Plex Mono',monospace;}
+.agf-idk{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.55;}
+.agf-idv{font-size:13px;font-weight:500;line-height:1.5;}
+.agf-cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;}
+.agf-fig{position:relative;overflow:hidden;}
+.agf-fig img{width:100%;aspect-ratio:1200/930;object-fit:cover;display:block;}
+.agf-fig .cap{position:absolute;left:14px;bottom:12px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--offwhite);opacity:.72;}
+@media (max-width:900px){
+  .agfeat{grid-template-columns:1fr;gap:32px;}
+  .agf-fig{order:2;}
+}
 /* commercial case */
 .dclose{background:var(--ink);color:var(--offwhite);}
 .dcase-lead{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,3.2vw,38px);line-height:1.18;max-width:900px;margin-bottom:44px;}
@@ -1055,9 +1159,9 @@ a.showcard:hover .showfig .tint{opacity:.14;}
         <div class="rv secmeta"><span class="folio">05</span><span class="sname">Specification</span><span class="sright">Typical</span></div>
         <div class="dspec">
           <div class="dsrow"><span class="dsk">Appearance</span><span class="dsv">Clear to pale-yellow liquid</span></div>
-          <div class="dsrow"><span class="dsk">Active matter</span><span class="dsv">28–32%</span></div>
+          <div class="dsrow"><span class="dsk">Active matter</span><span class="dsv">28–32 %</span></div>
           <div class="dsrow"><span class="dsk">pH (10% solution)</span><span class="dsv">4.5–7.5</span></div>
-          <div class="dsrow"><span class="dsk">NaCl</span><span class="dsv">4.5–7.5%</span></div>
+          <div class="dsrow"><span class="dsk">NaCl</span><span class="dsv">4.5–7.5 %</span></div>
         </div>
         <p class="dfoot">Typical parameters. The specification on the current TDS and the per-batch Certificate of Analysis govern.</p>
       </div>
@@ -1081,6 +1185,7 @@ a.showcard:hover .showfig .tint{opacity:.14;}
       </div>
     </div>
   </div>
+
 
   <div class="section" style="--acc:var(--pc01);">
     <div class="wrap">
@@ -1106,6 +1211,8 @@ a.showcard:hover .showfig .tint{opacity:.14;}
         <span class="col-k">Divisions</span>
         <a href="/divisions/personal-care/">Personal Care</a>
         <a href="/divisions/human-nutrition/">Human Nutrition</a>
+        <a href="/divisions/agro/">Agro</a>
+        <a href="/divisions/industrial/">Industrial</a>
         <a href="/divisions/">All six fields</a>
       </nav>
       <nav class="col-col" aria-label="House">
